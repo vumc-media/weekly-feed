@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>VUMC Weekly Schedule</title>
+<style>
+  :root{
+    --speed: 26;      /* scroll speed (lower = slower) */
+    --red: #b30000;   /* heading color */
+    --maxwidth: 94%;
+  }
+
+  html, body{
+    margin:0; padding:0;
+    height:100%; width:100%;
+    background:#fff; color:#000;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    overflow:hidden;
+  }
+
+  .stage{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; }
+  .frame{
+    width:min(100vw, calc(100vh * (9/14)));
+    height:calc((min(100vw, calc(100vh * (9/14)))) * (14/9));
+    overflow:hidden;
+    background:#fff;
+    display:flex; justify-content:center;
+  }
+
+  .scroll{ position:relative; width:100%; display:flex; flex-direction:column; align-items:center; }
+
+  h2{
+    color:var(--red);
+    text-align:center;
+    margin:0.6em 0 0.35em;
+    font-size:2.3rem;
+  }
+
+  p{
+    color:#000;
+    font-size:1.8rem;
+    line-height:1.65;
+    margin:0.35em 0;
+    text-align:center;
+  }
+
+  .section{ width:var(--maxwidth); margin:1.4rem auto; text-align:center; }
+  .rule{ width:60%; height:1px; background:#eee; margin:1.3rem auto; }
+  strong{ color:#b30000; font-size:1.9rem; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="frame">
+      <div id="scrollArea" class="scroll">
+        <div id="content">
+
+          <div class="section">
+            <h2>Sunday, January 18</h2>
+            <p>9:15a Life Groups<br>
+            9:15a Kids Worship<br>
+            9:30a Traditional Worship<br>
+            10:30a Worship<br>
+            10:30a Life Groups</p>
+          </div>
+          <div class="rule"></div>
+
+          <div class="section">
+            <h2>Monday, January 19 — Martin Luther King Day</h2>
+            <p><strong>Office Closed</strong><br>
+            10:00p J.O.Y.<br>
+            6:00p Finance<br>
+            7:00p Council</p>
+          </div>
+          <div class="rule"></div>
+
+          <div class="section">
+            <h2>Tuesday, January 20</h2>
+            <p>3:00p Men's Jail Ministry</p>
+          </div>
+          <div class="rule"></div>
+
+          <div class="section">
+            <h2>Wednesday, January 21</h2>
+            <p>6:45p Choir Practice<br>
+            7:30p Praise Team Practice</p>
+          </div>
+          <div class="rule"></div>
+
+          <div class="section">
+            <h2>Thursday, January 22</h2>
+            <p>7:00p AA</p>
+          </div>
+
+        </div>
+        <div id="clone"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(function(){
+  const speed = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--speed')) || 26;
+  const scrollArea = document.getElementById('scrollArea');
+  const content = document.getElementById('content');
+  const clone = document.getElementById('clone');
+
+  clone.innerHTML = content.innerHTML; // seamless loop
+
+  let y = 0, last = performance.now();
+  function animate(t){
+    const dt = (t - last) / 1000; last = t;
+    y -= speed * dt;
+    const h = content.offsetHeight;
+    if (-y >= h) y += h;
+    scrollArea.style.transform = `translateY(${y}px)`;
+    requestAnimationFrame(animate);
+  }
+  window.addEventListener('load', () => requestAnimationFrame(animate));
+})();
+</script>
+</body>
+</html>
