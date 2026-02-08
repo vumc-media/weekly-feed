@@ -48,7 +48,6 @@
 
   .section{ width:var(--maxwidth); margin:1.4rem auto; text-align:center; }
   .rule{ width:60%; height:1px; background:#eee; margin:1.3rem auto; }
-  strong{ color:#b30000; font-size:1.9rem; }
 </style>
 </head>
 <body>
@@ -58,55 +57,39 @@
         <div id="content">
 
           <div class="section">
-            <h2>Sunday, February 1 — Communion Sunday</h2>
-            <p>9:15a Discipleship Groups<br>
+            <h2>Sunday, February 8</h2>
+            <p>9:15a Life Groups<br>
             9:15a Kids Worship<br>
-            10:30a Blended Worship<br>
-            6:00p Diaper Bank</p>
+            9:30a Traditional Worship<br>
+            10:30a Contemporary Worship<br>
+            10:30a Life Groups<br>
+            5:00p Glow Party<br>
+            6:00p Super Bowl Party</p>
           </div>
           <div class="rule"></div>
 
           <div class="section">
-            <h2>Monday, February 2</h2>
-            <p>6:00p Trustees</p>
+            <h2>Monday, February 9</h2>
+            <p>No Scheduled Events</p>
           </div>
           <div class="rule"></div>
 
           <div class="section">
-            <h2>Tuesday, February 3</h2>
-            <p>3:00p Men's Jail Ministry<br>
-            6:00p Trustees</p>
+            <h2>Tuesday, February 10</h2>
+            <p>3:00p Men's Jail Ministry</p>
           </div>
           <div class="rule"></div>
 
           <div class="section">
-            <h2>Wednesday, February 4</h2>
+            <h2>Wednesday, February 11</h2>
             <p>6:45p Choir Practice<br>
             7:30p Praise Team Practice</p>
           </div>
           <div class="rule"></div>
 
           <div class="section">
-            <h2>Thursday, February 5</h2>
+            <h2>Thursday, February 12</h2>
             <p>7:00p AA</p>
-          </div>
-          <div class="rule"></div>
-
-          <div class="section">
-            <h2>Sunday, February 8</h2>
-            <p>9:15a Discipleship Groups<br>
-            9:15a Kids Worship<br>
-            9:30a Traditional Worship<br>
-            10:30a Contemporary Worship<br>
-            10:30a Discipleship Groups<br>
-            5:00p Glow Party<br>
-            6:00p Super Bowl Watch Party</p>
-          </div>
-          <div class="rule"></div>
-
-          <div class="section">
-            <h2>Monday, February 9</h2>
-            <p>6:00p SPRC</p>
           </div>
 
         </div>
@@ -122,8 +105,7 @@
   const content = document.getElementById('content');
   const clone = document.getElementById('clone');
 
-  // duplicate content for seamless loop
-  clone.innerHTML = content.innerHTML;
+  clone.innerHTML = content.innerHTML; // seamless loop
 
   let y = 0, last = performance.now();
   function animate(t){
