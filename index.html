@@ -5,10 +5,11 @@
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>VUMC Weekly Schedule</title>
+
 <style>
   :root{
-    --speed: 26;      /* scroll speed (lower = slower) */
-    --red: #b30000;   /* heading color */
+    --speed: 24;      /* slightly slower for heavy week */
+    --red: #b30000;
     --maxwidth: 94%;
   }
 
@@ -21,103 +22,155 @@
   }
 
   .stage{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; }
+
   .frame{
     width:min(100vw, calc(100vh * (9/14)));
     height:calc((min(100vw, calc(100vh * (9/14)))) * (14/9));
     overflow:hidden;
     background:#fff;
-    display:flex; justify-content:center;
+    display:flex;
+    justify-content:center;
   }
 
-  .scroll{ position:relative; width:100%; display:flex; flex-direction:column; align-items:center; }
+  .scroll{
+    position:relative;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
 
   h2{
     color:var(--red);
     text-align:center;
     margin:0.6em 0 0.35em;
-    font-size:2.3rem;
+    font-size:2.4rem;
   }
 
   p{
-    color:#000;
-    font-size:1.8rem;
-    line-height:1.65;
+    font-size:1.9rem;
+    line-height:1.6;
     margin:0.35em 0;
     text-align:center;
   }
 
-  .section{ width:var(--maxwidth); margin:1.4rem auto; text-align:center; }
-  .rule{ width:60%; height:1px; background:#eee; margin:1.3rem auto; }
+  .section{
+    width:var(--maxwidth);
+    margin:1.6rem auto;
+  }
+
+  .rule{
+    width:60%;
+    height:1px;
+    background:#eee;
+    margin:1.5rem auto;
+  }
+
+  strong{
+    color:var(--red);
+  }
 </style>
 </head>
+
 <body>
-  <div class="stage">
-    <div class="frame">
-      <div id="scrollArea" class="scroll">
-        <div id="content">
+<div class="stage">
+<div class="frame">
+<div id="scrollArea" class="scroll">
+<div id="content">
 
-          <div class="section">
-            <h2>Sunday, February 8</h2>
-            <p>9:15a Life Groups<br>
-            9:15a Kids Worship<br>
-            9:30a Traditional Worship<br>
-            10:30a Contemporary Worship<br>
-            10:30a Life Groups<br>
-            5:00p Glow Party<br>
-            6:00p Super Bowl Party</p>
-          </div>
-          <div class="rule"></div>
+<div class="section">
+<h2>Sunday, February 15</h2>
+<p>
+9:15a Discipleship Groups<br>
+9:15a Kids Worship<br>
+9:30a Traditional Worship<br>
+10:30a Contemporary Worship<br>
+10:30a Discipleship Groups<br>
+6:00p Diaper Bank
+</p>
+</div>
 
-          <div class="section">
-            <h2>Monday, February 9</h2>
-            <p>No Scheduled Events</p>
-          </div>
-          <div class="rule"></div>
+<div class="rule"></div>
 
-          <div class="section">
-            <h2>Tuesday, February 10</h2>
-            <p>3:00p Men's Jail Ministry</p>
-          </div>
-          <div class="rule"></div>
+<div class="section">
+<h2>Monday, February 16</h2>
+<p>
+10:00p J.O.Y. Bible Study<br>
+6:00p Finance<br>
+7:00p Council Meeting
+</p>
+</div>
 
-          <div class="section">
-            <h2>Wednesday, February 11</h2>
-            <p>6:45p Choir Practice<br>
-            7:30p Praise Team Practice</p>
-          </div>
-          <div class="rule"></div>
+<div class="rule"></div>
 
-          <div class="section">
-            <h2>Thursday, February 12</h2>
-            <p>7:00p AA</p>
-          </div>
+<div class="section">
+<h2>Tuesday, February 17</h2>
+<p>
+3:00p Men's Jail Ministry
+</p>
+</div>
 
-        </div>
-        <div id="clone"></div>
-      </div>
-    </div>
-  </div>
+<div class="rule"></div>
+
+<div class="section">
+<h2>Wednesday, February 18 — Ash Wednesday</h2>
+<p>
+5:00p–6:00p Drive-By Ashes<br>
+6:00p–6:30p Ash Wednesday Service<br>
+6:45p Choir Practice<br>
+7:30p Praise Team Practice
+</p>
+</div>
+
+<div class="rule"></div>
+
+<div class="section">
+<h2>Thursday, February 19</h2>
+<p>
+7:00p AA
+</p>
+</div>
+
+<div class="rule"></div>
+
+<div class="section">
+<h2>Saturday, February 21</h2>
+<p>
+10:00a Visitation for Sharon Evans<br>
+12:00p Sharon Evans Memorial
+</p>
+</div>
+
+</div>
+<div id="clone"></div>
+</div>
+</div>
+</div>
 
 <script>
 (function(){
-  const speed = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--speed')) || 26;
+  const speed = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--speed')) || 24;
   const scrollArea = document.getElementById('scrollArea');
   const content = document.getElementById('content');
   const clone = document.getElementById('clone');
 
-  clone.innerHTML = content.innerHTML; // seamless loop
+  clone.innerHTML = content.innerHTML;
 
   let y = 0, last = performance.now();
+
   function animate(t){
-    const dt = (t - last) / 1000; last = t;
+    const dt = (t - last) / 1000;
+    last = t;
     y -= speed * dt;
     const h = content.offsetHeight;
     if (-y >= h) y += h;
     scrollArea.style.transform = `translateY(${y}px)`;
     requestAnimationFrame(animate);
   }
+
   window.addEventListener('load', () => requestAnimationFrame(animate));
 })();
 </script>
+
 </body>
 </html>
