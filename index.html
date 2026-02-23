@@ -9,7 +9,7 @@
 <style>
   :root{
     --speed: 24;      /* scroll speed */
-    --red: #b30000;
+    --red: #b30000;   /* heading color */
     --maxwidth: 94%;
   }
 
@@ -22,11 +22,8 @@
   }
 
   .stage{
-    position:fixed;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    position:fixed; inset:0;
+    display:flex; align-items:center; justify-content:center;
   }
 
   .frame{
@@ -34,8 +31,7 @@
     height:calc((min(100vw, calc(100vh * (9/14)))) * (14/9));
     overflow:hidden;
     background:#fff;
-    display:flex;
-    justify-content:center;
+    display:flex; justify-content:center;
   }
 
   .scroll{
@@ -71,6 +67,8 @@
     background:#eee;
     margin:1.5rem auto;
   }
+
+  strong{ color:var(--red); }
 </style>
 </head>
 
@@ -80,56 +78,57 @@
 <div id="scrollArea" class="scroll">
 <div id="content">
 
-<div class="section">
-<h2>Sunday, February 22</h2>
-<p>
-9:15a Discipleship Groups<br>
-9:15a Kids Worship<br>
-9:30a Traditional Worship<br>
-10:30a Contemporary Worship<br>
-10:30a Discipleship Groups<br>
-12:00p Safe Sanctuary Training
-</p>
-</div>
+  <div class="section">
+    <h2>Sunday, March 1 — Communion Sunday</h2>
+    <p>
+      9:15a Discipleship Groups<br>
+      9:15a Kids Worship<br>
+      9:30a Traditional Worship<br>
+      10:30a Contemporary Worship<br>
+      10:30a Discipleship Groups<br>
+      4:00p Youth<br>
+      6:00p Diaper Bank
+    </p>
+  </div>
 
-<div class="rule"></div>
+  <div class="rule"></div>
 
-<div class="section">
-<h2>Monday, February 23</h2>
-<p>
-3:00p Men's Jail Ministry<br>
-7:30p Scout Troop 14
-</p>
-</div>
+  <div class="section">
+    <h2>Monday, March 2</h2>
+    <p>
+      3:00p Men's Jail Ministry<br>
+      7:30p Scout Troop 14
+    </p>
+  </div>
 
-<div class="rule"></div>
+  <div class="rule"></div>
 
-<div class="section">
-<h2>Tuesday, February 24</h2>
-<p>
-3:00p Men's Jail Ministry
-</p>
-</div>
+  <div class="section">
+    <h2>Tuesday, March 3</h2>
+    <p>
+      3:00p Men's Jail Ministry
+    </p>
+  </div>
 
-<div class="rule"></div>
+  <div class="rule"></div>
 
-<div class="section">
-<h2>Wednesday, February 25</h2>
-<p>
-6:45p Choir Practice<br>
-7:30p Praise Team Practice
-</p>
-</div>
+  <div class="section">
+    <h2>Wednesday, March 4</h2>
+    <p>
+      6:45p Choir Practice<br>
+      7:30p Praise Team Practice
+    </p>
+  </div>
 
-<div class="rule"></div>
+  <div class="rule"></div>
 
-<div class="section">
-<h2>Thursday, February 26</h2>
-<p>
-6:30p Cub Scout Pack 32<br>
-7:00p AA
-</p>
-</div>
+  <div class="section">
+    <h2>Thursday, March 5</h2>
+    <p>
+      6:30p Cub Scout Pack 32<br>
+      7:00p AA
+    </p>
+  </div>
 
 </div>
 <div id="clone"></div>
@@ -144,20 +143,17 @@
   const content = document.getElementById('content');
   const clone = document.getElementById('clone');
 
-  clone.innerHTML = content.innerHTML;
+  clone.innerHTML = content.innerHTML; // seamless loop
 
   let y = 0, last = performance.now();
-
   function animate(t){
-    const dt = (t - last) / 1000;
-    last = t;
+    const dt = (t - last) / 1000; last = t;
     y -= speed * dt;
     const h = content.offsetHeight;
     if (-y >= h) y += h;
     scrollArea.style.transform = `translateY(${y}px)`;
     requestAnimationFrame(animate);
   }
-
   window.addEventListener('load', () => requestAnimationFrame(animate));
 })();
 </script>
