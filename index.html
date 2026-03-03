@@ -4,60 +4,56 @@
 <meta charset="utf-8" />
 <meta http-equiv="Cache-Control" content="no-store" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>VUMC Weekly Schedule</title>
+<title>VUMC Weekly Schedule Overlay</title>
 
 <style>
-  :root{ --speed: 12; }
+  :root{ --speed: 12; } /* LOWER = SLOWER (try 10–14) */
 
   html, body{
     margin:0; padding:0;
-    height:100%; width:100%;
-    background: transparent;
+    width:100%; height:100%;
+    background: transparent !important;
+    overflow:hidden;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    overflow:hidden;
   }
 
-  /* 9x14 frame */
-  .stage{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; }
-  .frame{
-    width:min(100vw, calc(100vh * (9/14)));
-    height:calc((min(100vw, calc(100vh * (9/14)))) * (14/9));
-    overflow:hidden;
-    background: transparent;
-    display:flex;
-    justify-content:center;
-  }
-
-  .scroll{
-    position:relative;
-    width:100%;
+  /* Fill the entire browser source */
+  #scrollArea{
+    position:absolute;
+    inset:0;
     display:flex;
     flex-direction:column;
     align-items:center;
+    will-change: transform;
   }
 
-  /* ===== TV BAR DAY BLOCKS ===== */
+  /* WIDER layout (nearly edge-to-edge) */
   .blocks{
-    width:94%;
+    width:100%;
+    padding: 0 40px;              /* makes bars wider */
+    box-sizing:border-box;
     margin: 2vh auto 4vh;
     display:flex;
     flex-direction:column;
-    gap: 1.5vh;
+    gap: 1.6vh;
   }
 
+  /* TALLER bars */
   .dayblock{
-    border-radius: 14px;
+    border-radius: 16px;
     color:#fff;
-    padding: 1.8vh 2.5vw 1.6vh;
+    padding: 2.8vh 3vw;           /* makes bars taller */
     position:relative;
     overflow:hidden;
 
     box-shadow:
-      0 8px 16px rgba(0,0,0,.30),
+      0 10px 18px rgba(0,0,0,.30),
       inset 0 1px 0 rgba(255,255,255,.35),
       inset 0 -1px 0 rgba(0,0,0,.30);
+    border: 1px solid rgba(255,255,255,.10);
   }
 
+  /* diagonal sheen */
   .dayblock::before{
     content:"";
     position:absolute;
@@ -70,13 +66,14 @@
     pointer-events:none;
   }
 
+  /* BIGGER day heading */
   .daytitle{
     position:relative;
     font-weight: 900;
-    font-size: clamp(18px, 2.2vh, 30px);
+    font-size: clamp(26px, 3vh, 46px);
     line-height: 1.1;
-    margin-bottom: 1.1vh;
-    text-shadow: 0 2px 4px rgba(0,0,0,.45);
+    margin-bottom: 1.2vh;
+    text-shadow: 0 2px 5px rgba(0,0,0,.50);
     white-space: nowrap;
     overflow:hidden;
     text-overflow: ellipsis;
@@ -86,19 +83,20 @@
     position:relative;
     display:flex;
     flex-direction:column;
-    gap: .65vh;
+    gap: .85vh;
   }
 
+  /* BIGGER event text (single line) */
   .row{
     display:flex;
     justify-content:space-between;
     align-items:baseline;
-    gap: 14px;
+    gap: 18px;
 
-    font-size: clamp(15px, 1.9vh, 24px);
+    font-size: clamp(20px, 2.4vh, 34px);
     font-weight: 750;
-    line-height: 1.15;
-    text-shadow: 0 2px 4px rgba(0,0,0,.45);
+    line-height: 1.12;
+    text-shadow: 0 2px 5px rgba(0,0,0,.45);
 
     white-space: nowrap;
     overflow:hidden;
@@ -106,7 +104,7 @@
 
   .event{
     overflow:hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; /* trims if too long */
   }
 
   .time{
@@ -123,80 +121,80 @@
 </head>
 
 <body>
-<div class="stage">
-  <div class="frame">
-    <div id="scrollArea" class="scroll">
-      <div id="content">
 
-        <div class="blocks">
+<div id="scrollArea">
+  <div id="content">
 
-          <!-- SUNDAY -->
-          <div class="dayblock orange">
-            <div class="daytitle">Sunday, March 1 — Communion Sunday</div>
-            <div class="rows">
-              <div class="row"><div class="event">Discipleship Groups</div><div class="time">9:15a</div></div>
-              <div class="row"><div class="event">Kids Worship</div><div class="time">9:15a</div></div>
-              <div class="row"><div class="event">Traditional Worship</div><div class="time">9:30a</div></div>
-              <div class="row"><div class="event">Contemporary Worship</div><div class="time">10:30a</div></div>
-              <div class="row"><div class="event">Discipleship Groups</div><div class="time">10:30a</div></div>
-              <div class="row"><div class="event">Youth</div><div class="time">4:00p</div></div>
-              <div class="row"><div class="event">Diaper Bank</div><div class="time">6:00p</div></div>
-            </div>
-          </div>
+    <div class="blocks">
 
-          <!-- MONDAY -->
-          <div class="dayblock blue">
-            <div class="daytitle">Monday, March 2</div>
-            <div class="rows">
-              <div class="row"><div class="event">Men’s Jail Ministry</div><div class="time">3:00p</div></div>
-              <div class="row"><div class="event">Trustees</div><div class="time">6:00p</div></div>
-              <div class="row"><div class="event">Scout Troop 14</div><div class="time">7:30p</div></div>
-            </div>
-          </div>
-
-          <!-- TUESDAY -->
-          <div class="dayblock green">
-            <div class="daytitle">Tuesday, March 3</div>
-            <div class="rows">
-              <div class="row"><div class="event">Men’s Jail Ministry</div><div class="time">3:00p</div></div>
-            </div>
-          </div>
-
-          <!-- WEDNESDAY -->
-          <div class="dayblock purple">
-            <div class="daytitle">Wednesday, March 4</div>
-            <div class="rows">
-              <div class="row"><div class="event">Grab-n-go Spaghetti Dinner</div><div class="time">4:00–5:30p</div></div>
-              <div class="row"><div class="event">Choir Practice</div><div class="time">6:45p</div></div>
-              <div class="row"><div class="event">Praise Team Practice</div><div class="time">7:30p</div></div>
-            </div>
-          </div>
-
-          <!-- THURSDAY -->
-          <div class="dayblock orange">
-            <div class="daytitle">Thursday, March 5</div>
-            <div class="rows">
-              <div class="row"><div class="event">Cornerstones</div><div class="time">12:00p</div></div>
-              <div class="row"><div class="event">Cub Scout Pack 32</div><div class="time">6:30p</div></div>
-              <div class="row"><div class="event">AA</div><div class="time">7:00p</div></div>
-            </div>
-          </div>
-
+      <!-- SUNDAY -->
+      <div class="dayblock orange">
+        <div class="daytitle">Sunday, March 1 — Communion Sunday</div>
+        <div class="rows">
+          <div class="row"><div class="event">Discipleship Groups</div><div class="time">9:15a</div></div>
+          <div class="row"><div class="event">Kids Worship</div><div class="time">9:15a</div></div>
+          <div class="row"><div class="event">Traditional Worship</div><div class="time">9:30a</div></div>
+          <div class="row"><div class="event">Contemporary Worship</div><div class="time">10:30a</div></div>
+          <div class="row"><div class="event">Discipleship Groups</div><div class="time">10:30a</div></div>
+          <div class="row"><div class="event">Youth</div><div class="time">4:00p</div></div>
+          <div class="row"><div class="event">Diaper Bank</div><div class="time">6:00p</div></div>
         </div>
-
       </div>
-      <div id="clone"></div>
+
+      <!-- MONDAY -->
+      <div class="dayblock blue">
+        <div class="daytitle">Monday, March 2</div>
+        <div class="rows">
+          <div class="row"><div class="event">Men’s Jail Ministry</div><div class="time">3:00p</div></div>
+          <div class="row"><div class="event">Trustees</div><div class="time">6:00p</div></div>
+          <div class="row"><div class="event">Scout Troop 14</div><div class="time">7:30p</div></div>
+        </div>
+      </div>
+
+      <!-- TUESDAY -->
+      <div class="dayblock green">
+        <div class="daytitle">Tuesday, March 3</div>
+        <div class="rows">
+          <div class="row"><div class="event">Men’s Jail Ministry</div><div class="time">3:00p</div></div>
+        </div>
+      </div>
+
+      <!-- WEDNESDAY -->
+      <div class="dayblock purple">
+        <div class="daytitle">Wednesday, March 4</div>
+        <div class="rows">
+          <div class="row"><div class="event">Grab-n-go Spaghetti Dinner</div><div class="time">4:00–5:30p</div></div>
+          <div class="row"><div class="event">Choir Practice</div><div class="time">6:45p</div></div>
+          <div class="row"><div class="event">Praise Team Practice</div><div class="time">7:30p</div></div>
+        </div>
+      </div>
+
+      <!-- THURSDAY -->
+      <div class="dayblock orange">
+        <div class="daytitle">Thursday, March 5</div>
+        <div class="rows">
+          <div class="row"><div class="event">Cornerstones</div><div class="time">12:00p</div></div>
+          <div class="row"><div class="event">Cub Scout Pack 32</div><div class="time">6:30p</div></div>
+          <div class="row"><div class="event">AA</div><div class="time">7:00p</div></div>
+        </div>
+      </div>
+
     </div>
   </div>
+
+  <div id="clone"></div>
 </div>
 
 <script>
 (function(){
-  const speed = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--speed')) || 22;
+  // Read speed from CSS variable so you only change it once
+  const speed = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--speed')) || 12;
+
   const scrollArea = document.getElementById('scrollArea');
   const content = document.getElementById('content');
   const clone = document.getElementById('clone');
 
+  // seamless loop
   clone.innerHTML = content.innerHTML;
 
   let y = 0;
@@ -215,8 +213,9 @@
     requestAnimationFrame(animate);
   }
 
-  window.addEventListener('load', () => requestAnimationFrame(animate));
+  requestAnimationFrame(animate);
 })();
 </script>
+
 </body>
 </html>
