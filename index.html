@@ -8,14 +8,7 @@
 
 <style>
   :root{
-    --speed: 24;      /* lower = slower */
-    --w: 94%;
-    --radius: 12px;
-    --bar-h: 130px;   /* taller to fit multi-line day events */
-    --pad-x: 26px;
-
-    --day-size: 34px;
-    --event-size: 30px;
+    --speed: 22;
   }
 
   html, body{
@@ -26,7 +19,7 @@
     overflow:hidden;
   }
 
-  /* 9x14 frame (phone ratio) */
+  /* 9x14 frame */
   .stage{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; }
   .frame{
     width:min(100vw, calc(100vh * (9/14)));
@@ -37,7 +30,6 @@
     justify-content:center;
   }
 
-  /* scrolling wrapper */
   .scroll{
     position:relative;
     width:100%;
@@ -46,31 +38,29 @@
     align-items:center;
   }
 
-  /* ====== TV BAR LOOK ====== */
+  /* ===== Responsive TV Bars ===== */
+
   .bars{
-    width: var(--w);
-    margin: 24px auto 40px;
+    width: min(94%, 980px);
+    margin: 2vh auto 4vh;
     display:flex;
     flex-direction:column;
-    gap: 16px;
+    gap: 1.6vh;
   }
 
   .bar{
-    height: var(--bar-h);
-    border-radius: var(--radius);
+    border-radius: 14px;
     color:#fff;
-    padding: 18px var(--pad-x);
+    padding: 2vh 2.5vw;
     position:relative;
     overflow:hidden;
 
     box-shadow:
-      0 10px 18px rgba(0,0,0,.22),
+      0 8px 16px rgba(0,0,0,.20),
       inset 0 1px 0 rgba(255,255,255,.35),
       inset 0 -1px 0 rgba(0,0,0,.25);
-    border: 1px solid rgba(255,255,255,.12);
   }
 
-  /* diagonal sheen */
   .bar::before{
     content:"";
     position:absolute;
@@ -85,56 +75,37 @@
 
   .bar-inner{
     position:relative;
-    height:100%;
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    gap: 8px;
+    gap: .6vh;
   }
 
-  .dayline{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    gap: 14px;
+  /* slightly smaller heading */
+  .day{
+    font-size: clamp(20px, 2.2vh, 30px);
     font-weight: 900;
+    line-height: 1.1;
     text-shadow: 0 2px 3px rgba(0,0,0,.25);
   }
 
-  .day{
-    font-size: var(--day-size);
-    line-height: 1.05;
-    letter-spacing: .2px;
-    white-space: nowrap;
-  }
-
-  .tag{
-    font-size: 28px;
-    font-weight: 800;
-    opacity: .95;
-    white-space: nowrap;
-  }
-
+  /* reduced schedule font to prevent wrapping */
   .events{
-    font-size: var(--event-size);
+    font-size: clamp(15px, 1.9vh, 24px);
     font-weight: 700;
     line-height: 1.25;
-    opacity: .98;
-    text-shadow: 0 2px 3px rgba(0,0,0,.20);
+    text-shadow: 0 2px 3px rgba(0,0,0,.18);
   }
 
   .events span{
     display:block;
   }
 
-  /* color presets (like the sample image) */
+  /* color styles */
   .orange { background: linear-gradient(180deg,#c76512 0%, #9f3f07 100%); }
   .blue   { background: linear-gradient(180deg,#1b5f9a 0%, #0d3f72 100%); }
   .green  { background: linear-gradient(180deg,#2f7a36 0%, #1f5f29 100%); }
   .purple { background: linear-gradient(180deg,#5a2a7a 0%, #3f1a5a 100%); }
 
-  /* small spacer at end so loop feels clean */
-  .bottom-space{ height: 40px; }
 </style>
 </head>
 
@@ -144,42 +115,32 @@
       <div id="scrollArea" class="scroll">
         <div id="content">
 
-          <!-- ====== PREVIEW: Previous week (Mar 1–5) in TV bars ====== -->
           <div class="bars">
 
             <div class="bar orange">
               <div class="bar-inner">
-                <div class="dayline">
-                  <div class="day">Sunday, March 1</div>
-                  <div class="tag">Communion</div>
-                </div>
+                <div class="day">Sunday, March 1 — Communion Sunday</div>
                 <div class="events">
-                  <span>9:15a Discipleship Groups &nbsp;•&nbsp; 9:15a Kids Worship</span>
-                  <span>9:30a Traditional &nbsp;•&nbsp; 10:30a Contemporary &nbsp;•&nbsp; 10:30a Discipleship</span>
-                  <span>4:00p Youth &nbsp;•&nbsp; 6:00p Diaper Bank</span>
+                  <span>9:15a Discipleship Groups • 9:15a Kids Worship</span>
+                  <span>9:30a Traditional • 10:30a Contemporary • 10:30a Discipleship</span>
+                  <span>4:00p Youth • 6:00p Diaper Bank</span>
                 </div>
               </div>
             </div>
 
             <div class="bar blue">
               <div class="bar-inner">
-                <div class="dayline">
-                  <div class="day">Monday, March 2</div>
-                  <div class="tag">Meetings</div>
-                </div>
+                <div class="day">Monday, March 2</div>
                 <div class="events">
                   <span>3:00p Men’s Jail Ministry</span>
-                  <span>6:00p Trustees &nbsp;•&nbsp; 7:30p Scout Troop 14</span>
+                  <span>6:00p Trustees • 7:30p Scout Troop 14</span>
                 </div>
               </div>
             </div>
 
             <div class="bar green">
               <div class="bar-inner">
-                <div class="dayline">
-                  <div class="day">Tuesday, March 3</div>
-                  <div class="tag">Ministry</div>
-                </div>
+                <div class="day">Tuesday, March 3</div>
                 <div class="events">
                   <span>3:00p Men’s Jail Ministry</span>
                 </div>
@@ -188,36 +149,28 @@
 
             <div class="bar purple">
               <div class="bar-inner">
-                <div class="dayline">
-                  <div class="day">Wednesday, March 4</div>
-                  <div class="tag">Dinner</div>
-                </div>
+                <div class="day">Wednesday, March 4</div>
                 <div class="events">
-                  <span>4:00–5:30p “Grab-n-go” Spaghetti Dinner</span>
-                  <span>6:45p Choir Practice &nbsp;•&nbsp; 7:30p Praise Team Practice</span>
+                  <span>4:00–5:30p Grab-n-go Spaghetti Dinner</span>
+                  <span>6:45p Choir Practice • 7:30p Praise Team Practice</span>
                 </div>
               </div>
             </div>
 
             <div class="bar orange">
               <div class="bar-inner">
-                <div class="dayline">
-                  <div class="day">Thursday, March 5</div>
-                  <div class="tag">Groups</div>
-                </div>
+                <div class="day">Thursday, March 5</div>
                 <div class="events">
                   <span>12:00p Cornerstones</span>
-                  <span>6:30p Cub Scout Pack 32 &nbsp;•&nbsp; 7:00p AA</span>
+                  <span>6:30p Cub Scout Pack 32 • 7:00p AA</span>
                 </div>
               </div>
             </div>
 
           </div>
 
-          <div class="bottom-space"></div>
         </div>
 
-        <!-- clone for seamless loop -->
         <div id="clone"></div>
       </div>
     </div>
@@ -225,12 +178,11 @@
 
 <script>
 (function(){
-  const speed = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--speed')) || 24;
+  const speed = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--speed')) || 22;
   const scrollArea = document.getElementById('scrollArea');
   const content = document.getElementById('content');
   const clone = document.getElementById('clone');
 
-  // Seamless loop: duplicate the whole content
   clone.innerHTML = content.innerHTML;
 
   let y = 0;
