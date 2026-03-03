@@ -12,7 +12,7 @@
   html, body{
     margin:0; padding:0;
     height:100%; width:100%;
-    background: transparent;   /* 🔥 transparent */
+    background: transparent;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     overflow:hidden;
   }
@@ -23,7 +23,7 @@
     width:min(100vw, calc(100vh * (9/14)));
     height:calc((min(100vw, calc(100vh * (9/14)))) * (14/9));
     overflow:hidden;
-    background: transparent;  /* 🔥 transparent */
+    background: transparent;
     display:flex;
     justify-content:center;
   }
@@ -76,7 +76,7 @@
     font-size: clamp(18px, 2.2vh, 30px);
     line-height: 1.1;
     margin-bottom: 1.1vh;
-    text-shadow: 0 2px 4px rgba(0,0,0,.45); /* stronger shadow for overlay */
+    text-shadow: 0 2px 4px rgba(0,0,0,.45);
     white-space: nowrap;
     overflow:hidden;
     text-overflow: ellipsis;
@@ -98,7 +98,8 @@
     font-size: clamp(15px, 1.9vh, 24px);
     font-weight: 750;
     line-height: 1.15;
-    text-shadow: 0 2px 4px rgba(0,0,0,.45); /* stronger shadow */
+    text-shadow: 0 2px 4px rgba(0,0,0,.45);
+
     white-space: nowrap;
     overflow:hidden;
   }
@@ -118,7 +119,6 @@
   .blue   { background: linear-gradient(180deg,#1b5f9a 0%, #0d3f72 100%); }
   .green  { background: linear-gradient(180deg,#2f7a36 0%, #1f5f29 100%); }
   .purple { background: linear-gradient(180deg,#5a2a7a 0%, #3f1a5a 100%); }
-
 </style>
 </head>
 
@@ -130,6 +130,7 @@
 
         <div class="blocks">
 
+          <!-- SUNDAY -->
           <div class="dayblock orange">
             <div class="daytitle">Sunday, March 1 — Communion Sunday</div>
             <div class="rows">
@@ -137,12 +138,49 @@
               <div class="row"><div class="event">Kids Worship</div><div class="time">9:15a</div></div>
               <div class="row"><div class="event">Traditional Worship</div><div class="time">9:30a</div></div>
               <div class="row"><div class="event">Contemporary Worship</div><div class="time">10:30a</div></div>
+              <div class="row"><div class="event">Discipleship Groups</div><div class="time">10:30a</div></div>
               <div class="row"><div class="event">Youth</div><div class="time">4:00p</div></div>
               <div class="row"><div class="event">Diaper Bank</div><div class="time">6:00p</div></div>
             </div>
           </div>
 
-          <!-- Add other days here -->
+          <!-- MONDAY -->
+          <div class="dayblock blue">
+            <div class="daytitle">Monday, March 2</div>
+            <div class="rows">
+              <div class="row"><div class="event">Men’s Jail Ministry</div><div class="time">3:00p</div></div>
+              <div class="row"><div class="event">Trustees</div><div class="time">6:00p</div></div>
+              <div class="row"><div class="event">Scout Troop 14</div><div class="time">7:30p</div></div>
+            </div>
+          </div>
+
+          <!-- TUESDAY -->
+          <div class="dayblock green">
+            <div class="daytitle">Tuesday, March 3</div>
+            <div class="rows">
+              <div class="row"><div class="event">Men’s Jail Ministry</div><div class="time">3:00p</div></div>
+            </div>
+          </div>
+
+          <!-- WEDNESDAY -->
+          <div class="dayblock purple">
+            <div class="daytitle">Wednesday, March 4</div>
+            <div class="rows">
+              <div class="row"><div class="event">Grab-n-go Spaghetti Dinner</div><div class="time">4:00–5:30p</div></div>
+              <div class="row"><div class="event">Choir Practice</div><div class="time">6:45p</div></div>
+              <div class="row"><div class="event">Praise Team Practice</div><div class="time">7:30p</div></div>
+            </div>
+          </div>
+
+          <!-- THURSDAY -->
+          <div class="dayblock orange">
+            <div class="daytitle">Thursday, March 5</div>
+            <div class="rows">
+              <div class="row"><div class="event">Cornerstones</div><div class="time">12:00p</div></div>
+              <div class="row"><div class="event">Cub Scout Pack 32</div><div class="time">6:30p</div></div>
+              <div class="row"><div class="event">AA</div><div class="time">7:00p</div></div>
+            </div>
+          </div>
 
         </div>
 
@@ -167,6 +205,7 @@
   function animate(t){
     const dt = (t - last) / 1000;
     last = t;
+
     y -= speed * dt;
 
     const h = content.offsetHeight;
