@@ -8,32 +8,36 @@
 
 <style>
   :root{
-    --speed: 24;      /* scroll speed */
-    --red: #b30000;   /* heading color */
-    --maxwidth: 94%;
+    --speed: 24;      /* lower = slower */
+    --w: 94%;
+    --radius: 12px;
+    --bar-h: 130px;   /* taller to fit multi-line day events */
+    --pad-x: 26px;
+
+    --day-size: 34px;
+    --event-size: 30px;
   }
 
   html, body{
     margin:0; padding:0;
     height:100%; width:100%;
-    background:#fff; color:#000;
+    background:#fff;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     overflow:hidden;
   }
 
-  .stage{
-    position:fixed; inset:0;
-    display:flex; align-items:center; justify-content:center;
-  }
-
+  /* 9x14 frame (phone ratio) */
+  .stage{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; }
   .frame{
     width:min(100vw, calc(100vh * (9/14)));
     height:calc((min(100vw, calc(100vh * (9/14)))) * (14/9));
     overflow:hidden;
     background:#fff;
-    display:flex; justify-content:center;
+    display:flex;
+    justify-content:center;
   }
 
+  /* scrolling wrapper */
   .scroll{
     position:relative;
     width:100%;
@@ -42,100 +46,182 @@
     align-items:center;
   }
 
-  h2{
-    color:var(--red);
-    text-align:center;
-    margin:0.6em 0 0.35em;
-    font-size:2.4rem;
+  /* ====== TV BAR LOOK ====== */
+  .bars{
+    width: var(--w);
+    margin: 24px auto 40px;
+    display:flex;
+    flex-direction:column;
+    gap: 16px;
   }
 
-  p{
-    font-size:1.9rem;
-    line-height:1.6;
-    margin:0.35em 0;
-    text-align:center;
+  .bar{
+    height: var(--bar-h);
+    border-radius: var(--radius);
+    color:#fff;
+    padding: 18px var(--pad-x);
+    position:relative;
+    overflow:hidden;
+
+    box-shadow:
+      0 10px 18px rgba(0,0,0,.22),
+      inset 0 1px 0 rgba(255,255,255,.35),
+      inset 0 -1px 0 rgba(0,0,0,.25);
+    border: 1px solid rgba(255,255,255,.12);
   }
 
-  .section{
-    width:var(--maxwidth);
-    margin:1.6rem auto;
+  /* diagonal sheen */
+  .bar::before{
+    content:"";
+    position:absolute;
+    inset:-45% -25%;
+    background: linear-gradient(110deg,
+      rgba(255,255,255,.22) 0%,
+      rgba(255,255,255,.10) 25%,
+      rgba(255,255,255,0) 55%);
+    transform: rotate(-6deg);
+    pointer-events:none;
   }
 
-  .rule{
-    width:60%;
-    height:1px;
-    background:#eee;
-    margin:1.5rem auto;
+  .bar-inner{
+    position:relative;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap: 8px;
   }
 
-  strong{ color:var(--red); }
+  .dayline{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap: 14px;
+    font-weight: 900;
+    text-shadow: 0 2px 3px rgba(0,0,0,.25);
+  }
+
+  .day{
+    font-size: var(--day-size);
+    line-height: 1.05;
+    letter-spacing: .2px;
+    white-space: nowrap;
+  }
+
+  .tag{
+    font-size: 28px;
+    font-weight: 800;
+    opacity: .95;
+    white-space: nowrap;
+  }
+
+  .events{
+    font-size: var(--event-size);
+    font-weight: 700;
+    line-height: 1.25;
+    opacity: .98;
+    text-shadow: 0 2px 3px rgba(0,0,0,.20);
+  }
+
+  .events span{
+    display:block;
+  }
+
+  /* color presets (like the sample image) */
+  .orange { background: linear-gradient(180deg,#c76512 0%, #9f3f07 100%); }
+  .blue   { background: linear-gradient(180deg,#1b5f9a 0%, #0d3f72 100%); }
+  .green  { background: linear-gradient(180deg,#2f7a36 0%, #1f5f29 100%); }
+  .purple { background: linear-gradient(180deg,#5a2a7a 0%, #3f1a5a 100%); }
+
+  /* small spacer at end so loop feels clean */
+  .bottom-space{ height: 40px; }
 </style>
 </head>
 
 <body>
-<div class="stage">
-<div class="frame">
-<div id="scrollArea" class="scroll">
-<div id="content">
+  <div class="stage">
+    <div class="frame">
+      <div id="scrollArea" class="scroll">
+        <div id="content">
 
-  <div class="section">
-    <h2>Sunday, March 1 — Communion Sunday</h2>
-    <p>
-      9:15a Discipleship Groups<br>
-      9:15a Kids Worship<br>
-      9:30a Traditional Worship<br>
-      10:30a Contemporary Worship<br>
-      10:30a Discipleship Groups<br>
-      4:00p Youth<br>
-      6:00p Diaper Bank
-    </p>
+          <!-- ====== PREVIEW: Previous week (Mar 1–5) in TV bars ====== -->
+          <div class="bars">
+
+            <div class="bar orange">
+              <div class="bar-inner">
+                <div class="dayline">
+                  <div class="day">Sunday, March 1</div>
+                  <div class="tag">Communion</div>
+                </div>
+                <div class="events">
+                  <span>9:15a Discipleship Groups &nbsp;•&nbsp; 9:15a Kids Worship</span>
+                  <span>9:30a Traditional &nbsp;•&nbsp; 10:30a Contemporary &nbsp;•&nbsp; 10:30a Discipleship</span>
+                  <span>4:00p Youth &nbsp;•&nbsp; 6:00p Diaper Bank</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bar blue">
+              <div class="bar-inner">
+                <div class="dayline">
+                  <div class="day">Monday, March 2</div>
+                  <div class="tag">Meetings</div>
+                </div>
+                <div class="events">
+                  <span>3:00p Men’s Jail Ministry</span>
+                  <span>6:00p Trustees &nbsp;•&nbsp; 7:30p Scout Troop 14</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bar green">
+              <div class="bar-inner">
+                <div class="dayline">
+                  <div class="day">Tuesday, March 3</div>
+                  <div class="tag">Ministry</div>
+                </div>
+                <div class="events">
+                  <span>3:00p Men’s Jail Ministry</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bar purple">
+              <div class="bar-inner">
+                <div class="dayline">
+                  <div class="day">Wednesday, March 4</div>
+                  <div class="tag">Dinner</div>
+                </div>
+                <div class="events">
+                  <span>4:00–5:30p “Grab-n-go” Spaghetti Dinner</span>
+                  <span>6:45p Choir Practice &nbsp;•&nbsp; 7:30p Praise Team Practice</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bar orange">
+              <div class="bar-inner">
+                <div class="dayline">
+                  <div class="day">Thursday, March 5</div>
+                  <div class="tag">Groups</div>
+                </div>
+                <div class="events">
+                  <span>12:00p Cornerstones</span>
+                  <span>6:30p Cub Scout Pack 32 &nbsp;•&nbsp; 7:00p AA</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="bottom-space"></div>
+        </div>
+
+        <!-- clone for seamless loop -->
+        <div id="clone"></div>
+      </div>
+    </div>
   </div>
-
-  <div class="rule"></div>
-
-  <div class="section">
-    <h2>Monday, March 2</h2>
-    <p>
-      3:00p Men's Jail Ministry<br>
-      7:30p Scout Troop 14
-    </p>
-  </div>
-
-  <div class="rule"></div>
-
-  <div class="section">
-    <h2>Tuesday, March 3</h2>
-    <p>
-      3:00p Men's Jail Ministry
-    </p>
-  </div>
-
-  <div class="rule"></div>
-
-  <div class="section">
-    <h2>Wednesday, March 4</h2>
-    <p>
-      6:45p Choir Practice<br>
-      7:30p Praise Team Practice
-    </p>
-  </div>
-
-  <div class="rule"></div>
-
-  <div class="section">
-    <h2>Thursday, March 5</h2>
-    <p>
-      12p Cornerstones<br>
-      6:30p Cub Scout Pack 32<br>
-      7:00p AA
-    </p>
-  </div>
-
-</div>
-<div id="clone"></div>
-</div>
-</div>
-</div>
 
 <script>
 (function(){
@@ -144,20 +230,27 @@
   const content = document.getElementById('content');
   const clone = document.getElementById('clone');
 
-  clone.innerHTML = content.innerHTML; // seamless loop
+  // Seamless loop: duplicate the whole content
+  clone.innerHTML = content.innerHTML;
 
-  let y = 0, last = performance.now();
+  let y = 0;
+  let last = performance.now();
+
   function animate(t){
-    const dt = (t - last) / 1000; last = t;
+    const dt = (t - last) / 1000;
+    last = t;
+
     y -= speed * dt;
+
     const h = content.offsetHeight;
     if (-y >= h) y += h;
+
     scrollArea.style.transform = `translateY(${y}px)`;
     requestAnimationFrame(animate);
   }
+
   window.addEventListener('load', () => requestAnimationFrame(animate));
 })();
 </script>
-
 </body>
 </html>
