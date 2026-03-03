@@ -38,20 +38,23 @@
     align-items:center;
   }
 
-  /* ===== Responsive TV Bars ===== */
+  /* ===== TV BAR STYLE ===== */
 
   .bars{
-    width: min(94%, 980px);
+    width:94%;
     margin: 2vh auto 4vh;
     display:flex;
     flex-direction:column;
-    gap: 1.6vh;
+    gap: 1.2vh;
   }
 
   .bar{
     border-radius: 14px;
     color:#fff;
-    padding: 2vh 2.5vw;
+    padding: 1.8vh 2.5vw;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
     position:relative;
     overflow:hidden;
 
@@ -59,6 +62,8 @@
       0 8px 16px rgba(0,0,0,.20),
       inset 0 1px 0 rgba(255,255,255,.35),
       inset 0 -1px 0 rgba(0,0,0,.25);
+
+    white-space: nowrap; /* FORCE single line */
   }
 
   .bar::before{
@@ -73,34 +78,19 @@
     pointer-events:none;
   }
 
-  .bar-inner{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    gap: .6vh;
-  }
-
-  /* slightly smaller heading */
-  .day{
-    font-size: clamp(20px, 2.2vh, 30px);
-    font-weight: 900;
-    line-height: 1.1;
-    text-shadow: 0 2px 3px rgba(0,0,0,.25);
-  }
-
-  /* reduced schedule font to prevent wrapping */
-  .events{
+  .left{
     font-size: clamp(15px, 1.9vh, 24px);
-    font-weight: 700;
-    line-height: 1.25;
-    text-shadow: 0 2px 3px rgba(0,0,0,.18);
+    font-weight: 800;
+    text-shadow: 0 2px 3px rgba(0,0,0,.2);
   }
 
-  .events span{
-    display:block;
+  .time{
+    font-size: clamp(15px, 1.9vh, 24px);
+    font-weight: 900;
+    text-shadow: 0 2px 3px rgba(0,0,0,.3);
   }
 
-  /* color styles */
+  /* colors */
   .orange { background: linear-gradient(180deg,#c76512 0%, #9f3f07 100%); }
   .blue   { background: linear-gradient(180deg,#1b5f9a 0%, #0d3f72 100%); }
   .green  { background: linear-gradient(180deg,#2f7a36 0%, #1f5f29 100%); }
@@ -110,71 +100,105 @@
 </head>
 
 <body>
-  <div class="stage">
-    <div class="frame">
-      <div id="scrollArea" class="scroll">
-        <div id="content">
+<div class="stage">
+<div class="frame">
+<div id="scrollArea" class="scroll">
+<div id="content">
 
-          <div class="bars">
+<div class="bars">
 
-            <div class="bar orange">
-              <div class="bar-inner">
-                <div class="day">Sunday, March 1 — Communion Sunday</div>
-                <div class="events">
-                  <span>9:15a Discipleship Groups • 9:15a Kids Worship</span>
-                  <span>9:30a Traditional • 10:30a Contemporary • 10:30a Discipleship</span>
-                  <span>4:00p Youth • 6:00p Diaper Bank</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="bar blue">
-              <div class="bar-inner">
-                <div class="day">Monday, March 2</div>
-                <div class="events">
-                  <span>3:00p Men’s Jail Ministry</span>
-                  <span>6:00p Trustees • 7:30p Scout Troop 14</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="bar green">
-              <div class="bar-inner">
-                <div class="day">Tuesday, March 3</div>
-                <div class="events">
-                  <span>3:00p Men’s Jail Ministry</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="bar purple">
-              <div class="bar-inner">
-                <div class="day">Wednesday, March 4</div>
-                <div class="events">
-                  <span>4:00–5:30p Grab-n-go Spaghetti Dinner</span>
-                  <span>6:45p Choir Practice • 7:30p Praise Team Practice</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="bar orange">
-              <div class="bar-inner">
-                <div class="day">Thursday, March 5</div>
-                <div class="events">
-                  <span>12:00p Cornerstones</span>
-                  <span>6:30p Cub Scout Pack 32 • 7:00p AA</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div id="clone"></div>
-      </div>
-    </div>
+  <!-- Sunday -->
+  <div class="bar orange">
+    <div class="left">Sunday March 1 • Discipleship Groups</div>
+    <div class="time">9:15a</div>
   </div>
+
+  <div class="bar orange">
+    <div class="left">Sunday March 1 • Kids Worship</div>
+    <div class="time">9:15a</div>
+  </div>
+
+  <div class="bar orange">
+    <div class="left">Sunday March 1 • Traditional Worship</div>
+    <div class="time">9:30a</div>
+  </div>
+
+  <div class="bar orange">
+    <div class="left">Sunday March 1 • Contemporary Worship</div>
+    <div class="time">10:30a</div>
+  </div>
+
+  <div class="bar orange">
+    <div class="left">Sunday March 1 • Youth</div>
+    <div class="time">4:00p</div>
+  </div>
+
+  <div class="bar orange">
+    <div class="left">Sunday March 1 • Diaper Bank</div>
+    <div class="time">6:00p</div>
+  </div>
+
+  <!-- Monday -->
+  <div class="bar blue">
+    <div class="left">Monday March 2 • Men's Jail Ministry</div>
+    <div class="time">3:00p</div>
+  </div>
+
+  <div class="bar blue">
+    <div class="left">Monday March 2 • Trustees</div>
+    <div class="time">6:00p</div>
+  </div>
+
+  <div class="bar blue">
+    <div class="left">Monday March 2 • Scout Troop 14</div>
+    <div class="time">7:30p</div>
+  </div>
+
+  <!-- Tuesday -->
+  <div class="bar green">
+    <div class="left">Tuesday March 3 • Men's Jail Ministry</div>
+    <div class="time">3:00p</div>
+  </div>
+
+  <!-- Wednesday -->
+  <div class="bar purple">
+    <div class="left">Wednesday March 4 • Grab-n-go Spaghetti Dinner</div>
+    <div class="time">4:00–5:30p</div>
+  </div>
+
+  <div class="bar purple">
+    <div class="left">Wednesday March 4 • Choir Practice</div>
+    <div class="time">6:45p</div>
+  </div>
+
+  <div class="bar purple">
+    <div class="left">Wednesday March 4 • Praise Team Practice</div>
+    <div class="time">7:30p</div>
+  </div>
+
+  <!-- Thursday -->
+  <div class="bar orange">
+    <div class="left">Thursday March 5 • Cornerstones</div>
+    <div class="time">12:00p</div>
+  </div>
+
+  <div class="bar orange">
+    <div class="left">Thursday March 5 • Cub Scout Pack 32</div>
+    <div class="time">6:30p</div>
+  </div>
+
+  <div class="bar orange">
+    <div class="left">Thursday March 5 • AA</div>
+    <div class="time">7:00p</div>
+  </div>
+
+</div>
+
+</div>
+<div id="clone"></div>
+</div>
+</div>
+</div>
 
 <script>
 (function(){
@@ -204,5 +228,6 @@
   window.addEventListener('load', () => requestAnimationFrame(animate));
 })();
 </script>
+
 </body>
 </html>
