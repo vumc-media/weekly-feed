@@ -7,211 +7,226 @@
 <title>VUMC Weekly Schedule Overlay</title>
 
 <style>
-  :root{ --speed: 12; } /* LOWER = SLOWER (try 10–14) */
 
-  html, body{
-    margin:0; padding:0;
-    width:100%; height:100%;
-    background: transparent !important;
-    overflow:hidden;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  }
+:root { --speed: 12; }
 
-  /* Fill the entire browser source */
-  #scrollArea{
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    will-change: transform;
-  }
+html, body{
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  background:transparent !important;
+  overflow:hidden;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
 
-  /* WIDER layout (nearly edge-to-edge) */
-  .blocks{
-    width:100%;
-    padding: 0 40px;
-    box-sizing:border-box;
-    margin: 2vh auto 4vh;
-    display:flex;
-    flex-direction:column;
-    gap: 1.6vh;
-  }
+/* SCROLL CONTAINER */
 
-  /* TALLER bars */
-  .dayblock{
-    border-radius: 16px;
-    color:#fff;
-    padding: 2.8vh 3vw;
-    position:relative;
-    overflow:hidden;
+#scrollArea{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
 
-    box-shadow:
-      0 10px 18px rgba(0,0,0,.30),
-      inset 0 1px 0 rgba(255,255,255,.35),
-      inset 0 -1px 0 rgba(0,0,0,.30);
-    border: 1px solid rgba(255,255,255,.10);
-  }
+/* FULL WIDTH */
 
-  /* diagonal sheen */
-  .dayblock::before{
-    content:"";
-    position:absolute;
-    inset:-45% -25%;
-    background: linear-gradient(110deg,
-      rgba(255,255,255,.22) 0%,
-      rgba(255,255,255,.10) 25%,
-      rgba(255,255,255,0) 55%);
-    transform: rotate(-6deg);
-    pointer-events:none;
-  }
+.blocks{
+  width:100%;
+  padding:0 40px;
+  box-sizing:border-box;
+  margin:2vh auto 4vh;
+  display:flex;
+  flex-direction:column;
+  gap:2vh;
+}
 
-  /* BIGGER day heading */
-  .daytitle{
-    position:relative;
-    font-weight: 900;
-    font-size: clamp(26px, 3vh, 46px);
-    line-height: 1.1;
-    margin-bottom: 1.2vh;
-    text-shadow: 0 2px 5px rgba(0,0,0,.50);
-    white-space: nowrap;
-    overflow:hidden;
-    text-overflow: ellipsis;
-  }
+/* LARGE BARS */
 
-  .rows{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    gap: .85vh;
-  }
+.dayblock{
+  border-radius:18px;
+  color:white;
+  padding:3vh 3vw;
+  position:relative;
+  overflow:hidden;
 
-  /* BIGGER event text (single line) */
-  .row{
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    gap: 18px;
+  box-shadow:
+  0 12px 22px rgba(0,0,0,.35),
+  inset 0 1px 0 rgba(255,255,255,.35),
+  inset 0 -1px 0 rgba(0,0,0,.30);
+}
 
-    font-size: clamp(20px, 2.4vh, 34px);
-    font-weight: 750;
-    line-height: 1.12;
-    text-shadow: 0 2px 5px rgba(0,0,0,.45);
+/* shine */
 
-    white-space: nowrap;
-    overflow:hidden;
-  }
+.dayblock::before{
+  content:"";
+  position:absolute;
+  inset:-45% -25%;
+  background:linear-gradient(110deg,
+    rgba(255,255,255,.25) 0%,
+    rgba(255,255,255,.10) 25%,
+    rgba(255,255,255,0) 55%);
+  transform:rotate(-6deg);
+  pointer-events:none;
+}
 
-  .event{
-    overflow:hidden;
-    text-overflow: ellipsis;
-  }
+/* DAY TITLE */
 
-  .time{
-    flex: 0 0 auto;
-    font-weight: 900;
-  }
+.daytitle{
+  position:relative;
+  font-weight:900;
+  font-size:clamp(28px,3vh,48px);
+  margin-bottom:1.4vh;
+  text-shadow:0 3px 6px rgba(0,0,0,.55);
+}
 
-  /* color presets */
-  .orange { background: linear-gradient(180deg,#c76512 0%, #9f3f07 100%); }
-  .blue   { background: linear-gradient(180deg,#1b5f9a 0%, #0d3f72 100%); }
-  .green  { background: linear-gradient(180deg,#2f7a36 0%, #1f5f29 100%); }
-  .purple { background: linear-gradient(180deg,#5a2a7a 0%, #3f1a5a 100%); }
+/* EVENT ROWS */
+
+.rows{
+  display:flex;
+  flex-direction:column;
+  gap:1vh;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  font-size:clamp(22px,2.6vh,36px);
+  font-weight:700;
+
+  text-shadow:0 2px 5px rgba(0,0,0,.45);
+
+  white-space:nowrap;
+}
+
+.time{
+  font-weight:900;
+}
+
+/* COLORS */
+
+.orange{background:linear-gradient(180deg,#c76512,#9f3f07);}
+.blue{background:linear-gradient(180deg,#1b5f9a,#0d3f72);}
+.green{background:linear-gradient(180deg,#2f7a36,#1f5f29);}
+.purple{background:linear-gradient(180deg,#5a2a7a,#3f1a5a);}
+
 </style>
 </head>
 
 <body>
 
 <div id="scrollArea">
-  <div id="content">
 
-    <div class="blocks">
+<div id="content">
 
-      <!-- SUNDAY -->
-      <div class="dayblock orange">
-        <div class="daytitle">Sunday, March 8</div>
-        <div class="rows">
-          <div class="row"><div class="event">Discipleship Groups</div><div class="time">9:15a</div></div>
-          <div class="row"><div class="event">Kids Worship</div><div class="time">9:15a</div></div>
-          <div class="row"><div class="event">Traditional Worship</div><div class="time">9:30a</div></div>
-          <div class="row"><div class="event">Contemporary Worship</div><div class="time">10:30a</div></div>
-          <div class="row"><div class="event">Discipleship Groups</div><div class="time">10:30a</div></div>
-          <div class="row"><div class="event">Youth</div><div class="time">4:00p</div></div>
-        </div>
-      </div>
+<div class="blocks">
 
-      <!-- MONDAY -->
-      <div class="dayblock blue">
-        <div class="daytitle">Monday, March 9</div>
-        <div class="rows">
-          <div class="row"><div class="event">Mountain Mission pickup</div><div class="time">12:00p</div></div>
-          <div class="row"><div class="event">Men’s Jail Ministry</div><div class="time">3:00p</div></div>
-          <div class="row"><div class="event">Scout Troop 14</div><div class="time">7:30p</div></div>
-        </div>
-      </div>
+<!-- SUNDAY -->
 
-      <!-- TUESDAY -->
-      <div class="dayblock green">
-        <div class="daytitle">Tuesday, March 10</div>
-        <div class="rows">
-          <div class="row"><div class="event">Men’s Jail Ministry</div><div class="time">3:00p</div></div>
-        </div>
-      </div>
+<div class="dayblock orange">
+<div class="daytitle">Sunday, March 8</div>
 
-      <!-- WEDNESDAY -->
-      <div class="dayblock purple">
-        <div class="daytitle">Wednesday, March 11</div>
-        <div class="rows">
-          <div class="row"><div class="event">Choir Practice</div><div class="time">6:45p</div></div>
-          <div class="row"><div class="event">Praise Team Practice</div><div class="time">7:30p</div></div>
-        </div>
-      </div>
+<div class="rows">
+<div class="row"><span>Discipleship Groups</span><span class="time">9:15a</span></div>
+<div class="row"><span>Kids Worship</span><span class="time">9:15a</span></div>
+<div class="row"><span>Traditional Worship</span><span class="time">9:30a</span></div>
+<div class="row"><span>Contemporary Worship</span><span class="time">10:30a</span></div>
+<div class="row"><span>Discipleship Groups</span><span class="time">10:30a</span></div>
+<div class="row"><span>Youth</span><span class="time">4:00p</span></div>
+</div>
 
-      <!-- THURSDAY -->
-      <div class="dayblock orange">
-        <div class="daytitle">Thursday, March 12</div>
-        <div class="rows">
-          <div class="row"><div class="event">Cub Scout Pack 32</div><div class="time">6:30p</div></div>
-          <div class="row"><div class="event">AA</div><div class="time">7:00p</div></div>
-        </div>
-      </div>
+</div>
 
-    </div>
-  </div>
+<!-- MONDAY -->
 
-  <div id="clone"></div>
+<div class="dayblock blue">
+<div class="daytitle">Monday, March 9</div>
+
+<div class="rows">
+<div class="row"><span>Mountain Mission Pickup</span><span class="time">12:00p</span></div>
+<div class="row"><span>Men's Jail Ministry</span><span class="time">3:00p</span></div>
+<div class="row"><span>Scout Troop 14</span><span class="time">7:30p</span></div>
+</div>
+
+</div>
+
+<!-- TUESDAY -->
+
+<div class="dayblock green">
+<div class="daytitle">Tuesday, March 10</div>
+
+<div class="rows">
+<div class="row"><span>Men's Jail Ministry</span><span class="time">3:00p</span></div>
+</div>
+
+</div>
+
+<!-- WEDNESDAY -->
+
+<div class="dayblock purple">
+<div class="daytitle">Wednesday, March 11</div>
+
+<div class="rows">
+<div class="row"><span>Choir Practice</span><span class="time">6:45p</span></div>
+<div class="row"><span>Praise Team Practice</span><span class="time">7:30p</span></div>
+</div>
+
+</div>
+
+<!-- THURSDAY -->
+
+<div class="dayblock orange">
+<div class="daytitle">Thursday, March 12</div>
+
+<div class="rows">
+<div class="row"><span>Cub Scout Pack 32</span><span class="time">6:30p</span></div>
+<div class="row"><span>AA</span><span class="time">7:00p</span></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div id="clone"></div>
+
 </div>
 
 <script>
-(function(){
-  // Read speed from CSS variable so you only change it once
-  const speed = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--speed')) || 12;
 
-  const scrollArea = document.getElementById('scrollArea');
-  const content = document.getElementById('content');
-  const clone = document.getElementById('clone');
+const speed = 12;
 
-  // seamless loop
-  clone.innerHTML = content.innerHTML;
+const scrollArea = document.getElementById("scrollArea");
+const content = document.getElementById("content");
+const clone = document.getElementById("clone");
 
-  let y = 0;
-  let last = performance.now();
+clone.innerHTML = content.innerHTML;
 
-  function animate(t){
-    const dt = (t - last) / 1000;
-    last = t;
+let y = 0;
+let last = performance.now();
 
-    y -= speed * dt;
+function animate(t){
 
-    const h = content.offsetHeight;
-    if (-y >= h) y += h;
+const dt = (t-last)/1000;
+last = t;
 
-    scrollArea.style.transform = `translateY(${y}px)`;
-    requestAnimationFrame(animate);
-  }
+y -= speed * dt;
 
-  requestAnimationFrame(animate);
-})();
+const h = content.offsetHeight;
+
+if(-y >= h) y += h;
+
+scrollArea.style.transform = `translateY(${y}px)`;
+
+requestAnimationFrame(animate);
+
+}
+
+requestAnimationFrame(animate);
+
 </script>
 
 </body>
