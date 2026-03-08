@@ -17,47 +17,39 @@
     font-family: system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
   }
 
-  /* Scroll container fills the browser source */
   #scrollArea{
     position:absolute;
     inset:0;
     display:flex;
     flex-direction:column;
-    align-items:stretch;   /* 👈 allows full-width blocks */
+    align-items:stretch;
     will-change: transform;
   }
 
-  /* FULL WIDTH STACK */
   .blocks{
     width:100%;
     box-sizing:border-box;
     margin: 2vh 0 4vh;
-    padding: 0;            /* 👈 remove side padding (full width) */
+    padding: 0;
     display:flex;
     flex-direction:column;
     gap: 2vh;
   }
 
-  /* FULL WIDTH BARS */
   .dayblock{
     width:100%;
     box-sizing:border-box;
-    border-radius: 18px;
+    border-radius:18px;
     color:#fff;
-
-    /* full-width look (keep vertical padding generous) */
-    padding: 3vh 48px;     /* 👈 big readable inset; reduce to 36px if you want more width */
-
+    padding:3vh 48px;
     position:relative;
     overflow:hidden;
-
     box-shadow:
       0 12px 22px rgba(0,0,0,.35),
       inset 0 1px 0 rgba(255,255,255,.35),
       inset 0 -1px 0 rgba(0,0,0,.30);
   }
 
-  /* shine */
   .dayblock::before{
     content:"";
     position:absolute;
@@ -70,52 +62,47 @@
     pointer-events:none;
   }
 
-  /* DAY TITLE */
   .daytitle{
     position:relative;
     font-weight:900;
-    font-size: clamp(28px, 3vh, 48px);
-    margin-bottom: 1.4vh;
-    text-shadow: 0 3px 6px rgba(0,0,0,.55);
-    white-space: nowrap;
+    font-size:clamp(28px, 3vh, 48px);
+    margin-bottom:1.4vh;
+    text-shadow:0 3px 6px rgba(0,0,0,.55);
+    white-space:nowrap;
     overflow:hidden;
-    text-overflow: ellipsis;
+    text-overflow:ellipsis;
   }
 
-  /* EVENT ROWS */
   .rows{
     position:relative;
     display:flex;
     flex-direction:column;
-    gap: 1vh;
+    gap:1vh;
   }
 
   .row{
     display:flex;
     justify-content:space-between;
-    align-items:baseline;
-    gap: 20px;
-
-    font-size: clamp(22px, 2.6vh, 36px);
+    align-items:center;
+    gap:20px;
+    font-size:clamp(22px, 2.6vh, 36px);
     font-weight:700;
-    line-height: 1.12;
-    text-shadow: 0 2px 5px rgba(0,0,0,.45);
-
-    white-space: nowrap;
+    line-height:1.12;
+    text-shadow:0 2px 5px rgba(0,0,0,.45);
+    white-space:nowrap;
     overflow:hidden;
   }
 
   .event{
     overflow:hidden;
-    text-overflow: ellipsis;
+    text-overflow:ellipsis;
   }
 
   .time{
-    flex: 0 0 auto;
+    flex:0 0 auto;
     font-weight:900;
   }
 
-  /* COLORS */
   .orange{background:linear-gradient(180deg,#c76512,#9f3f07);}
   .blue  {background:linear-gradient(180deg,#1b5f9a,#0d3f72);}
   .green {background:linear-gradient(180deg,#2f7a36,#1f5f29);}
@@ -132,44 +119,44 @@
       <div class="dayblock orange">
         <div class="daytitle">Sunday, March 8</div>
         <div class="rows">
-          <div class="row"><div class="event">Discipleship Groups</div><div class="time">9:15a</div></div>
-          <div class="row"><div class="event">Kids Worship</div><div class="time">9:15a</div></div>
-          <div class="row"><div class="event">Traditional Worship</div><div class="time">9:30a</div></div>
-          <div class="row"><div class="event">Contemporary Worship</div><div class="time">10:30a</div></div>
-          <div class="row"><div class="event">Discipleship Groups</div><div class="time">10:30a</div></div>
-          <div class="row"><div class="event">Youth</div><div class="time">4:00p</div></div>
+          <div class="row"><span class="event">Discipleship Groups</span><span class="time">9:15a</span></div>
+          <div class="row"><span class="event">Kids Worship</span><span class="time">9:15a</span></div>
+          <div class="row"><span class="event">Traditional Worship</span><span class="time">9:30a</span></div>
+          <div class="row"><span class="event">Contemporary Worship</span><span class="time">10:30a</span></div>
+          <div class="row"><span class="event">Discipleship Groups</span><span class="time">10:30a</span></div>
+          <div class="row"><span class="event">Youth</span><span class="time">4:00p</span></div>
         </div>
       </div>
 
       <div class="dayblock blue">
         <div class="daytitle">Monday, March 9</div>
         <div class="rows">
-          <div class="row"><div class="event">Mountain Mission pickup</div><div class="time">12:00p</div></div>
-          <div class="row"><div class="event">Men’s Jail Ministry</div><div class="time">3:00p</div></div>
-          <div class="row"><div class="event">Scout Troop 14</div><div class="time">7:30p</div></div>
+          <div class="row"><span class="event">Mountain Mission Pickup</span><span class="time">12:00p</span></div>
+          <div class="row"><span class="event">Men's Jail Ministry</span><span class="time">3:00p</span></div>
+          <div class="row"><span class="event">Scout Troop 14</span><span class="time">7:30p</span></div>
         </div>
       </div>
 
       <div class="dayblock green">
         <div class="daytitle">Tuesday, March 10</div>
         <div class="rows">
-          <div class="row"><div class="event">Men’s Jail Ministry</div><div class="time">3:00p</div></div>
+          <div class="row"><span class="event">Men's Jail Ministry</span><span class="time">3:00p</span></div>
         </div>
       </div>
 
       <div class="dayblock purple">
         <div class="daytitle">Wednesday, March 11</div>
         <div class="rows">
-          <div class="row"><div class="event">Choir Practice</div><div class="time">6:45p</div></div>
-          <div class="row"><div class="event">Praise Team practice</div><div class="time">7:30p</div></div>
+          <div class="row"><span class="event">Choir Practice</span><span class="time">6:45p</span></div>
+          <div class="row"><span class="event">Praise Team Practice</span><span class="time">7:30p</span></div>
         </div>
       </div>
 
       <div class="dayblock orange">
         <div class="daytitle">Thursday, March 12</div>
         <div class="rows">
-          <div class="row"><div class="event">Cub Scout Pack 32</div><div class="time">6:30p</div></div>
-          <div class="row"><div class="event">AA</div><div class="time">7:00p</div></div>
+          <div class="row"><span class="event">Cub Scout Pack 32</span><span class="time">6:30p</span></div>
+          <div class="row"><span class="event">AA</span><span class="time">7:00p</span></div>
         </div>
       </div>
 
