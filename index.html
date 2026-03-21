@@ -10,86 +10,98 @@
 :root { --speed: 12; }
 
 html,body{
-margin:0;
-padding:0;
-width:100%;
-height:100%;
-background:transparent!important;
-overflow:hidden;
-font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  background:transparent!important;
+  overflow:hidden;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 }
 
 #scrollArea{
-position:absolute;
-inset:0;
-display:flex;
-flex-direction:column;
-align-items:stretch;
-will-change:transform;
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  will-change:transform;
 }
 
 .blocks{
-width:100%;
-margin:2vh 0 4vh;
-display:flex;
-flex-direction:column;
-gap:2vh;
+  width:100%;
+  margin:2vh 0 4vh;
+  display:flex;
+  flex-direction:column;
+  gap:2vh;
 }
 
 .dayblock{
-width:100%;
-border-radius:18px;
-color:white;
-padding:3vh 48px;
-position:relative;
-overflow:hidden;
-box-shadow:
-0 12px 22px rgba(0,0,0,.35),
-inset 0 1px 0 rgba(255,255,255,.35),
-inset 0 -1px 0 rgba(0,0,0,.30);
+  width:100%;
+  box-sizing:border-box;
+  border-radius:18px;
+  color:#fff;
+  padding:3vh 32px; /* reduced from 48px */
+  position:relative;
+  overflow:hidden;
+  box-shadow:
+    0 12px 22px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.35),
+    inset 0 -1px 0 rgba(0,0,0,.30);
 }
 
 .dayblock::before{
-content:"";
-position:absolute;
-inset:-45% -25%;
-background:linear-gradient(110deg,
-rgba(255,255,255,.25) 0%,
-rgba(255,255,255,.10) 25%,
-rgba(255,255,255,0) 55%);
-transform:rotate(-6deg);
+  content:"";
+  position:absolute;
+  inset:-45% -25%;
+  background:linear-gradient(110deg,
+    rgba(255,255,255,.25) 0%,
+    rgba(255,255,255,.10) 25%,
+    rgba(255,255,255,0) 55%);
+  transform:rotate(-6deg);
 }
 
 .daytitle{
-font-weight:900;
-font-size:clamp(28px,3vh,48px);
-margin-bottom:1.4vh;
-text-shadow:0 3px 6px rgba(0,0,0,.55);
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
+  position:relative;
+  font-weight:900;
+  font-size:clamp(26px,2.8vh,42px);
+  margin-bottom:1.2vh;
+  text-shadow:0 3px 6px rgba(0,0,0,.55);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .rows{
-display:flex;
-flex-direction:column;
-gap:1vh;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:.9vh;
 }
 
 .row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
-font-size:clamp(22px,2.6vh,36px);
-font-weight:700;
-text-shadow:0 2px 5px rgba(0,0,0,.45);
-white-space:nowrap;
-overflow:hidden;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+  font-size:clamp(18px,2.2vh,30px); /* reduced */
+  font-weight:700;
+  line-height:1.12;
+  text-shadow:0 2px 5px rgba(0,0,0,.45);
+  white-space:nowrap;
+  overflow:hidden;
+}
+
+.event{
+  flex:1 1 auto;
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .time{
-font-weight:900;
+  flex:0 0 auto;
+  font-weight:900;
 }
 
 .orange{background:linear-gradient(180deg,#c76512,#9f3f07);}
@@ -102,59 +114,57 @@ font-weight:900;
 <body>
 
 <div id="scrollArea">
+  <div id="content">
 
-<div id="content">
+    <div class="blocks">
 
-<div class="blocks">
+      <div class="dayblock orange">
+        <div class="daytitle">Sunday, March 22</div>
+        <div class="rows">
+          <div class="row"><span class="event">Discipleship Groups &amp; Children’s Worship</span><span class="time">9:15a</span></div>
+          <div class="row"><span class="event">Traditional Worship</span><span class="time">9:30a</span></div>
+          <div class="row"><span class="event">Contemporary Worship</span><span class="time">10:30a</span></div>
+          <div class="row"><span class="event">Discipleship Groups</span><span class="time">10:30a</span></div>
+          <div class="row"><span class="event">Youth</span><span class="time">4:00p</span></div>
+          <div class="row"><span class="event">Breaking Bread, Launch Service Today</span><span class="time">4:00p</span></div>
+        </div>
+      </div>
 
-<div class="dayblock orange">
-<div class="daytitle">Sunday, March 22</div>
-<div class="rows">
-<div class="row"><span>Discipleship Groups &amp; Children’s Worship</span><span class="time">9:15a</span></div>
-<div class="row"><span>Traditional Worship</span><span class="time">9:30a</span></div>
-<div class="row"><span>Contemporary Worship</span><span class="time">10:30a</span></div>
-<div class="row"><span>Discipleship Groups</span><span class="time">10:30a</span></div>
-<div class="row"><span>Youth</span><span class="time">4:00p</span></div>
-<div class="row"><span>Breaking Bread Launch Service</span><span class="time">4:00p</span></div>
-</div>
-</div>
+      <div class="dayblock blue">
+        <div class="daytitle">Monday, March 23</div>
+        <div class="rows">
+          <div class="row"><span class="event">Men's Jail Ministry</span><span class="time">3:00p</span></div>
+          <div class="row"><span class="event">Scout Troop 14</span><span class="time">7:00p</span></div>
+        </div>
+      </div>
 
-<div class="dayblock blue">
-<div class="daytitle">Monday, March 23</div>
-<div class="rows">
-<div class="row"><span>Men's Jail Ministry</span><span class="time">3:00p</span></div>
-<div class="row"><span>Scout Troop 14</span><span class="time">7:00p</span></div>
-</div>
-</div>
+      <div class="dayblock green">
+        <div class="daytitle">Tuesday, March 24</div>
+        <div class="rows">
+          <div class="row"><span class="event">Men's Jail Ministry</span><span class="time">3:00p</span></div>
+        </div>
+      </div>
 
-<div class="dayblock green">
-<div class="daytitle">Tuesday, March 24</div>
-<div class="rows">
-<div class="row"><span>Men's Jail Ministry</span><span class="time">3:00p</span></div>
-</div>
-</div>
+      <div class="dayblock purple">
+        <div class="daytitle">Wednesday, March 25</div>
+        <div class="rows">
+          <div class="row"><span class="event">Choir Rehearsal</span><span class="time">6:45p</span></div>
+          <div class="row"><span class="event">Praise Team Practice</span><span class="time">7:30p</span></div>
+        </div>
+      </div>
 
-<div class="dayblock purple">
-<div class="daytitle">Wednesday, March 25</div>
-<div class="rows">
-<div class="row"><span>Choir Rehearsal</span><span class="time">6:45p</span></div>
-<div class="row"><span>Praise Team Practice</span><span class="time">7:30p</span></div>
-</div>
-</div>
+      <div class="dayblock orange">
+        <div class="daytitle">Thursday, March 26</div>
+        <div class="rows">
+          <div class="row"><span class="event">Cub Scout Pack 32</span><span class="time">6:30p</span></div>
+          <div class="row"><span class="event">AA</span><span class="time">7:00p</span></div>
+        </div>
+      </div>
 
-<div class="dayblock orange">
-<div class="daytitle">Thursday, March 26</div>
-<div class="rows">
-<div class="row"><span>Cub Scout Pack 32</span><span class="time">6:30p</span></div>
-<div class="row"><span>AA</span><span class="time">7:00p</span></div>
-</div>
-</div>
+    </div>
+  </div>
 
-</div>
-</div>
-
-<div id="clone"></div>
-
+  <div id="clone"></div>
 </div>
 
 <script>
@@ -170,18 +180,16 @@ let y = 0;
 let last = performance.now();
 
 function animate(t){
-const dt = (t-last)/1000;
-last = t;
+  const dt = (t-last)/1000;
+  last = t;
 
-y -= speed * dt;
+  y -= speed * dt;
 
-const h = content.offsetHeight;
+  const h = content.offsetHeight;
+  if(-y >= h) y += h;
 
-if(-y >= h) y += h;
-
-scrollArea.style.transform = `translateY(${y}px)`;
-
-requestAnimationFrame(animate);
+  scrollArea.style.transform = `translateY(${y}px)`;
+  requestAnimationFrame(animate);
 }
 
 requestAnimationFrame(animate);
