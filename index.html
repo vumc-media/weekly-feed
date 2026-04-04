@@ -38,7 +38,6 @@ html,body{
 
 .dayblock{
   width:100%;
-  box-sizing:border-box;
   border-radius:18px;
   color:#fff;
   padding:3vh 32px;
@@ -62,7 +61,6 @@ html,body{
 }
 
 .daytitle{
-  position:relative;
   font-weight:900;
   font-size:clamp(26px,2.8vh,42px);
   margin-bottom:1.2vh;
@@ -73,7 +71,6 @@ html,body{
 }
 
 .rows{
-  position:relative;
   display:flex;
   flex-direction:column;
   gap:.9vh;
@@ -86,7 +83,6 @@ html,body{
   gap:18px;
   font-size:clamp(18px,2.2vh,30px);
   font-weight:700;
-  line-height:1.12;
   text-shadow:0 2px 5px rgba(0,0,0,.45);
   white-space:nowrap;
   overflow:hidden;
@@ -114,70 +110,57 @@ html,body{
 <body>
 
 <div id="scrollArea">
-  <div id="content">
+<div id="content">
 
-    <div class="blocks">
+<div class="blocks">
 
-      <div class="dayblock orange">
-        <div class="daytitle">Sunday, March 29 — Palm Sunday</div>
-        <div class="rows">
-          <div class="row"><span class="event">Discipleship Groups &amp; Children’s Worship</span><span class="time">9:15a</span></div>
-          <div class="row"><span class="event">Traditional Worship</span><span class="time">9:30a</span></div>
-          <div class="row"><span class="event">Contemporary Worship</span><span class="time">10:30a</span></div>
-          <div class="row"><span class="event">Discipleship Group</span><span class="time">10:30a</span></div>
-          <div class="row"><span class="event">Easter Egg Hunt</span><span class="time">11:45a</span></div>
-          <div class="row"><span class="event">Youth</span><span class="time">4:00p</span></div>
-          <div class="row"><span class="event">Diaper Bank</span><span class="time">6:00p</span></div>
-        </div>
-      </div>
+<div class="dayblock orange">
+<div class="daytitle">Sunday, April 5 — Easter Sunday</div>
+<div class="rows">
+<div class="row"><span class="event">Parent Connect</span><span class="time">9:15a</span></div>
+<div class="row"><span class="event">Discipleship Classes</span><span class="time">9:30a</span></div>
+<div class="row"><span class="event">Combined Service</span><span class="time">10:30a</span></div>
+<div class="row"><span class="event">Youth</span><span class="time">4:00p</span></div>
+</div>
+</div>
 
-      <div class="dayblock blue">
-        <div class="daytitle">Monday, March 30</div>
-        <div class="rows">
-          <div class="row"><span class="event">J.O.Y.</span><span class="time">10:00a</span></div>
-          <div class="row"><span class="event">Men's Jail Ministry</span><span class="time">3:00p</span></div>
-          <div class="row"><span class="event">Scout Troop 14</span><span class="time">7:00p</span></div>
-        </div>
-      </div>
+<div class="dayblock blue">
+<div class="daytitle">Monday, April 6</div>
+<div class="rows">
+<div class="row"><span class="event">Men's Jail Ministry</span><span class="time">3:00p</span></div>
+<div class="row"><span class="event">Trustees</span><span class="time">6:00p</span></div>
+<div class="row"><span class="event">Scout Troop 14</span><span class="time">7:00p</span></div>
+</div>
+</div>
 
-      <div class="dayblock green">
-        <div class="daytitle">Tuesday, March 31</div>
-        <div class="rows">
-          <div class="row"><span class="event">Men's Jail Ministry</span><span class="time">3:00p</span></div>
-        </div>
-      </div>
+<div class="dayblock green">
+<div class="daytitle">Tuesday, April 7</div>
+<div class="rows">
+<div class="row"><span class="event">Men's Jail Ministry</span><span class="time">3:00p</span></div>
+</div>
+</div>
 
-      <div class="dayblock purple">
-        <div class="daytitle">Wednesday, April 1</div>
-        <div class="rows">
-          <div class="row"><span class="event">Choir Rehearsal</span><span class="time">6:45p</span></div>
-          <div class="row"><span class="event">Praise Team Practice</span><span class="time">7:30p</span></div>
-        </div>
-      </div>
+<div class="dayblock purple">
+<div class="daytitle">Wednesday, April 8</div>
+<div class="rows">
+<div class="row"><span class="event">Praise Team Practice</span><span class="time">7:30p</span></div>
+</div>
+</div>
 
-      <div class="dayblock orange">
-        <div class="daytitle">Thursday, April 2</div>
-        <div class="rows">
-          <div class="row"><span class="event">Academy Chapel</span><span class="time">9:45a</span></div>
-          <div class="row"><span class="event">Cornerstones</span><span class="time">12:00p</span></div>
-          <div class="row"><span class="event">Cub Scout Pack 32</span><span class="time">6:30p</span></div>
-          <div class="row"><span class="event">AA</span><span class="time">7:00p</span></div>
-        </div>
-      </div>
+<div class="dayblock orange">
+<div class="daytitle">Thursday, April 9</div>
+<div class="rows">
+<div class="row"><span class="event">Academy Chapel</span><span class="time">9:45a</span></div>
+<div class="row"><span class="event">Cub Scout Pack 32</span><span class="time">6:30p</span></div>
+<div class="row"><span class="event">AA</span><span class="time">7:00p</span></div>
+</div>
+</div>
 
-      <div class="dayblock blue">
-        <div class="daytitle">Sunday, April 5 — Easter Sunday</div>
-        <div class="rows">
-          <div class="row"><span class="event">Holy Communion &amp; Baptismal Covenant</span><span class="time"></span></div>
-          <div class="row"><span class="event">Combined Service</span><span class="time">10:30a</span></div>
-          <div class="row"><span class="event">Youth</span><span class="time">4:00p</span></div>
-        </div>
-      </div>
+</div>
+</div>
 
-    </div>
-  </div>
+<div id="clone"></div>
 
-  <div id="clone"></div>
 </div>
 
 <script>
