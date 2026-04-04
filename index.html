@@ -38,9 +38,10 @@ html,body{
 
 .dayblock{
   width:100%;
+  box-sizing:border-box;
   border-radius:18px;
   color:#fff;
-  padding:3vh 32px;
+  padding:3vh 40px; /* slightly more safe space */
   position:relative;
   overflow:hidden;
   box-shadow:
@@ -68,20 +69,22 @@ html,body{
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
+  position:relative;
 }
 
 .rows{
   display:flex;
   flex-direction:column;
   gap:.9vh;
+  position:relative;
 }
 
 .row{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:18px;
-  font-size:clamp(18px,2.2vh,30px);
+  gap:20px;
+  font-size:clamp(17px,2.05vh,28px); /* slightly reduced */
   font-weight:700;
   text-shadow:0 2px 5px rgba(0,0,0,.45);
   white-space:nowrap;
@@ -96,7 +99,9 @@ html,body{
 }
 
 .time{
-  flex:0 0 auto;
+  flex:0 0 82px;      /* reserve space for time */
+  min-width:82px;
+  text-align:right;
   font-weight:900;
 }
 
@@ -160,7 +165,6 @@ html,body{
 </div>
 
 <div id="clone"></div>
-
 </div>
 
 <script>
