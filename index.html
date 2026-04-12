@@ -19,31 +19,29 @@ html,body{
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 }
 
-/* FIXED HEADER */
+/* HEADER */
 #header{
   position:absolute;
   top:0;
   left:0;
   right:0;
   z-index:20;
-  padding:18px 28px;
-  background:linear-gradient(180deg, rgba(115,0,0,.95), rgba(70,0,0,.92));
+  padding:16px;
+  background:linear-gradient(180deg,#7a0000,#4d0000);
   color:#fff;
   text-align:center;
   font-weight:900;
   font-size:clamp(28px,3.2vh,52px);
-  letter-spacing:.5px;
   text-transform:uppercase;
+  letter-spacing:.5px;
   box-shadow:0 8px 18px rgba(0,0,0,.35);
-  border-bottom:2px solid rgba(255,255,255,.18);
-  text-shadow:0 2px 6px rgba(0,0,0,.45);
 }
 
 /* SCROLL AREA */
 #scrollArea{
   position:absolute;
   inset:0;
-  top:96px; /* leaves room for fixed header */
+  top:90px;
   display:flex;
   flex-direction:column;
   align-items:stretch;
@@ -60,7 +58,6 @@ html,body{
 
 .dayblock{
   width:100%;
-  box-sizing:border-box;
   border-radius:18px;
   color:#fff;
   padding:3vh 40px;
@@ -88,17 +85,12 @@ html,body{
   font-size:clamp(26px,2.8vh,42px);
   margin-bottom:1.2vh;
   text-shadow:0 3px 6px rgba(0,0,0,.55);
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  position:relative;
 }
 
 .rows{
   display:flex;
   flex-direction:column;
   gap:.9vh;
-  position:relative;
 }
 
 .row{
@@ -110,23 +102,21 @@ html,body{
   font-weight:700;
   text-shadow:0 2px 5px rgba(0,0,0,.45);
   white-space:nowrap;
-  overflow:hidden;
 }
 
 .event{
-  flex:1 1 auto;
-  min-width:0;
+  flex:1;
   overflow:hidden;
   text-overflow:ellipsis;
 }
 
 .time{
-  flex:0 0 82px;
-  min-width:82px;
+  flex:0 0 90px;
   text-align:right;
   font-weight:900;
 }
 
+/* COLORS */
 .orange{background:linear-gradient(180deg,#c76512,#9f3f07);}
 .blue{background:linear-gradient(180deg,#1b5f9a,#0d3f72);}
 .green{background:linear-gradient(180deg,#2f7a36,#1f5f29);}
@@ -173,7 +163,8 @@ html,body{
 <div class="dayblock purple">
 <div class="daytitle">Wednesday, April 15</div>
 <div class="rows">
-<div class="row"><span class="event">Choir Practice</span><span class="time">6:45p</span></div>
+<div class="row"><span class="event">Faithful Families</span><span class="time">5:00p</span></div>
+<div class="row"><span class="event">Chancel Choir Practice</span><span class="time">6:45p</span></div>
 <div class="row"><span class="event">Praise Team Practice</span><span class="time">7:30p</span></div>
 </div>
 </div>
