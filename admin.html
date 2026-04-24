@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Weekly Feed Admin</title>
+
 <style>
 body{
   margin:0;
@@ -12,16 +13,9 @@ body{
   color:#fff;
   padding:30px;
 }
-.wrap{
-  max-width:900px;
-  margin:auto;
-}
+.wrap{max-width:1000px;margin:auto;}
 h1{margin-top:0;}
-label{
-  display:block;
-  font-weight:700;
-  margin:18px 0 8px;
-}
+label{display:block;font-weight:700;margin:18px 0 8px;}
 input,textarea{
   width:100%;
   box-sizing:border-box;
@@ -31,7 +25,7 @@ input,textarea{
   font-size:16px;
 }
 textarea{
-  min-height:420px;
+  min-height:360px;
   font-family:inherit;
   line-height:1.45;
 }
@@ -46,20 +40,108 @@ button{
   background:#42e8d5;
   color:#082222;
 }
-.status{
-  margin-top:18px;
+.status{margin-top:18px;font-weight:700;}
+.help{color:#cbd5e1;line-height:1.5;}
+
+.preview-title{
+  margin-top:34px;
+  font-size:24px;
+  font-weight:900;
+}
+
+.preview{
+  margin-top:14px;
+  background:#0b1220;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;
+  padding:18px;
+  max-height:520px;
+  overflow:auto;
+}
+
+.preview-header{
+  padding:14px;
+  margin-bottom:16px;
+  background:linear-gradient(180deg,#7a0000,#4d0000);
+  color:#fff;
+  text-align:center;
+  font-weight:900;
+  text-transform:uppercase;
+  border-radius:12px;
+  box-shadow:0 8px 18px rgba(0,0,0,.35);
+}
+
+.dayblock{
+  width:100%;
+  box-sizing:border-box;
+  border-radius:18px;
+  color:#fff;
+  padding:22px 32px;
+  margin-bottom:16px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:
+    0 12px 22px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.35),
+    inset 0 -1px 0 rgba(0,0,0,.30);
+}
+.dayblock::before{
+  content:"";
+  position:absolute;
+  inset:-45% -25%;
+  background:linear-gradient(110deg,
+    rgba(255,255,255,.25) 0%,
+    rgba(255,255,255,.10) 25%,
+    rgba(255,255,255,0) 55%);
+  transform:rotate(-6deg);
+}
+.daytitle{
+  position:relative;
+  font-weight:900;
+  font-size:28px;
+  margin-bottom:12px;
+  text-shadow:0 3px 6px rgba(0,0,0,.55);
+}
+.rows{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:18px;
+  font-size:20px;
   font-weight:700;
+  text-shadow:0 2px 5px rgba(0,0,0,.45);
+  white-space:nowrap;
+  overflow:hidden;
 }
-.help{
-  color:#cbd5e1;
-  line-height:1.5;
+.event{
+  flex:1 1 auto;
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
+.time{
+  flex:0 0 110px;
+  min-width:110px;
+  text-align:right;
+  font-weight:900;
+}
+.orange{background:linear-gradient(180deg,#c76512,#9f3f07);}
+.blue{background:linear-gradient(180deg,#1b5f9a,#0d3f72);}
+.green{background:linear-gradient(180deg,#2f7a36,#1f5f29);}
+.purple{background:linear-gradient(180deg,#5a2a7a,#3f1a5a);}
 </style>
 </head>
+
 <body>
 <div class="wrap">
   <h1>Weekly Feed Admin</h1>
-  <p class="help">Paste the weekly schedule exactly like you normally send it. Then click Save Schedule.</p>
+  <p class="help">Paste the weekly schedule exactly like you normally send it. Preview updates automatically. Then click Save Schedule.</p>
 
   <label>Admin Token</label>
   <input id="adminToken" type="password" placeholder="Enter admin token" />
@@ -75,9 +157,107 @@ Monday, April 20
   <button onclick="saveSchedule()">Save Schedule</button>
 
   <div id="status" class="status"></div>
+
+  <div class="preview-title">Live Preview</div>
+  <div class="preview">
+    <div class="preview-header">This Week at VUMC</div>
+    <div id="previewBlocks"></div>
+  </div>
 </div>
 
 <script>
+const colors = ["orange", "blue", "green", "purple"];
+
+function parseSchedule(raw) {
+  const lines = raw
+    .split(/\r?\n/)
+    .map(line => line.trim())
+    .filter(Boolean);
+
+  const dayRegex = /^(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\b/i;
+  const timeRegex = /^(\d{1,2}(?::\d{2})?\s*(?:am|pm|a|p)?(?:\s*[-–]\s*\d{1,2}(?::\d{2})?\s*(?:am|pm|a|p)?)?)\s+(.+)$/i;
+
+  const days = [];
+  let current = null;
+
+  for (const line of lines) {
+    if (dayRegex.test(line)) {
+      current = { title: line.replace(/\s+/g, " "), events: [] };
+      days.push(current);
+      continue;
+    }
+
+    if (!current) continue;
+
+    const match = line.match(timeRegex);
+    if (match) {
+      current.events.push({
+        time: normalizeTime(match[1]),
+        event: match[2].trim()
+      });
+    } else {
+      current.events.push({
+        time: "",
+        event: line
+      });
+    }
+  }
+
+  return days;
+}
+
+function normalizeTime(value) {
+  return value
+    .replace(/\s+/g, "")
+    .replace(/AM/gi, "a")
+    .replace(/PM/gi, "p")
+    .replace(/am/gi, "a")
+    .replace(/pm/gi, "p");
+}
+
+function escapeHTML(str){
+  return String(str || "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function updatePreview(){
+  const raw = document.getElementById("scheduleText").value;
+  const days = parseSchedule(raw);
+  const preview = document.getElementById("previewBlocks");
+
+  if(!days.length){
+    preview.innerHTML = `
+      <div class="dayblock orange">
+        <div class="daytitle">No Schedule Preview</div>
+        <div class="rows">
+          <div class="row"><span class="event">Paste your schedule above.</span><span class="time"></span></div>
+        </div>
+      </div>`;
+    return;
+  }
+
+  preview.innerHTML = days.map((day, index) => {
+    const color = colors[index % colors.length];
+    const rows = day.events.map(item => `
+      <div class="row">
+        <span class="event">${escapeHTML(item.event)}</span>
+        <span class="time">${escapeHTML(item.time)}</span>
+      </div>
+    `).join("");
+
+    return `
+      <div class="dayblock ${color}">
+        <div class="daytitle">${escapeHTML(day.title)}</div>
+        <div class="rows">${rows}</div>
+      </div>
+    `;
+  }).join("");
+}
+
 async function saveSchedule(){
   const token = document.getElementById("adminToken").value.trim();
   const rawSchedule = document.getElementById("scheduleText").value.trim();
@@ -113,6 +293,9 @@ async function saveSchedule(){
     status.textContent = "Error: " + err.message;
   }
 }
+
+document.getElementById("scheduleText").addEventListener("input", updatePreview);
+updatePreview();
 </script>
 </body>
 </html>
