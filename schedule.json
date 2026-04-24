@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-04-24T12:26:50.479Z",
-  "raw": "Sunday, April 26\n9:15am Discipleship Classes\n10:30am Combined Worship\nThe State of the Church presentation immediately following service. Lunch provided\n\nMonday, April 27\n3:00pm Men's Jail Ministry\n7:00 pm Scout Troop 14\n\nTuesday, April 28\n3:00pm Men's Jail Ministry\n\nWednesday, April 29\n6:45pm Chancel Choir practice\n7:30pm Praise Team practice\n\nThursday, April 30\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nSunday, May 3 Communion Sunday\n9:15am Discipleship Classes\n10:30am Combined Worship",
+  "updatedAt": "2026-04-24T14:03:12.432Z",
+  "raw": "Sunday, April 26\n9:15am Discipleship Classes\n10:30am Combined Worship\nThe State of the Church presentation immediately following service. Lunch provided\n\nMonday, April 27\n10:00 am  J.O.Y. \n3:00pm Men's Jail Ministry\n7:00 pm Scout Troop 14\n\nTuesday, April 28\n3:00pm Men's Jail Ministry\n\nWednesday, April 29\n6:45pm Chancel Choir practice\n7:30pm Praise Team practice\n\nThursday, April 30\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nSunday, May 3 Communion Sunday\n9:15am Discipleship Classes\n10:30am Combined Worship",
   "days": [
     {
       "title": "Sunday, April 26",
@@ -22,6 +22,10 @@
     {
       "title": "Monday, April 27",
       "events": [
+        {
+          "time": "10:00a",
+          "event": "J.O.Y."
+        },
         {
           "time": "3:00p",
           "event": "Men's Jail Ministry"
