@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-04-24T17:03:29.454Z",
-  "raw": "Sunday, April 26\n9:15am Discipleship Classes\n10:30am Combined Worship\nThe State of the Church presentation  following service. Lunch provided\n\nMonday, April 27\n10:00 am  J.O.Y. \n10:00  Higher ED \n3:00pm Men's Jail Ministry\n7:00 pm Scout Troop 14\n\nTuesday, April 28\n3:00pm Men's Jail Ministry\n\nWednesday, April 29\n6:45pm Chancel Choir practice\n7:30pm Praise Team practice\n\nThursday, April 30\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nSunday, May 3 Communion Sunday\n9:15am Discipleship Classes\n10:30am Combined Worship",
+  "updatedAt": "2026-05-01T16:15:14.260Z",
+  "raw": "Sunday, May 3 Communion Sunday\n9:15am Discipleship Classes\n10:30am Combined Worship\n4pm Youth\n\nMonday, May 4\n6:00pm Men's Jail Ministry\n7:00 pm Scout Troop 14\n\nTuesday, May 5\n3:00pm Men's Jail Ministry\n\nWednesday, May 6\n6:45pm Chancel Choir practice\n7:30pm Praise Team practice\n\nThursday, May 7\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nSaturday May 9\n12pm Mother’s Day Celebration \n\nSunday, May 10 Mother’s Day\n9:15am Discipleship Classes\n10:30am Combined Worship\n4pm Youth\n6pm Diaper Bank",
   "days": [
     {
-      "title": "Sunday, April 26",
+      "title": "Sunday, May 3 Communion Sunday",
       "events": [
         {
           "time": "9:15a",
@@ -14,24 +14,16 @@
           "event": "Combined Worship"
         },
         {
-          "time": "",
-          "event": "The State of the Church presentation  following service. Lunch provided"
+          "time": "4p",
+          "event": "Youth"
         }
       ]
     },
     {
-      "title": "Monday, April 27",
+      "title": "Monday, May 4",
       "events": [
         {
-          "time": "10:00a",
-          "event": "J.O.Y."
-        },
-        {
-          "time": "10:00",
-          "event": "Higher ED"
-        },
-        {
-          "time": "3:00p",
+          "time": "6:00p",
           "event": "Men's Jail Ministry"
         },
         {
@@ -41,7 +33,7 @@
       ]
     },
     {
-      "title": "Tuesday, April 28",
+      "title": "Tuesday, May 5",
       "events": [
         {
           "time": "3:00p",
@@ -50,7 +42,7 @@
       ]
     },
     {
-      "title": "Wednesday, April 29",
+      "title": "Wednesday, May 6",
       "events": [
         {
           "time": "6:45p",
@@ -63,7 +55,7 @@
       ]
     },
     {
-      "title": "Thursday, April 30",
+      "title": "Thursday, May 7",
       "events": [
         {
           "time": "9:45a",
@@ -80,7 +72,16 @@
       ]
     },
     {
-      "title": "Sunday, May 3 Communion Sunday",
+      "title": "Saturday May 9",
+      "events": [
+        {
+          "time": "12p",
+          "event": "Mother’s Day Celebration"
+        }
+      ]
+    },
+    {
+      "title": "Sunday, May 10 Mother’s Day",
       "events": [
         {
           "time": "9:15a",
@@ -89,6 +90,14 @@
         {
           "time": "10:30a",
           "event": "Combined Worship"
+        },
+        {
+          "time": "4p",
+          "event": "Youth"
+        },
+        {
+          "time": "6p",
+          "event": "Diaper Bank"
         }
       ]
     }
