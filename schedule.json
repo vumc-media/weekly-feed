@@ -1,85 +1,7 @@
 {
-  "updatedAt": "2026-05-01T16:15:14.260Z",
-  "raw": "Sunday, May 3 Communion Sunday\n9:15am Discipleship Classes\n10:30am Combined Worship\n4pm Youth\n\nMonday, May 4\n6:00pm Men's Jail Ministry\n7:00 pm Scout Troop 14\n\nTuesday, May 5\n3:00pm Men's Jail Ministry\n\nWednesday, May 6\n6:45pm Chancel Choir practice\n7:30pm Praise Team practice\n\nThursday, May 7\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nSaturday May 9\n12pm Mother’s Day Celebration \n\nSunday, May 10 Mother’s Day\n9:15am Discipleship Classes\n10:30am Combined Worship\n4pm Youth\n6pm Diaper Bank",
+  "updatedAt": "2026-05-08T18:43:57.216Z",
+  "raw": "Sunday, May 10 Mother’s Day\n9:15am Discipleship Classes\n10:30am Combined Worship\n4pm Youth\n6pm Diaper Bank\n\nMonday, May 11\n6:00pm Men's Jail Ministry\n7:00 pm Scout Troop 14\n\nTuesday, May 12\n3:00pm Men's Jail Ministry\n\nWednesday, May 13\n6:45pm Chancel Choir practice\n7:30pm Praise Team practice\n\nThursday, May 14\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nSaturday, May 16\n1:00 pm Come-Unity  Event \n\nSunday, May 17\n9:15am Discipleship Classes\n10:30am Combined Worship\n4pm Youth",
   "days": [
-    {
-      "title": "Sunday, May 3 Communion Sunday",
-      "events": [
-        {
-          "time": "9:15a",
-          "event": "Discipleship Classes"
-        },
-        {
-          "time": "10:30a",
-          "event": "Combined Worship"
-        },
-        {
-          "time": "4p",
-          "event": "Youth"
-        }
-      ]
-    },
-    {
-      "title": "Monday, May 4",
-      "events": [
-        {
-          "time": "6:00p",
-          "event": "Men's Jail Ministry"
-        },
-        {
-          "time": "7:00p",
-          "event": "Scout Troop 14"
-        }
-      ]
-    },
-    {
-      "title": "Tuesday, May 5",
-      "events": [
-        {
-          "time": "3:00p",
-          "event": "Men's Jail Ministry"
-        }
-      ]
-    },
-    {
-      "title": "Wednesday, May 6",
-      "events": [
-        {
-          "time": "6:45p",
-          "event": "Chancel Choir practice"
-        },
-        {
-          "time": "7:30p",
-          "event": "Praise Team practice"
-        }
-      ]
-    },
-    {
-      "title": "Thursday, May 7",
-      "events": [
-        {
-          "time": "9:45a",
-          "event": "Academy Chapel"
-        },
-        {
-          "time": "6:30p",
-          "event": "Cub Scout Pack 32"
-        },
-        {
-          "time": "7:00p",
-          "event": "AA"
-        }
-      ]
-    },
-    {
-      "title": "Saturday May 9",
-      "events": [
-        {
-          "time": "12p",
-          "event": "Mother’s Day Celebration"
-        }
-      ]
-    },
     {
       "title": "Sunday, May 10 Mother’s Day",
       "events": [
@@ -98,6 +20,84 @@
         {
           "time": "6p",
           "event": "Diaper Bank"
+        }
+      ]
+    },
+    {
+      "title": "Monday, May 11",
+      "events": [
+        {
+          "time": "6:00p",
+          "event": "Men's Jail Ministry"
+        },
+        {
+          "time": "7:00p",
+          "event": "Scout Troop 14"
+        }
+      ]
+    },
+    {
+      "title": "Tuesday, May 12",
+      "events": [
+        {
+          "time": "3:00p",
+          "event": "Men's Jail Ministry"
+        }
+      ]
+    },
+    {
+      "title": "Wednesday, May 13",
+      "events": [
+        {
+          "time": "6:45p",
+          "event": "Chancel Choir practice"
+        },
+        {
+          "time": "7:30p",
+          "event": "Praise Team practice"
+        }
+      ]
+    },
+    {
+      "title": "Thursday, May 14",
+      "events": [
+        {
+          "time": "9:45a",
+          "event": "Academy Chapel"
+        },
+        {
+          "time": "6:30p",
+          "event": "Cub Scout Pack 32"
+        },
+        {
+          "time": "7:00p",
+          "event": "AA"
+        }
+      ]
+    },
+    {
+      "title": "Saturday, May 16",
+      "events": [
+        {
+          "time": "1:00p",
+          "event": "Come-Unity  Event"
+        }
+      ]
+    },
+    {
+      "title": "Sunday, May 17",
+      "events": [
+        {
+          "time": "9:15a",
+          "event": "Discipleship Classes"
+        },
+        {
+          "time": "10:30a",
+          "event": "Combined Worship"
+        },
+        {
+          "time": "4p",
+          "event": "Youth"
         }
       ]
     }
