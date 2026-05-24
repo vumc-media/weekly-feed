@@ -1,22 +1,10 @@
 {
-  "updatedAt": "2026-05-24T00:58:16.325Z",
-  "raw": "Sunday, May 24 \nPentecost Sunday\nMemorial Day Sunday\nGraduate Recognition Sunday \n9:15am Discipleship Classes\n10:30am Combined Worship\n4pm Youth\n6pm Diaper Bank\n\nMonday, May 25\nChurch office & Academy closed\n\nTuesday, May 26\n3:00pm Men's Jail Ministry\n\nWednesday, May 27\n6:45pm Chancel Choir practice\n7:30pm Praise Team practice\n\nThursday, May 28\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-05-24T00:58:39.331Z",
+  "raw": "Sunday, May 24 Pentecost Sunday\n9:15am Discipleship Classes\n10:30am Combined Worship\n4pm Youth\n6pm Diaper Bank\n\nMonday, May 25\nChurch office & Academy closed\n\nTuesday, May 26\n3:00pm Men's Jail Ministry\n\nWednesday, May 27\n6:45pm Chancel Choir practice\n7:30pm Praise Team practice\n\nThursday, May 28\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
-      "title": "Sunday, May 24",
+      "title": "Sunday, May 24 Pentecost Sunday",
       "events": [
-        {
-          "time": "",
-          "event": "Pentecost Sunday"
-        },
-        {
-          "time": "",
-          "event": "Memorial Day Sunday"
-        },
-        {
-          "time": "",
-          "event": "Graduate Recognition Sunday"
-        },
         {
           "time": "9:15a",
           "event": "Discipleship Classes"
