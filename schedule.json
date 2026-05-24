@@ -1,10 +1,22 @@
 {
-  "updatedAt": "2026-05-15T17:33:34.853Z",
-  "raw": "Sunday, May 17\n9:15am Discipleship Classes\n10:30am Combined Worship\n4pm Youth\n\nMonday, May 18\n6:00pm Men's Jail Ministry\n7:00 pm Scout Troop 14\n\nTuesday, May 19\n3:00pm Men's Jail Ministry\n\nWednesday, May 20\n6:45pm Chancel Choir practice\n7:30pm Praise Team practice\n\nThursday, May 21\n9:45am Academy Chapel\n6:00pm Academy PreK Graduation\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nSunday, May 24\n9:15am Discipleship Classes\n10:30am Combined Worship\n4pm Youth\n\nMonday, May 25\nChurch office closed",
+  "updatedAt": "2026-05-24T00:58:16.325Z",
+  "raw": "Sunday, May 24 \nPentecost Sunday\nMemorial Day Sunday\nGraduate Recognition Sunday \n9:15am Discipleship Classes\n10:30am Combined Worship\n4pm Youth\n6pm Diaper Bank\n\nMonday, May 25\nChurch office & Academy closed\n\nTuesday, May 26\n3:00pm Men's Jail Ministry\n\nWednesday, May 27\n6:45pm Chancel Choir practice\n7:30pm Praise Team practice\n\nThursday, May 28\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
-      "title": "Sunday, May 17",
+      "title": "Sunday, May 24",
       "events": [
+        {
+          "time": "",
+          "event": "Pentecost Sunday"
+        },
+        {
+          "time": "",
+          "event": "Memorial Day Sunday"
+        },
+        {
+          "time": "",
+          "event": "Graduate Recognition Sunday"
+        },
         {
           "time": "9:15a",
           "event": "Discipleship Classes"
@@ -16,24 +28,24 @@
         {
           "time": "4p",
           "event": "Youth"
-        }
-      ]
-    },
-    {
-      "title": "Monday, May 18",
-      "events": [
-        {
-          "time": "6:00p",
-          "event": "Men's Jail Ministry"
         },
         {
-          "time": "7:00p",
-          "event": "Scout Troop 14"
+          "time": "6p",
+          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Tuesday, May 19",
+      "title": "Monday, May 25",
+      "events": [
+        {
+          "time": "",
+          "event": "Church office & Academy closed"
+        }
+      ]
+    },
+    {
+      "title": "Tuesday, May 26",
       "events": [
         {
           "time": "3:00p",
@@ -42,7 +54,7 @@
       ]
     },
     {
-      "title": "Wednesday, May 20",
+      "title": "Wednesday, May 27",
       "events": [
         {
           "time": "6:45p",
@@ -55,15 +67,11 @@
       ]
     },
     {
-      "title": "Thursday, May 21",
+      "title": "Thursday, May 28",
       "events": [
         {
           "time": "9:45a",
           "event": "Academy Chapel"
-        },
-        {
-          "time": "6:00p",
-          "event": "Academy PreK Graduation"
         },
         {
           "time": "6:30p",
@@ -72,32 +80,6 @@
         {
           "time": "7:00p",
           "event": "AA"
-        }
-      ]
-    },
-    {
-      "title": "Sunday, May 24",
-      "events": [
-        {
-          "time": "9:15a",
-          "event": "Discipleship Classes"
-        },
-        {
-          "time": "10:30a",
-          "event": "Combined Worship"
-        },
-        {
-          "time": "4p",
-          "event": "Youth"
-        }
-      ]
-    },
-    {
-      "title": "Monday, May 25",
-      "events": [
-        {
-          "time": "",
-          "event": "Church office closed"
         }
       ]
     }
