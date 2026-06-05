@@ -1,14 +1,10 @@
 {
-  "updatedAt": "2026-05-30T13:38:50.520Z",
-  "raw": "Sunday, May 31\nUMC Annual Conference\n9:15am Discipleship Classes\n10:30am Combined Worship\n4pm Youth\n\nMonday, June 1\nUMC Annual Conference\n6:00 pm Trustees\n6:00pm Men's Jail Ministry\n\nTuesday, June 2\nUMC Annual Conference\n3:00pm Men's Jail Ministry\n6:00 pm DYW Meeting\n\nWednesday, June 3\nUMC Annual Conference\n6:45pm Chancel Choir practice\n7:30pm Praise Team practice\n\nThursday, June 4\n9:45am Academy Chapel\n12:00 noon Cornerstones\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, June 5 \n5:00 pm DYW Rehearsal",
+  "updatedAt": "2026-06-05T19:33:32.239Z",
+  "raw": "Sunday, June 7 Communion Sunday\n9:15am Discipleship Classes\n10:30am Combined Worship\n6pm Diaper Bank\n\nMonday, June 8\n5:00pm Academy Board\n6:00pm Men's Jail Ministry\n\nTuesday, June 9\n3:00pm Men's Jail Ministry\n\nWednesday, June 10\n7:30pm Praise Team practice\n\nThursday, June 11\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, June 12",
   "days": [
     {
-      "title": "Sunday, May 31",
+      "title": "Sunday, June 7 Communion Sunday",
       "events": [
-        {
-          "time": "",
-          "event": "UMC Annual Conference"
-        },
         {
           "time": "9:15a",
           "event": "Discipleship Classes"
@@ -18,21 +14,17 @@
           "event": "Combined Worship"
         },
         {
-          "time": "4p",
-          "event": "Youth"
+          "time": "6p",
+          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, June 1",
+      "title": "Monday, June 8",
       "events": [
         {
-          "time": "",
-          "event": "UMC Annual Conference"
-        },
-        {
-          "time": "6:00p",
-          "event": "Trustees"
+          "time": "5:00p",
+          "event": "Academy Board"
         },
         {
           "time": "6:00p",
@@ -41,33 +33,17 @@
       ]
     },
     {
-      "title": "Tuesday, June 2",
+      "title": "Tuesday, June 9",
       "events": [
-        {
-          "time": "",
-          "event": "UMC Annual Conference"
-        },
         {
           "time": "3:00p",
           "event": "Men's Jail Ministry"
-        },
-        {
-          "time": "6:00p",
-          "event": "DYW Meeting"
         }
       ]
     },
     {
-      "title": "Wednesday, June 3",
+      "title": "Wednesday, June 10",
       "events": [
-        {
-          "time": "",
-          "event": "UMC Annual Conference"
-        },
-        {
-          "time": "6:45p",
-          "event": "Chancel Choir practice"
-        },
         {
           "time": "7:30p",
           "event": "Praise Team practice"
@@ -75,15 +51,11 @@
       ]
     },
     {
-      "title": "Thursday, June 4",
+      "title": "Thursday, June 11",
       "events": [
         {
           "time": "9:45a",
           "event": "Academy Chapel"
-        },
-        {
-          "time": "12:00",
-          "event": "noon Cornerstones"
         },
         {
           "time": "6:30p",
@@ -96,13 +68,8 @@
       ]
     },
     {
-      "title": "Friday, June 5",
-      "events": [
-        {
-          "time": "5:00p",
-          "event": "DYW Rehearsal"
-        }
-      ]
+      "title": "Friday, June 12",
+      "events": []
     }
   ]
 }
