@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-06-05T19:33:32.239Z",
-  "raw": "Sunday, June 7 Communion Sunday\n9:15am Discipleship Classes\n10:30am Combined Worship\n6pm Diaper Bank\n\nMonday, June 8\n5:00pm Academy Board\n6:00pm Men's Jail Ministry\n\nTuesday, June 9\n3:00pm Men's Jail Ministry\n\nWednesday, June 10\n7:30pm Praise Team practice\n\nThursday, June 11\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, June 12",
+  "updatedAt": "2026-06-12T17:34:00.022Z",
+  "raw": "Sunday, June 14 Flag Day\n9:15am Discipleship Classes\n10:30am Combined Worship\n11:45am Safe Sanctuary Training\n\nMonday, June 15\n6:00pm Men's Jail Ministry\n\nTuesday, June 16\n3:00pm Men's Jail Ministry\n6:00pm DYW Rehearsal \n\nWednesday, June 17\n7:30pm Praise Team practice\n\nThursday, June 18\n9:45am Academy Chapel\n12:00 Soul Survivors-Conf. Room\n5:00 BPW Meeting\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
-      "title": "Sunday, June 7 Communion Sunday",
+      "title": "Sunday, June 14 Flag Day",
       "events": [
         {
           "time": "9:15a",
@@ -14,18 +14,14 @@
           "event": "Combined Worship"
         },
         {
-          "time": "6p",
-          "event": "Diaper Bank"
+          "time": "11:45a",
+          "event": "Safe Sanctuary Training"
         }
       ]
     },
     {
-      "title": "Monday, June 8",
+      "title": "Monday, June 15",
       "events": [
-        {
-          "time": "5:00p",
-          "event": "Academy Board"
-        },
         {
           "time": "6:00p",
           "event": "Men's Jail Ministry"
@@ -33,16 +29,20 @@
       ]
     },
     {
-      "title": "Tuesday, June 9",
+      "title": "Tuesday, June 16",
       "events": [
         {
           "time": "3:00p",
           "event": "Men's Jail Ministry"
+        },
+        {
+          "time": "6:00p",
+          "event": "DYW Rehearsal"
         }
       ]
     },
     {
-      "title": "Wednesday, June 10",
+      "title": "Wednesday, June 17",
       "events": [
         {
           "time": "7:30p",
@@ -51,11 +51,19 @@
       ]
     },
     {
-      "title": "Thursday, June 11",
+      "title": "Thursday, June 18",
       "events": [
         {
           "time": "9:45a",
           "event": "Academy Chapel"
+        },
+        {
+          "time": "12:00",
+          "event": "Soul Survivors-Conf. Room"
+        },
+        {
+          "time": "5:00",
+          "event": "BPW Meeting"
         },
         {
           "time": "6:30p",
@@ -66,10 +74,6 @@
           "event": "AA"
         }
       ]
-    },
-    {
-      "title": "Friday, June 12",
-      "events": []
     }
   ]
 }
