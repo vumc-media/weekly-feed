@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-06-12T17:34:00.022Z",
-  "raw": "Sunday, June 14 Flag Day\n9:15am Discipleship Classes\n10:30am Combined Worship\n11:45am Safe Sanctuary Training\n\nMonday, June 15\n6:00pm Men's Jail Ministry\n\nTuesday, June 16\n3:00pm Men's Jail Ministry\n6:00pm DYW Rehearsal \n\nWednesday, June 17\n7:30pm Praise Team practice\n\nThursday, June 18\n9:45am Academy Chapel\n12:00 Soul Survivors-Conf. Room\n5:00 BPW Meeting\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-06-19T20:42:41.946Z",
+  "raw": "Sunday, June 21 Fathers Day\n9:15am Discipleship Classes\n10:30am Combined Worship\n6pm Diaper Bank\n\nMonday, June 22\n6:00pm Men's Jail Ministry\n6:00pm VBS\n\nTuesday, June 23\n3:00pm Men's Jail Ministry\n6:00pm VBS\n\nWednesday, June 24\n6:00pm VBS\n\nThursday, June 25\n9:45am Academy Chapel\n6:00pm VBS\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, June 26\n6:00pm VBS",
   "days": [
     {
-      "title": "Sunday, June 14 Flag Day",
+      "title": "Sunday, June 21 Fathers Day",
       "events": [
         {
           "time": "9:15a",
@@ -14,22 +14,26 @@
           "event": "Combined Worship"
         },
         {
-          "time": "11:45a",
-          "event": "Safe Sanctuary Training"
+          "time": "6p",
+          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, June 15",
+      "title": "Monday, June 22",
       "events": [
         {
           "time": "6:00p",
           "event": "Men's Jail Ministry"
+        },
+        {
+          "time": "6:00p",
+          "event": "VBS"
         }
       ]
     },
     {
-      "title": "Tuesday, June 16",
+      "title": "Tuesday, June 23",
       "events": [
         {
           "time": "3:00p",
@@ -37,33 +41,29 @@
         },
         {
           "time": "6:00p",
-          "event": "DYW Rehearsal"
+          "event": "VBS"
         }
       ]
     },
     {
-      "title": "Wednesday, June 17",
+      "title": "Wednesday, June 24",
       "events": [
         {
-          "time": "7:30p",
-          "event": "Praise Team practice"
+          "time": "6:00p",
+          "event": "VBS"
         }
       ]
     },
     {
-      "title": "Thursday, June 18",
+      "title": "Thursday, June 25",
       "events": [
         {
           "time": "9:45a",
           "event": "Academy Chapel"
         },
         {
-          "time": "12:00",
-          "event": "Soul Survivors-Conf. Room"
-        },
-        {
-          "time": "5:00",
-          "event": "BPW Meeting"
+          "time": "6:00p",
+          "event": "VBS"
         },
         {
           "time": "6:30p",
@@ -72,6 +72,15 @@
         {
           "time": "7:00p",
           "event": "AA"
+        }
+      ]
+    },
+    {
+      "title": "Friday, June 26",
+      "events": [
+        {
+          "time": "6:00p",
+          "event": "VBS"
         }
       ]
     }
