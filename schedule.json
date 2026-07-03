@@ -1,27 +1,39 @@
 {
-  "updatedAt": "2026-06-26T18:08:51.290Z",
-  "raw": "Sunday, June 28 \n9:15am Discipleship Classes\n10:30am Combined Worship\n12:00 Picnic at Pavilion\n\nMonday, June 29\n6:00pm Men's Jail Ministry\n\nTuesday, June 30\n3:00pm Men's Jail Ministry\n\nWednesday, July 1\nPraise Team 6:30pm\n\nThursday, July 2 \n9:45am Academy Chapel\n12:00 Cornerstones\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, July 3",
+  "updatedAt": "2026-07-03T20:36:39.703Z",
+  "raw": "Sunday, July 5 Communion Sunday\n9:15am Discipleship Classes\n9:30 Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n6pm Diaper Bank\n\nMonday, July 6\nMountain Mission Pickup\n6:00pm Men's Jail Ministry\n\nTuesday, July 7\n3:00pm Men's Jail Ministry\n6:00pm Trustees\n\nWednesday, July 8\nPraise Team 6:30pm\n\nThursday, July 9\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, July 10\n10-12:00 noon DYW",
   "days": [
     {
-      "title": "Sunday, June 28",
+      "title": "Sunday, July 5 Communion Sunday",
       "events": [
         {
           "time": "9:15a",
           "event": "Discipleship Classes"
         },
         {
-          "time": "10:30a",
-          "event": "Combined Worship"
+          "time": "9:30",
+          "event": "Traditional Service"
         },
         {
-          "time": "12:00",
-          "event": "Picnic at Pavilion"
+          "time": "10:30a",
+          "event": "Contemporary Worship"
+        },
+        {
+          "time": "10:30a",
+          "event": "Discipleship Classes"
+        },
+        {
+          "time": "6p",
+          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, June 29",
+      "title": "Monday, July 6",
       "events": [
+        {
+          "time": "",
+          "event": "Mountain Mission Pickup"
+        },
         {
           "time": "6:00p",
           "event": "Men's Jail Ministry"
@@ -29,16 +41,20 @@
       ]
     },
     {
-      "title": "Tuesday, June 30",
+      "title": "Tuesday, July 7",
       "events": [
         {
           "time": "3:00p",
           "event": "Men's Jail Ministry"
+        },
+        {
+          "time": "6:00p",
+          "event": "Trustees"
         }
       ]
     },
     {
-      "title": "Wednesday, July 1",
+      "title": "Wednesday, July 8",
       "events": [
         {
           "time": "",
@@ -47,15 +63,11 @@
       ]
     },
     {
-      "title": "Thursday, July 2",
+      "title": "Thursday, July 9",
       "events": [
         {
           "time": "9:45a",
           "event": "Academy Chapel"
-        },
-        {
-          "time": "12:00",
-          "event": "Cornerstones"
         },
         {
           "time": "6:30p",
@@ -68,8 +80,13 @@
       ]
     },
     {
-      "title": "Friday, July 3",
-      "events": []
+      "title": "Friday, July 10",
+      "events": [
+        {
+          "time": "10-12:00",
+          "event": "noon DYW"
+        }
+      ]
     }
   ]
 }
