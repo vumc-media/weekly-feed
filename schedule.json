@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-03T20:36:39.703Z",
-  "raw": "Sunday, July 5 Communion Sunday\n9:15am Discipleship Classes\n9:30 Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n6pm Diaper Bank\n\nMonday, July 6\nMountain Mission Pickup\n6:00pm Men's Jail Ministry\n\nTuesday, July 7\n3:00pm Men's Jail Ministry\n6:00pm Trustees\n\nWednesday, July 8\nPraise Team 6:30pm\n\nThursday, July 9\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, July 10\n10-12:00 noon DYW",
+  "updatedAt": "2026-07-12T01:40:35.982Z",
+  "raw": "Sunday, July 12\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n\nMonday, July 13\n6:00pm Men's Jail Ministry\n\nTuesday, July 14\n3:00pm Men's Jail Ministry\n6:00pm DYW\n \nWednesday, July 15\n6:30pm Praise Team \n\nThursday, July 16\n9:45am Academy Chapel\n12:00 noon Soul Survivors\n5:00pm B & P W \n6:00pm Christian Church Pavilion\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
-      "title": "Sunday, July 5 Communion Sunday",
+      "title": "Sunday, July 12",
       "events": [
         {
           "time": "9:15a",
           "event": "Discipleship Classes"
         },
         {
-          "time": "9:30",
+          "time": "9:30p",
           "event": "Traditional Service"
         },
         {
@@ -20,20 +20,12 @@
         {
           "time": "10:30a",
           "event": "Discipleship Classes"
-        },
-        {
-          "time": "6p",
-          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, July 6",
+      "title": "Monday, July 13",
       "events": [
-        {
-          "time": "",
-          "event": "Mountain Mission Pickup"
-        },
         {
           "time": "6:00p",
           "event": "Men's Jail Ministry"
@@ -41,7 +33,7 @@
       ]
     },
     {
-      "title": "Tuesday, July 7",
+      "title": "Tuesday, July 14",
       "events": [
         {
           "time": "3:00p",
@@ -49,25 +41,37 @@
         },
         {
           "time": "6:00p",
-          "event": "Trustees"
+          "event": "DYW"
         }
       ]
     },
     {
-      "title": "Wednesday, July 8",
+      "title": "Wednesday, July 15",
       "events": [
         {
-          "time": "",
-          "event": "Praise Team 6:30pm"
+          "time": "6:30p",
+          "event": "Praise Team"
         }
       ]
     },
     {
-      "title": "Thursday, July 9",
+      "title": "Thursday, July 16",
       "events": [
         {
           "time": "9:45a",
           "event": "Academy Chapel"
+        },
+        {
+          "time": "12:00",
+          "event": "noon Soul Survivors"
+        },
+        {
+          "time": "5:00p",
+          "event": "B & P W"
+        },
+        {
+          "time": "6:00p",
+          "event": "Christian Church Pavilion"
         },
         {
           "time": "6:30p",
@@ -76,15 +80,6 @@
         {
           "time": "7:00p",
           "event": "AA"
-        }
-      ]
-    },
-    {
-      "title": "Friday, July 10",
-      "events": [
-        {
-          "time": "10-12:00",
-          "event": "noon DYW"
         }
       ]
     }
