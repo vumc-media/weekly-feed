@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-19T11:22:08.109Z",
-  "raw": "Sunday, July 19\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4:00pm Breaking Bread\n\nMonday, July 20\n6:00pm Finance\n7:00pm Council\n6:00pm Men's Jail Ministry\n\nTuesday, July 21\n3:00pm Men's Jail Ministry\n 6:00pm DYW\n\nWednesday, July 22\n6:30pm Praise Team \n\nThursday, July 23\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, July 24\n10:00am  DYW",
+  "updatedAt": "2026-07-19T11:24:35.342Z",
+  "raw": "Sunday, July 19\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4:00pm Breaking Bread\n6pm Diaper Bank\n\nMonday, July 20\n6:00pm Finance\n7:00pm Council\n6:00pm Men's Jail Ministry\n\nTuesday, July 21\n3:00pm Men's Jail Ministry\n 6:00pm DYW\n\nWednesday, July 22\n6:30pm Praise Team \n\nThursday, July 23\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, July 24\n10:00am  DYW",
   "days": [
     {
       "title": "Sunday, July 19",
@@ -24,6 +24,10 @@
         {
           "time": "4:00p",
           "event": "Breaking Bread"
+        },
+        {
+          "time": "6p",
+          "event": "Diaper Bank"
         }
       ]
     },
