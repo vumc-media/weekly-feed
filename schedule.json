@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-07-12T01:40:35.982Z",
-  "raw": "Sunday, July 12\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n\nMonday, July 13\n6:00pm Men's Jail Ministry\n\nTuesday, July 14\n3:00pm Men's Jail Ministry\n6:00pm DYW\n \nWednesday, July 15\n6:30pm Praise Team \n\nThursday, July 16\n9:45am Academy Chapel\n12:00 noon Soul Survivors\n5:00pm B & P W \n6:00pm Christian Church Pavilion\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-07-19T11:22:08.109Z",
+  "raw": "Sunday, July 19\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4:00pm Breaking Bread\n\nMonday, July 20\n6:00pm Finance\n7:00pm Council\n6:00pm Men's Jail Ministry\n\nTuesday, July 21\n3:00pm Men's Jail Ministry\n 6:00pm DYW\n\nWednesday, July 22\n6:30pm Praise Team \n\nThursday, July 23\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, July 24\n10:00am  DYW",
   "days": [
     {
-      "title": "Sunday, July 12",
+      "title": "Sunday, July 19",
       "events": [
         {
           "time": "9:15a",
@@ -20,12 +20,24 @@
         {
           "time": "10:30a",
           "event": "Discipleship Classes"
+        },
+        {
+          "time": "4:00p",
+          "event": "Breaking Bread"
         }
       ]
     },
     {
-      "title": "Monday, July 13",
+      "title": "Monday, July 20",
       "events": [
+        {
+          "time": "6:00p",
+          "event": "Finance"
+        },
+        {
+          "time": "7:00p",
+          "event": "Council"
+        },
         {
           "time": "6:00p",
           "event": "Men's Jail Ministry"
@@ -33,7 +45,7 @@
       ]
     },
     {
-      "title": "Tuesday, July 14",
+      "title": "Tuesday, July 21",
       "events": [
         {
           "time": "3:00p",
@@ -46,7 +58,7 @@
       ]
     },
     {
-      "title": "Wednesday, July 15",
+      "title": "Wednesday, July 22",
       "events": [
         {
           "time": "6:30p",
@@ -55,23 +67,11 @@
       ]
     },
     {
-      "title": "Thursday, July 16",
+      "title": "Thursday, July 23",
       "events": [
         {
           "time": "9:45a",
           "event": "Academy Chapel"
-        },
-        {
-          "time": "12:00",
-          "event": "noon Soul Survivors"
-        },
-        {
-          "time": "5:00p",
-          "event": "B & P W"
-        },
-        {
-          "time": "6:00p",
-          "event": "Christian Church Pavilion"
         },
         {
           "time": "6:30p",
@@ -80,6 +80,15 @@
         {
           "time": "7:00p",
           "event": "AA"
+        }
+      ]
+    },
+    {
+      "title": "Friday, July 24",
+      "events": [
+        {
+          "time": "10:00a",
+          "event": "DYW"
         }
       ]
     }
