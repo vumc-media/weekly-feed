@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-07-25T03:01:59.561Z",
-  "raw": "Sunday, July 26\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n\nMonday, July 27\n6:00pm Men's Jail Ministry\n\n\nTuesday, July 28\n3:00pm Men's Jail Ministry\n 6:00pm DYW\n\nWednesday, July 29\n6:30pm Praise Team  \n\nThursday, July 30\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, July 31\n10:00am  DYW",
+  "updatedAt": "2026-07-29T20:01:43.394Z",
+  "raw": "Sunday, August 2 Communon Sunday\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n6:00pm Diaper Bank\n\nMonday, August 3\n6:00pm Men's Jail Ministry\n\nTuesday, August 4\n3:00pm Men's Jail Ministry\n 6:00pm DYW\n\nWednesday, August 5\n6:30pm Praise Team  \n\nThursday, August 6\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, August 7\n10:00am  DYW",
   "days": [
     {
-      "title": "Sunday, July 26",
+      "title": "Sunday, August 2 Communon Sunday",
       "events": [
         {
           "time": "9:15a",
@@ -20,11 +20,15 @@
         {
           "time": "10:30a",
           "event": "Discipleship Classes"
+        },
+        {
+          "time": "6:00p",
+          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, July 27",
+      "title": "Monday, August 3",
       "events": [
         {
           "time": "6:00p",
@@ -33,7 +37,7 @@
       ]
     },
     {
-      "title": "Tuesday, July 28",
+      "title": "Tuesday, August 4",
       "events": [
         {
           "time": "3:00p",
@@ -46,7 +50,7 @@
       ]
     },
     {
-      "title": "Wednesday, July 29",
+      "title": "Wednesday, August 5",
       "events": [
         {
           "time": "6:30p",
@@ -55,7 +59,7 @@
       ]
     },
     {
-      "title": "Thursday, July 30",
+      "title": "Thursday, August 6",
       "events": [
         {
           "time": "9:45a",
@@ -72,7 +76,7 @@
       ]
     },
     {
-      "title": "Friday, July 31",
+      "title": "Friday, August 7",
       "events": [
         {
           "time": "10:00a",
