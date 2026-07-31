@@ -7,16 +7,30 @@
 <title>VUMC Weekly Schedule</title>
 
 <style>
-:root { --speed: 12; }
+:root{
+  --page-duration: 14s;
+  --fade-duration: 900ms;
+  --burgundy: #7a0000;
+  --burgundy-dark: #4d0000;
+  --cream: #f7f2e8;
+  --ink: #17202a;
+}
+
+*{
+  box-sizing:border-box;
+}
 
 html,body{
   margin:0;
-  padding:0;
   width:100%;
   height:100%;
   background:transparent!important;
   overflow:hidden;
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+
+body{
+  color:var(--ink);
 }
 
 #header{
@@ -25,184 +39,342 @@ html,body{
   left:0;
   right:0;
   z-index:20;
-  padding:16px;
-  background:linear-gradient(180deg,#7a0000,#4d0000);
+  min-height:72px;
+  padding:14px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,var(--burgundy),var(--burgundy-dark));
   color:#fff;
   text-align:center;
   font-weight:900;
-  font-size:clamp(28px,3.2vh,52px);
+  font-size:clamp(24px,3vh,46px);
   text-transform:uppercase;
-  letter-spacing:.5px;
-  box-shadow:0 8px 18px rgba(0,0,0,.35);
+  letter-spacing:.6px;
+  box-shadow:0 6px 16px rgba(0,0,0,.25);
 }
 
-#scrollArea{
+#stage{
   position:absolute;
-  inset:0;
-  top:90px;
-  display:flex;
-  flex-direction:column;
-  align-items:stretch;
-  will-change:transform;
+  inset:72px 0 0;
+  padding:18px;
+  overflow:hidden;
 }
 
-.blocks{
-  width:100%;
-  margin:2vh 0 4vh;
-  display:flex;
-  flex-direction:column;
-  gap:2vh;
+.page{
+  position:absolute;
+  inset:18px;
+  display:grid;
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  gap:18px;
+  opacity:0;
+  transition:opacity var(--fade-duration) ease;
+  pointer-events:none;
 }
 
-.dayblock{
-  width:100%;
-  box-sizing:border-box;
-  border-radius:18px;
+.page.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.daycard{
+  min-height:0;
+  display:grid;
+  grid-template-columns:minmax(145px,28%) 1fr;
+  overflow:hidden;
+  background:rgba(255,255,255,.97);
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:14px;
+  box-shadow:0 10px 22px rgba(0,0,0,.22);
+}
+
+.datepanel{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:18px 12px;
+  text-align:center;
   color:#fff;
-  padding:3vh 52px 3vh 36px;
-  position:relative;
-  overflow:hidden;
-  box-shadow:
-    0 12px 22px rgba(0,0,0,.35),
-    inset 0 1px 0 rgba(255,255,255,.35),
-    inset 0 -1px 0 rgba(0,0,0,.30);
+  background:linear-gradient(160deg,var(--burgundy),var(--burgundy-dark));
+  border-right:5px solid #d6b56a;
 }
 
-.dayblock::before{
-  content:"";
-  position:absolute;
-  inset:-45% -25%;
-  background:linear-gradient(110deg,
-    rgba(255,255,255,.25) 0%,
-    rgba(255,255,255,.10) 25%,
-    rgba(255,255,255,0) 55%);
-  transform:rotate(-6deg);
+.monthday{
+  font-size:clamp(28px,4.6vh,58px);
+  line-height:.95;
+  font-weight:950;
+  letter-spacing:.4px;
+  text-transform:uppercase;
 }
 
-.daytitle{
-  font-weight:900;
-  font-size:clamp(26px,2.8vh,42px);
-  margin-bottom:1.2vh;
-  text-shadow:0 3px 6px rgba(0,0,0,.55);
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+.weekday{
+  margin-top:10px;
+  font-size:clamp(17px,2.4vh,32px);
+  line-height:1;
+  font-weight:850;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  opacity:.92;
+}
+
+.eventpanel{
+  min-width:0;
+  min-height:0;
+  padding:18px 24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background:
+    linear-gradient(90deg,rgba(122,0,0,.035),transparent 35%),
+    var(--cream);
 }
 
 .rows{
+  width:100%;
   display:flex;
   flex-direction:column;
-  gap:.9vh;
+  justify-content:center;
+  gap:clamp(8px,1.3vh,18px);
 }
 
 .row{
-  display:flex;
-  justify-content:space-between;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
   align-items:baseline;
   gap:18px;
-  font-size:clamp(16px,1.95vh,26px);
-  font-weight:700;
-  text-shadow:0 2px 5px rgba(0,0,0,.45);
-  white-space:nowrap;
-  overflow:hidden;
+  padding-bottom:clamp(6px,1vh,12px);
+  border-bottom:1px solid rgba(23,32,42,.13);
+}
+
+.row:last-child{
+  border-bottom:0;
+  padding-bottom:0;
 }
 
 .event{
-  flex:1 1 auto;
   min-width:0;
-  overflow:hidden;
-  text-overflow:ellipsis;
+  font-size:clamp(19px,2.4vh,34px);
+  line-height:1.12;
+  font-weight:800;
+  overflow-wrap:anywhere;
 }
 
 .time{
-  flex:0 0 110px;
-  min-width:110px;
+  min-width:88px;
   text-align:right;
+  font-size:clamp(17px,2.1vh,30px);
+  line-height:1.1;
   font-weight:900;
-  letter-spacing:.2px;
+  color:var(--burgundy-dark);
+  white-space:normal;
 }
 
-.orange{background:linear-gradient(180deg,#c76512,#9f3f07);}
-.blue{background:linear-gradient(180deg,#1b5f9a,#0d3f72);}
-.green{background:linear-gradient(180deg,#2f7a36,#1f5f29);}
-.purple{background:linear-gradient(180deg,#5a2a7a,#3f1a5a);}
+.daycard.compact .event{
+  font-size:clamp(17px,2.05vh,29px);
+}
+
+.daycard.compact .time{
+  font-size:clamp(15px,1.85vh,25px);
+}
+
+.daycard.compact .rows{
+  gap:clamp(5px,.9vh,12px);
+}
+
+.daycard.dense .event{
+  font-size:clamp(15px,1.75vh,24px);
+}
+
+.daycard.dense .time{
+  font-size:clamp(14px,1.55vh,22px);
+}
+
+.daycard.dense .eventpanel{
+  padding-top:12px;
+  padding-bottom:12px;
+}
+
+.empty-card{
+  grid-column:1 / -1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+  text-align:center;
+  background:var(--cream);
+  font-size:clamp(22px,3vh,42px);
+  font-weight:850;
+  color:var(--burgundy-dark);
+}
+
+@media (max-width:700px){
+  .daycard{
+    grid-template-columns:minmax(110px,34%) 1fr;
+  }
+
+  .eventpanel{
+    padding-left:16px;
+    padding-right:16px;
+  }
+
+  .row{
+    gap:10px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <div id="header">This Week at VUMC</div>
-
-<div id="scrollArea">
-  <div id="content">
-    <div id="blocks" class="blocks"></div>
-  </div>
-  <div id="clone"></div>
-</div>
+<div id="stage" aria-live="polite"></div>
 
 <script>
-const colors = ["orange", "blue", "green", "purple"];
+const DAYS_PER_PAGE = 2;
+const PAGE_DURATION = 14000;
 
 async function loadSchedule(){
+  const stage = document.getElementById("stage");
+
   try{
     const res = await fetch("schedule.json?v=" + Date.now(), { cache:"no-store" });
-    const data = await res.json();
 
-    if(!data.days || !data.days.length){
-      document.getElementById("blocks").innerHTML = makeEmpty();
+    if(!res.ok){
+      throw new Error("Schedule request failed");
+    }
+
+    const data = await res.json();
+    const days = Array.isArray(data.days) ? data.days : [];
+
+    if(!days.length){
+      renderMessage("No Schedule Posted", "Please check back soon.");
       return;
     }
 
-    renderSchedule(data.days);
-    startScroll();
+    renderPages(days);
+    beginRotation();
   }catch(err){
-    document.getElementById("blocks").innerHTML = makeError();
-    startScroll();
+    renderMessage("Schedule Unavailable", "Please check back soon.");
   }
 }
 
-function renderSchedule(days){
-  const blocks = document.getElementById("blocks");
+function renderPages(days){
+  const stage = document.getElementById("stage");
+  const pages = [];
 
-  blocks.innerHTML = days.map((day, index) => {
-    const color = colors[index % colors.length];
+  for(let i = 0; i < days.length; i += DAYS_PER_PAGE){
+    pages.push(days.slice(i, i + DAYS_PER_PAGE));
+  }
 
-    const rows = day.events.map(item => `
-      <div class="row">
-        <span class="event">${escapeHTML(item.event)}</span>
-        <span class="time">${escapeHTML(item.time || "")}</span>
+  stage.innerHTML = pages.map((pageDays, pageIndex) => `
+    <section class="page ${pageIndex === 0 ? "active" : ""}" data-page="${pageIndex}">
+      ${pageDays.map(makeDayCard).join("")}
+      ${pageDays.length === 1 ? makeBlankCard() : ""}
+    </section>
+  `).join("");
+}
+
+function makeDayCard(day){
+  const events = Array.isArray(day.events) ? day.events : [];
+  const densityClass = events.length >= 6 ? "dense" : events.length >= 4 ? "compact" : "";
+  const parsed = splitDayTitle(day.title);
+
+  const rows = events.length
+    ? events.map(item => `
+        <div class="row">
+          <div class="event">${escapeHTML(item.event)}</div>
+          <div class="time">${escapeHTML(item.time || "")}</div>
+        </div>
+      `).join("")
+    : `
+        <div class="row">
+          <div class="event">No events listed.</div>
+          <div class="time"></div>
+        </div>
+      `;
+
+  return `
+    <article class="daycard ${densityClass}">
+      <div class="datepanel">
+        <div class="monthday">${escapeHTML(parsed.date)}</div>
+        <div class="weekday">${escapeHTML(parsed.weekday)}</div>
       </div>
-    `).join("");
-
-    return `
-      <div class="dayblock ${color}">
-        <div class="daytitle">${escapeHTML(day.title)}</div>
+      <div class="eventpanel">
         <div class="rows">${rows}</div>
       </div>
-    `;
-  }).join("");
-}
-
-function makeEmpty(){
-  return `
-    <div class="dayblock orange">
-      <div class="daytitle">No Schedule Posted</div>
-      <div class="rows">
-        <div class="row"><span class="event">Please check back soon.</span><span class="time"></span></div>
-      </div>
-    </div>
+    </article>
   `;
 }
 
-function makeError(){
+function makeBlankCard(){
   return `
-    <div class="dayblock orange">
-      <div class="daytitle">Schedule Unavailable</div>
-      <div class="rows">
-        <div class="row"><span class="event">Please check back soon.</span><span class="time"></span></div>
-      </div>
-    </div>
+    <article class="daycard">
+      <div class="empty-card">More events will be posted soon.</div>
+    </article>
   `;
+}
+
+function renderMessage(title, message){
+  document.getElementById("stage").innerHTML = `
+    <section class="page active">
+      <article class="daycard">
+        <div class="datepanel">
+          <div class="monthday">VUMC</div>
+          <div class="weekday">Weekly Feed</div>
+        </div>
+        <div class="eventpanel">
+          <div class="rows">
+            <div class="row">
+              <div class="event">${escapeHTML(title)}</div>
+              <div class="time"></div>
+            </div>
+            <div class="row">
+              <div class="event">${escapeHTML(message)}</div>
+              <div class="time"></div>
+            </div>
+          </div>
+        </div>
+      </article>
+      ${makeBlankCard()}
+    </section>
+  `;
+}
+
+function splitDayTitle(title){
+  const clean = String(title || "").trim();
+
+  /*
+    Works with common admin entries such as:
+    "Sunday, August 2"
+    "August 2 - Sunday"
+    "Sunday August 2"
+    Falls back gracefully if the title uses another format.
+  */
+  const weekdayMatch = clean.match(/\b(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\b/i);
+  const dateMatch = clean.match(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}\b/i);
+
+  const weekday = weekdayMatch ? weekdayMatch[0] : "";
+  const date = dateMatch ? dateMatch[0] : clean.replace(weekdayMatch ? weekdayMatch[0] : "", "").replace(/^[,\s\-–—]+|[,\s\-–—]+$/g,"");
+
+  return {
+    date: date || clean || "Upcoming",
+    weekday: weekday || "Schedule"
+  };
+}
+
+function beginRotation(){
+  const pages = Array.from(document.querySelectorAll(".page"));
+  if(pages.length <= 1) return;
+
+  let current = 0;
+
+  setInterval(() => {
+    pages[current].classList.remove("active");
+    current = (current + 1) % pages.length;
+    pages[current].classList.add("active");
+  }, PAGE_DURATION);
 }
 
 function escapeHTML(str){
@@ -212,33 +384,6 @@ function escapeHTML(str){
     .replaceAll(">","&gt;")
     .replaceAll('"',"&quot;")
     .replaceAll("'","&#039;");
-}
-
-function startScroll(){
-  const speed = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--speed")) || 12;
-  const scrollArea = document.getElementById("scrollArea");
-  const content = document.getElementById("content");
-  const clone = document.getElementById("clone");
-
-  clone.innerHTML = content.innerHTML;
-
-  let y = 0;
-  let last = performance.now();
-
-  function animate(t){
-    const dt = (t-last)/1000;
-    last = t;
-
-    y -= speed * dt;
-
-    const h = content.offsetHeight;
-    if(-y >= h) y += h;
-
-    scrollArea.style.transform = `translateY(${y}px)`;
-    requestAnimationFrame(animate);
-  }
-
-  requestAnimationFrame(animate);
 }
 
 loadSchedule();
