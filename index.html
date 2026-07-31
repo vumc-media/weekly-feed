@@ -145,14 +145,14 @@ body{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  gap:clamp(8px,1.3vh,18px);
+  gap:clamp(14px,2.5vh,34px);
 }
 
 .row{
   display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  align-items:baseline;
-  gap:18px;
+  grid-template-columns:clamp(105px,18%,155px) minmax(0,1fr);
+  align-items:center;
+  gap:clamp(14px,2.2vw,30px);
   padding-bottom:clamp(6px,1vh,12px);
   border-bottom:1px solid rgba(23,32,42,.13);
 }
@@ -164,42 +164,55 @@ body{
 
 .event{
   min-width:0;
-  font-size:clamp(19px,2.4vh,34px);
-  line-height:1.12;
-  font-weight:800;
+  font-size:clamp(27px,4.2vh,56px);
+  line-height:1.08;
+  font-weight:850;
   overflow-wrap:anywhere;
 }
 
 .time{
-  min-width:88px;
-  text-align:right;
-  font-size:clamp(17px,2.1vh,30px);
-  line-height:1.1;
-  font-weight:900;
+  min-width:0;
+  text-align:left;
+  font-size:clamp(24px,3.5vh,46px);
+  line-height:1;
+  font-weight:950;
   color:var(--burgundy-dark);
-  white-space:normal;
+  white-space:nowrap;
 }
 
 .daycard.compact .event{
-  font-size:clamp(17px,2.05vh,29px);
+  font-size:clamp(23px,3.3vh,44px);
 }
 
 .daycard.compact .time{
-  font-size:clamp(15px,1.85vh,25px);
+  font-size:clamp(21px,2.9vh,38px);
 }
 
 .daycard.compact .rows{
-  gap:clamp(5px,.9vh,12px);
+  gap:clamp(10px,1.7vh,22px);
 }
 
 .daycard.dense .event{
-  font-size:clamp(15px,1.75vh,24px);
+  font-size:clamp(19px,2.55vh,34px);
 }
 
 .daycard.dense .time{
-  font-size:clamp(14px,1.55vh,22px);
+  font-size:clamp(18px,2.3vh,30px);
 }
 
+.daycard.very-dense .event{
+  font-size:clamp(16px,2.05vh,28px);
+}
+
+.daycard.very-dense .time{
+  font-size:clamp(15px,1.9vh,25px);
+}
+
+.daycard.very-dense .rows{
+  gap:clamp(5px,.9vh,12px);
+}
+
+.daycard.very-dense .eventpanel,
 .daycard.dense .eventpanel{
   padding-top:12px;
   padding-bottom:12px;
@@ -286,20 +299,23 @@ function renderPages(days){
 
 function makeDayCard(day){
   const events = Array.isArray(day.events) ? day.events : [];
-  const densityClass = events.length >= 6 ? "dense" : events.length >= 4 ? "compact" : "";
+  const densityClass =
+    events.length >= 8 ? "very-dense" :
+    events.length >= 6 ? "dense" :
+    events.length >= 4 ? "compact" : "";
   const parsed = splitDayTitle(day.title);
 
   const rows = events.length
     ? events.map(item => `
         <div class="row">
-          <div class="event">${escapeHTML(item.event)}</div>
           <div class="time">${escapeHTML(item.time || "")}</div>
+          <div class="event">${escapeHTML(item.event)}</div>
         </div>
       `).join("")
     : `
         <div class="row">
-          <div class="event">No events listed.</div>
           <div class="time"></div>
+          <div class="event">No events listed.</div>
         </div>
       `;
 
