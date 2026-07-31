@@ -68,13 +68,22 @@ body{
   grid-template-rows:minmax(0,1fr);
   gap:0;
   opacity:0;
-  transition:opacity var(--fade-duration) ease;
+  transform:translateY(38px);
+  transition:
+    opacity var(--fade-duration) ease,
+    transform var(--fade-duration) cubic-bezier(.22,.61,.36,1);
   pointer-events:none;
 }
 
 .page.active{
   opacity:1;
+  transform:translateY(0);
   pointer-events:auto;
+}
+
+.page.leaving{
+  opacity:0;
+  transform:translateY(-38px);
 }
 
 .daycard{
@@ -228,7 +237,7 @@ body{
 
 <body>
 
-<div id="header">This Week at VUMC</div>
+<div id="header">Coming Up</div>
 <div id="stage" aria-live="polite"></div>
 
 <script>
@@ -370,9 +379,24 @@ function beginRotation(){
   let current = 0;
 
   setInterval(() => {
-    pages[current].classList.remove("active");
+    const outgoing = pages[current];
+    outgoing.classList.remove("active");
+    outgoing.classList.add("leaving");
+
     current = (current + 1) % pages.length;
-    pages[current].classList.add("active");
+    const incoming = pages[current];
+
+    incoming.classList.remove("leaving");
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        incoming.classList.add("active");
+      });
+    });
+
+    setTimeout(() => {
+      outgoing.classList.remove("leaving");
+    }, 950);
   }, PAGE_DURATION);
 }
 
