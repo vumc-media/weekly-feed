@@ -65,8 +65,8 @@ body{
   position:absolute;
   inset:18px;
   display:grid;
-  grid-template-rows:repeat(2,minmax(0,1fr));
-  gap:18px;
+  grid-template-rows:minmax(0,1fr);
+  gap:0;
   opacity:0;
   transition:opacity var(--fade-duration) ease;
   pointer-events:none;
@@ -80,7 +80,7 @@ body{
 .daycard{
   min-height:0;
   display:grid;
-  grid-template-columns:minmax(145px,28%) 1fr;
+  grid-template-columns:minmax(170px,30%) 1fr;
   overflow:hidden;
   background:rgba(255,255,255,.97);
   border:1px solid rgba(0,0,0,.12);
@@ -122,7 +122,7 @@ body{
 .eventpanel{
   min-width:0;
   min-height:0;
-  padding:18px 24px;
+  padding:28px 32px;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -232,7 +232,7 @@ body{
 <div id="stage" aria-live="polite"></div>
 
 <script>
-const DAYS_PER_PAGE = 2;
+const DAYS_PER_PAGE = 1;
 const PAGE_DURATION = 14000;
 
 async function loadSchedule(){
@@ -271,7 +271,6 @@ function renderPages(days){
   stage.innerHTML = pages.map((pageDays, pageIndex) => `
     <section class="page ${pageIndex === 0 ? "active" : ""}" data-page="${pageIndex}">
       ${pageDays.map(makeDayCard).join("")}
-      ${pageDays.length === 1 ? makeBlankCard() : ""}
     </section>
   `).join("");
 }
