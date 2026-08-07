@@ -1,14 +1,10 @@
 {
-  "updatedAt": "2026-07-31T17:40:34.660Z",
-  "raw": "Sunday, August 2 \nCommunion Sunday\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4:00pm Bluegrass to Bolivia\n6:00pm Diaper Bank\n\nMonday, August 3\n6:00 Trustees\n6:00pm Men's Jail Ministry\n\nTuesday, August 4\n3:00pm Men's Jail Ministry\n\nWednesday, August 5\n6:30pm Praise Team  \n\nThursday, August 6\n12:00 Cornerstones\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-08-07T18:35:49.228Z",
+  "raw": "Sunday, August 9\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n1:00 pm Youth Back to School Bash \n\n\nMonday, August 10\n5:00pm Academy Board\n6:00pm Men's Jail Ministry\n\nTuesday, August 11\n3:00pm Men's Jail Ministry\n\nWednesday, August 12\n6:30pm Praise Team Practice\n\nThursday, August 13\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
-      "title": "Sunday, August 2",
+      "title": "Sunday, August 9",
       "events": [
-        {
-          "time": "",
-          "event": "Communion Sunday"
-        },
         {
           "time": "9:15a",
           "event": "Discipleship Classes"
@@ -26,21 +22,17 @@
           "event": "Discipleship Classes"
         },
         {
-          "time": "4:00p",
-          "event": "Bluegrass to Bolivia"
-        },
-        {
-          "time": "6:00p",
-          "event": "Diaper Bank"
+          "time": "1:00p",
+          "event": "Youth Back to School Bash"
         }
       ]
     },
     {
-      "title": "Monday, August 3",
+      "title": "Monday, August 10",
       "events": [
         {
-          "time": "6:00",
-          "event": "Trustees"
+          "time": "5:00p",
+          "event": "Academy Board"
         },
         {
           "time": "6:00p",
@@ -49,7 +41,7 @@
       ]
     },
     {
-      "title": "Tuesday, August 4",
+      "title": "Tuesday, August 11",
       "events": [
         {
           "time": "3:00p",
@@ -58,21 +50,17 @@
       ]
     },
     {
-      "title": "Wednesday, August 5",
+      "title": "Wednesday, August 12",
       "events": [
         {
           "time": "6:30p",
-          "event": "Praise Team"
+          "event": "Praise Team Practice"
         }
       ]
     },
     {
-      "title": "Thursday, August 6",
+      "title": "Thursday, August 13",
       "events": [
-        {
-          "time": "12:00",
-          "event": "Cornerstones"
-        },
         {
           "time": "9:45a",
           "event": "Academy Chapel"
