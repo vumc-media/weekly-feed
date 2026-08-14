@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-08-07T18:35:49.228Z",
-  "raw": "Sunday, August 9\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n1:00 pm Youth Back to School Bash \n\n\nMonday, August 10\n5:00pm Academy Board\n6:00pm Men's Jail Ministry\n\nTuesday, August 11\n3:00pm Men's Jail Ministry\n\nWednesday, August 12\n6:30pm Praise Team Practice\n\nThursday, August 13\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-08-14T18:00:58.372Z",
+  "raw": "Sunday, August 16\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n6pm Diaper Bank\n\nMonday, August 17\n6:00pm Scouts Court of Honor, Pavilion\n6:00pm Men's Jail Ministry\n6:00pm Finance\n7:00pm Council\n\nTuesday, August 18\n3:00pm Men's Jail Ministry\n6:00p Academy Family Picnic\n\nWednesday, August 19\n6:30pm Praise Team Practice\n\nThursday, August 20\n9:45am Academy Chapel\n12:00pm Soul Survivors\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
-      "title": "Sunday, August 9",
+      "title": "Sunday, August 16",
       "events": [
         {
           "time": "9:15a",
@@ -22,35 +22,47 @@
           "event": "Discipleship Classes"
         },
         {
-          "time": "1:00p",
-          "event": "Youth Back to School Bash"
+          "time": "6p",
+          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, August 10",
+      "title": "Monday, August 17",
       "events": [
         {
-          "time": "5:00p",
-          "event": "Academy Board"
+          "time": "6:00p",
+          "event": "Scouts Court of Honor, Pavilion"
         },
         {
           "time": "6:00p",
           "event": "Men's Jail Ministry"
+        },
+        {
+          "time": "6:00p",
+          "event": "Finance"
+        },
+        {
+          "time": "7:00p",
+          "event": "Council"
         }
       ]
     },
     {
-      "title": "Tuesday, August 11",
+      "title": "Tuesday, August 18",
       "events": [
         {
           "time": "3:00p",
           "event": "Men's Jail Ministry"
+        },
+        {
+          "time": "6:00p",
+          "event": "Academy Family Picnic"
         }
       ]
     },
     {
-      "title": "Wednesday, August 12",
+      "title": "Wednesday, August 19",
       "events": [
         {
           "time": "6:30p",
@@ -59,11 +71,15 @@
       ]
     },
     {
-      "title": "Thursday, August 13",
+      "title": "Thursday, August 20",
       "events": [
         {
           "time": "9:45a",
           "event": "Academy Chapel"
+        },
+        {
+          "time": "12:00p",
+          "event": "Soul Survivors"
         },
         {
           "time": "6:30p",
