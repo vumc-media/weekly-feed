@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-08-21T17:33:24.772Z",
-  "raw": "Sunday, August 23\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n12pm Dirty Soda Taste Test Event\n\nMonday, August 24\n6:00pm Men's Jail Ministry\n6:00pm Leisure Team Meeting\n\nTuesday, August 25\n3:00pm Men's Jail Ministry\n\nWednesday, August 26\n6:30pm Praise Team Practice\n\nThursday, August 27\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-08-29T11:11:46.807Z",
+  "raw": "Sunday, August 30\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10am - 2pm Academy BBQ Lunch Fundraiser\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n6pm Diaper Bank\n\nMonday, August 31\n5:00pm Academy Board\n6:00pm Men's Jail Ministry\n\nTuesday, September 1\n3:00pm Men's Jail Ministry\n\nWednesday, September 2\n6:30pm Praise Team Practice\n\nThursday, September 3\n9:45am Academy Chapel\n12pm Cornerstones\n6:00pm Trustees\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
-      "title": "Sunday, August 23",
+      "title": "Sunday, August 30",
       "events": [
         {
           "time": "9:15a",
@@ -14,6 +14,10 @@
           "event": "Traditional Service"
         },
         {
+          "time": "10a-2p",
+          "event": "Academy BBQ Lunch Fundraiser"
+        },
+        {
           "time": "10:30a",
           "event": "Contemporary Worship"
         },
@@ -22,26 +26,26 @@
           "event": "Discipleship Classes"
         },
         {
-          "time": "12p",
-          "event": "Dirty Soda Taste Test Event"
+          "time": "6p",
+          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, August 24",
+      "title": "Monday, August 31",
       "events": [
         {
-          "time": "6:00p",
-          "event": "Men's Jail Ministry"
+          "time": "5:00p",
+          "event": "Academy Board"
         },
         {
           "time": "6:00p",
-          "event": "Leisure Team Meeting"
+          "event": "Men's Jail Ministry"
         }
       ]
     },
     {
-      "title": "Tuesday, August 25",
+      "title": "Tuesday, September 1",
       "events": [
         {
           "time": "3:00p",
@@ -50,7 +54,7 @@
       ]
     },
     {
-      "title": "Wednesday, August 26",
+      "title": "Wednesday, September 2",
       "events": [
         {
           "time": "6:30p",
@@ -59,11 +63,19 @@
       ]
     },
     {
-      "title": "Thursday, August 27",
+      "title": "Thursday, September 3",
       "events": [
         {
           "time": "9:45a",
           "event": "Academy Chapel"
+        },
+        {
+          "time": "12p",
+          "event": "Cornerstones"
+        },
+        {
+          "time": "6:00p",
+          "event": "Trustees"
         },
         {
           "time": "6:30p",
