@@ -1,10 +1,14 @@
 {
-  "updatedAt": "2026-08-29T11:11:46.807Z",
-  "raw": "Sunday, August 30\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10am - 2pm Academy BBQ Lunch Fundraiser\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n6pm Diaper Bank\n\nMonday, August 31\n5:00pm Academy Board\n6:00pm Men's Jail Ministry\n\nTuesday, September 1\n3:00pm Men's Jail Ministry\n\nWednesday, September 2\n6:30pm Praise Team Practice\n\nThursday, September 3\n9:45am Academy Chapel\n12pm Cornerstones\n6:00pm Trustees\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-09-06T09:06:48.716Z",
+  "raw": "Sunday, September 6 \nCommunion Sunday\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n\nMonday, Septmber 7 Labor Day\nChurch Office & Academy Closed\n6:00pm Men's Jail Ministry\n\nTuesday, September 8\n3:00pm Men's Jail Ministry\n\nWednesday, September 9\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, September 10\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nSaturday, September 12\n10:00am  Twilight Festival",
   "days": [
     {
-      "title": "Sunday, August 30",
+      "title": "Sunday, September 6",
       "events": [
+        {
+          "time": "",
+          "event": "Communion Sunday"
+        },
         {
           "time": "9:15a",
           "event": "Discipleship Classes"
@@ -14,29 +18,21 @@
           "event": "Traditional Service"
         },
         {
-          "time": "10a-2p",
-          "event": "Academy BBQ Lunch Fundraiser"
-        },
-        {
           "time": "10:30a",
           "event": "Contemporary Worship"
         },
         {
           "time": "10:30a",
           "event": "Discipleship Classes"
-        },
-        {
-          "time": "6p",
-          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, August 31",
+      "title": "Monday, Septmber 7 Labor Day",
       "events": [
         {
-          "time": "5:00p",
-          "event": "Academy Board"
+          "time": "",
+          "event": "Church Office & Academy Closed"
         },
         {
           "time": "6:00p",
@@ -45,7 +41,7 @@
       ]
     },
     {
-      "title": "Tuesday, September 1",
+      "title": "Tuesday, September 8",
       "events": [
         {
           "time": "3:00p",
@@ -54,28 +50,24 @@
       ]
     },
     {
-      "title": "Wednesday, September 2",
+      "title": "Wednesday, September 9",
       "events": [
         {
-          "time": "6:30p",
+          "time": "6:45p",
+          "event": "Chancel Choir Practice"
+        },
+        {
+          "time": "7:30p",
           "event": "Praise Team Practice"
         }
       ]
     },
     {
-      "title": "Thursday, September 3",
+      "title": "Thursday, September 10",
       "events": [
         {
           "time": "9:45a",
           "event": "Academy Chapel"
-        },
-        {
-          "time": "12p",
-          "event": "Cornerstones"
-        },
-        {
-          "time": "6:00p",
-          "event": "Trustees"
         },
         {
           "time": "6:30p",
@@ -84,6 +76,15 @@
         {
           "time": "7:00p",
           "event": "AA"
+        }
+      ]
+    },
+    {
+      "title": "Saturday, September 12",
+      "events": [
+        {
+          "time": "10:00a",
+          "event": "Twilight Festival"
         }
       ]
     }
