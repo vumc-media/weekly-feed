@@ -1,14 +1,10 @@
 {
-  "updatedAt": "2026-09-06T09:06:48.716Z",
-  "raw": "Sunday, September 6 \nCommunion Sunday\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n\nMonday, Septmber 7 Labor Day\nChurch Office & Academy Closed\n6:00pm Men's Jail Ministry\n\nTuesday, September 8\n3:00pm Men's Jail Ministry\n\nWednesday, September 9\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, September 10\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nSaturday, September 12\n10:00am  Twilight Festival",
+  "updatedAt": "2026-09-13T10:12:08.631Z",
+  "raw": "Sunday, September 13\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n6pm Diaper Bank\n\nMonday, Septmber 14\n10:00 JOY\n6:00pm Men's Jail Ministry\n\nTuesday, September 15\n3:00pm Men's Jail Ministry\n\nWednesday, September 16\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, September 17\n12:00 noon Soul Survivors\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
-      "title": "Sunday, September 6",
+      "title": "Sunday, September 13",
       "events": [
-        {
-          "time": "",
-          "event": "Communion Sunday"
-        },
         {
           "time": "9:15a",
           "event": "Discipleship Classes"
@@ -24,15 +20,23 @@
         {
           "time": "10:30a",
           "event": "Discipleship Classes"
+        },
+        {
+          "time": "4p",
+          "event": "Youth"
+        },
+        {
+          "time": "6p",
+          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, Septmber 7 Labor Day",
+      "title": "Monday, Septmber 14",
       "events": [
         {
-          "time": "",
-          "event": "Church Office & Academy Closed"
+          "time": "10:00",
+          "event": "JOY"
         },
         {
           "time": "6:00p",
@@ -41,7 +45,7 @@
       ]
     },
     {
-      "title": "Tuesday, September 8",
+      "title": "Tuesday, September 15",
       "events": [
         {
           "time": "3:00p",
@@ -50,7 +54,7 @@
       ]
     },
     {
-      "title": "Wednesday, September 9",
+      "title": "Wednesday, September 16",
       "events": [
         {
           "time": "6:45p",
@@ -63,8 +67,12 @@
       ]
     },
     {
-      "title": "Thursday, September 10",
+      "title": "Thursday, September 17",
       "events": [
+        {
+          "time": "12:00",
+          "event": "noon Soul Survivors"
+        },
         {
           "time": "9:45a",
           "event": "Academy Chapel"
@@ -76,15 +84,6 @@
         {
           "time": "7:00p",
           "event": "AA"
-        }
-      ]
-    },
-    {
-      "title": "Saturday, September 12",
-      "events": [
-        {
-          "time": "10:00a",
-          "event": "Twilight Festival"
         }
       ]
     }
