@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-09-13T10:12:08.631Z",
-  "raw": "Sunday, September 13\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n6pm Diaper Bank\n\nMonday, Septmber 14\n10:00 JOY\n6:00pm Men's Jail Ministry\n\nTuesday, September 15\n3:00pm Men's Jail Ministry\n\nWednesday, September 16\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, September 17\n12:00 noon Soul Survivors\n9:45am Academy Chapel\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-09-15T02:09:32.874Z",
+  "raw": "Sunday, September 21\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n\nMonday, Septmber 22\n6:00pm Men's Jail Ministry\n6:00pm Finance\n7:00pm Council\n\nTuesday, September 23\n3:00pm Men's Jail Ministry\n\nWednesday, September 24\n6:45pm Chancel Choir Practice\n\nThursday, September 25\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
-      "title": "Sunday, September 13",
+      "title": "Sunday, September 21",
       "events": [
         {
           "time": "9:15a",
@@ -24,28 +24,28 @@
         {
           "time": "4p",
           "event": "Youth"
-        },
-        {
-          "time": "6p",
-          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, Septmber 14",
+      "title": "Monday, Septmber 22",
       "events": [
-        {
-          "time": "10:00",
-          "event": "JOY"
-        },
         {
           "time": "6:00p",
           "event": "Men's Jail Ministry"
+        },
+        {
+          "time": "6:00p",
+          "event": "Finance"
+        },
+        {
+          "time": "7:00p",
+          "event": "Council"
         }
       ]
     },
     {
-      "title": "Tuesday, September 15",
+      "title": "Tuesday, September 23",
       "events": [
         {
           "time": "3:00p",
@@ -54,29 +54,17 @@
       ]
     },
     {
-      "title": "Wednesday, September 16",
+      "title": "Wednesday, September 24",
       "events": [
         {
           "time": "6:45p",
           "event": "Chancel Choir Practice"
-        },
-        {
-          "time": "7:30p",
-          "event": "Praise Team Practice"
         }
       ]
     },
     {
-      "title": "Thursday, September 17",
+      "title": "Thursday, September 25",
       "events": [
-        {
-          "time": "12:00",
-          "event": "noon Soul Survivors"
-        },
-        {
-          "time": "9:45a",
-          "event": "Academy Chapel"
-        },
         {
           "time": "6:30p",
           "event": "Cub Scout Pack 32"
