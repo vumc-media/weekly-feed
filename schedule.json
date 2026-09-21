@@ -1,51 +1,47 @@
 {
-  "updatedAt": "2026-09-15T02:09:32.874Z",
-  "raw": "Sunday, September 21\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n\nMonday, Septmber 22\n6:00pm Men's Jail Ministry\n6:00pm Finance\n7:00pm Council\n\nTuesday, September 23\n3:00pm Men's Jail Ministry\n\nWednesday, September 24\n6:45pm Chancel Choir Practice\n\nThursday, September 25\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-09-21T12:53:28.811Z",
+  "raw": "Sunday, September 27\n9:15am Discipleship Classes\n10:30am Discipleship Class\n10:30 am Combined Worship.\nFall festival following worship.\n4pm Youth\n6pm Diaper Bank\n\nMonday, Septmber 28\n6:00pm Men's Jail Ministry\n\nTuesday, September 29\n3:00pm Men's Jail Ministry\n\nWednesday, September 30\n6:45pm Chancel Choir Practice\n\nThursday, October 1\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
-      "title": "Sunday, September 21",
+      "title": "Sunday, September 27",
       "events": [
         {
           "time": "9:15a",
           "event": "Discipleship Classes"
         },
         {
-          "time": "9:30p",
-          "event": "Traditional Service"
+          "time": "10:30a",
+          "event": "Discipleship Class"
         },
         {
           "time": "10:30a",
-          "event": "Contemporary Worship"
+          "event": "Combined Worship."
         },
         {
-          "time": "10:30a",
-          "event": "Discipleship Classes"
+          "time": "",
+          "event": "Fall festival following worship."
         },
         {
           "time": "4p",
           "event": "Youth"
+        },
+        {
+          "time": "6p",
+          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, Septmber 22",
+      "title": "Monday, Septmber 28",
       "events": [
         {
           "time": "6:00p",
           "event": "Men's Jail Ministry"
-        },
-        {
-          "time": "6:00p",
-          "event": "Finance"
-        },
-        {
-          "time": "7:00p",
-          "event": "Council"
         }
       ]
     },
     {
-      "title": "Tuesday, September 23",
+      "title": "Tuesday, September 29",
       "events": [
         {
           "time": "3:00p",
@@ -54,7 +50,7 @@
       ]
     },
     {
-      "title": "Wednesday, September 24",
+      "title": "Wednesday, September 30",
       "events": [
         {
           "time": "6:45p",
@@ -63,7 +59,7 @@
       ]
     },
     {
-      "title": "Thursday, September 25",
+      "title": "Thursday, October 1",
       "events": [
         {
           "time": "6:30p",
