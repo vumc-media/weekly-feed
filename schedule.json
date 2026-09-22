@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-22T16:18:58.312Z",
-  "raw": "Sunday, September 27\n9:15am Discipleship Classes\n10:30 am Combined Worship.\nFall festival following worship.\n4pm Youth\n6pm Diaper Bank\n\nMonday, Septmber 28\n6:00pm Men's Jail Ministry\n\nTuesday, September 29\n3:00pm Men's Jail Ministry\n\nWednesday, September 30\n6:45pm Chancel Choir Practice\n\nThursday, October 1\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-09-22T16:19:19.717Z",
+  "raw": "Sunday, September 27\n9:15am Discipleship Classes\n10:30 am Combined Worship Fall festival following worship.\n4pm Youth\n6pm Diaper Bank\n\nMonday, Septmber 28\n6:00pm Men's Jail Ministry\n\nTuesday, September 29\n3:00pm Men's Jail Ministry\n\nWednesday, September 30\n6:45pm Chancel Choir Practice\n\nThursday, October 1\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
       "title": "Sunday, September 27",
@@ -11,11 +11,7 @@
         },
         {
           "time": "10:30a",
-          "event": "Combined Worship."
-        },
-        {
-          "time": "",
-          "event": "Fall festival following worship."
+          "event": "Combined Worship Fall festival following worship."
         },
         {
           "time": "4p",
