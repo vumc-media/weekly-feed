@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-22T16:20:04.916Z",
-  "raw": "Sunday, September 27\n9:15am Discipleship Classes\n10:30 am Combined Worship \n11:30 am Fall Festival\n4pm Youth\n6pm Diaper Bank\n\nMonday, Septmber 28\n6:00pm Men's Jail Ministry\n\nTuesday, September 29\n3:00pm Men's Jail Ministry\n\nWednesday, September 30\n6:45pm Chancel Choir Practice\n\nThursday, October 1\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-09-26T00:26:26.247Z",
+  "raw": "Sunday, September 27\n9:15am Discipleship Classes\n10:30 am Combined Worship.\nFall festival following worship.\n4pm Youth\n6pm Diaper Bank\n\nMonday, Septmber 28\n10:00am J.O.Y.\n6:00pm Men's Jail Ministry\n\nTuesday, September 29\n3:00pm Men's Jail Ministry\n\nWednesday, September 30\n\nThursday, October 1\n6:00 pm Trustees\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nUpcoming Dates:\n10/4 World Communion Sunday\n10/5-12 WCPS Fall Break\n10/17 Trunk or Treat\n10/18 Charge Conference",
   "days": [
     {
       "title": "Sunday, September 27",
@@ -11,11 +11,11 @@
         },
         {
           "time": "10:30a",
-          "event": "Combined Worship"
+          "event": "Combined Worship."
         },
         {
-          "time": "11:30a",
-          "event": "Fall Festival"
+          "time": "",
+          "event": "Fall festival following worship."
         },
         {
           "time": "4p",
@@ -30,6 +30,10 @@
     {
       "title": "Monday, Septmber 28",
       "events": [
+        {
+          "time": "10:00a",
+          "event": "J.O.Y."
+        },
         {
           "time": "6:00p",
           "event": "Men's Jail Ministry"
@@ -47,16 +51,15 @@
     },
     {
       "title": "Wednesday, September 30",
-      "events": [
-        {
-          "time": "6:45p",
-          "event": "Chancel Choir Practice"
-        }
-      ]
+      "events": []
     },
     {
       "title": "Thursday, October 1",
       "events": [
+        {
+          "time": "6:00p",
+          "event": "Trustees"
+        },
         {
           "time": "6:30p",
           "event": "Cub Scout Pack 32"
@@ -64,6 +67,26 @@
         {
           "time": "7:00p",
           "event": "AA"
+        },
+        {
+          "time": "",
+          "event": "Upcoming Dates:"
+        },
+        {
+          "time": "",
+          "event": "10/4 World Communion Sunday"
+        },
+        {
+          "time": "",
+          "event": "10/5-12 WCPS Fall Break"
+        },
+        {
+          "time": "",
+          "event": "10/17 Trunk or Treat"
+        },
+        {
+          "time": "",
+          "event": "10/18 Charge Conference"
         }
       ]
     }
