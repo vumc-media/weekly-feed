@@ -1,39 +1,39 @@
 {
-  "updatedAt": "2026-09-26T00:26:26.247Z",
-  "raw": "Sunday, September 27\n9:15am Discipleship Classes\n10:30 am Combined Worship.\nFall festival following worship.\n4pm Youth\n6pm Diaper Bank\n\nMonday, Septmber 28\n10:00am J.O.Y.\n6:00pm Men's Jail Ministry\n\nTuesday, September 29\n3:00pm Men's Jail Ministry\n\nWednesday, September 30\n\nThursday, October 1\n6:00 pm Trustees\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nUpcoming Dates:\n10/4 World Communion Sunday\n10/5-12 WCPS Fall Break\n10/17 Trunk or Treat\n10/18 Charge Conference",
+  "updatedAt": "2026-10-02T01:51:48.263Z",
+  "raw": "Sunday, October 4 \nCommunion Sunday\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n\nMonday, October 5\n6:00pm Men's Jail Ministry\n\nTuesday, October 6\n3:00pm Men's Jail Ministry\n\nWednesday, October 7\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, October 8\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
-      "title": "Sunday, September 27",
+      "title": "Sunday, October 4",
       "events": [
+        {
+          "time": "",
+          "event": "Communion Sunday"
+        },
         {
           "time": "9:15a",
           "event": "Discipleship Classes"
         },
         {
-          "time": "10:30a",
-          "event": "Combined Worship."
+          "time": "9:30p",
+          "event": "Traditional Service"
         },
         {
-          "time": "",
-          "event": "Fall festival following worship."
+          "time": "10:30a",
+          "event": "Contemporary Worship"
+        },
+        {
+          "time": "10:30a",
+          "event": "Discipleship Classes"
         },
         {
           "time": "4p",
           "event": "Youth"
-        },
-        {
-          "time": "6p",
-          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, Septmber 28",
+      "title": "Monday, October 5",
       "events": [
-        {
-          "time": "10:00a",
-          "event": "J.O.Y."
-        },
         {
           "time": "6:00p",
           "event": "Men's Jail Ministry"
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "title": "Tuesday, September 29",
+      "title": "Tuesday, October 6",
       "events": [
         {
           "time": "3:00p",
@@ -50,16 +50,21 @@
       ]
     },
     {
-      "title": "Wednesday, September 30",
-      "events": []
-    },
-    {
-      "title": "Thursday, October 1",
+      "title": "Wednesday, October 7",
       "events": [
         {
-          "time": "6:00p",
-          "event": "Trustees"
+          "time": "6:45p",
+          "event": "Chancel Choir Practice"
         },
+        {
+          "time": "7:30p",
+          "event": "Praise Team Practice"
+        }
+      ]
+    },
+    {
+      "title": "Thursday, October 8",
+      "events": [
         {
           "time": "6:30p",
           "event": "Cub Scout Pack 32"
@@ -67,26 +72,6 @@
         {
           "time": "7:00p",
           "event": "AA"
-        },
-        {
-          "time": "",
-          "event": "Upcoming Dates:"
-        },
-        {
-          "time": "",
-          "event": "10/4 World Communion Sunday"
-        },
-        {
-          "time": "",
-          "event": "10/5-12 WCPS Fall Break"
-        },
-        {
-          "time": "",
-          "event": "10/17 Trunk or Treat"
-        },
-        {
-          "time": "",
-          "event": "10/18 Charge Conference"
         }
       ]
     }
