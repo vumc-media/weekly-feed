@@ -1,14 +1,10 @@
 {
-  "updatedAt": "2026-10-02T01:51:48.263Z",
-  "raw": "Sunday, October 4 \nCommunion Sunday\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n\nMonday, October 5\n6:00pm Men's Jail Ministry\n\nTuesday, October 6\n3:00pm Men's Jail Ministry\n\nWednesday, October 7\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, October 8\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-10-03T23:03:36.892Z",
+  "raw": "Sunday, October 4 World Communion Sunday\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n\nMonday, October 5\n6:00pm Men's Jail Ministry\n\nTuesday, October 6\n3:00pm Men's Jail Ministry\n\nWednesday, October 7\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, October 8\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
-      "title": "Sunday, October 4",
+      "title": "Sunday, October 4 World Communion Sunday",
       "events": [
-        {
-          "time": "",
-          "event": "Communion Sunday"
-        },
         {
           "time": "9:15a",
           "event": "Discipleship Classes"
