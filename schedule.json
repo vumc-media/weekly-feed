@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-10-03T23:03:36.892Z",
-  "raw": "Sunday, October 4 World Communion Sunday\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n\nMonday, October 5\n6:00pm Men's Jail Ministry\n\nTuesday, October 6\n3:00pm Men's Jail Ministry\n\nWednesday, October 7\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, October 8\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-10-09T19:49:46.391Z",
+  "raw": "Sunday, October 11\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n6pm Diaper Bank\n\nMonday, October 12\n10:00am J.O.Y.\n6:00pm Men's Jail Ministry\n\nTuesday, October 13\n3:00pm Men's Jail Ministry\n\nWednesday, October 14\n6:45pm Praise Team Practice\n\nThursday, October 15\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nSaturday, October 17\n4:00pmTrunk or Treat\n\nSunday, October 18\n3:00pm Charge Conference",
   "days": [
     {
-      "title": "Sunday, October 4 World Communion Sunday",
+      "title": "Sunday, October 11",
       "events": [
         {
           "time": "9:15a",
@@ -24,12 +24,20 @@
         {
           "time": "4p",
           "event": "Youth"
+        },
+        {
+          "time": "6p",
+          "event": "Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, October 5",
+      "title": "Monday, October 12",
       "events": [
+        {
+          "time": "10:00a",
+          "event": "J.O.Y."
+        },
         {
           "time": "6:00p",
           "event": "Men's Jail Ministry"
@@ -37,7 +45,7 @@
       ]
     },
     {
-      "title": "Tuesday, October 6",
+      "title": "Tuesday, October 13",
       "events": [
         {
           "time": "3:00p",
@@ -46,20 +54,16 @@
       ]
     },
     {
-      "title": "Wednesday, October 7",
+      "title": "Wednesday, October 14",
       "events": [
         {
           "time": "6:45p",
-          "event": "Chancel Choir Practice"
-        },
-        {
-          "time": "7:30p",
           "event": "Praise Team Practice"
         }
       ]
     },
     {
-      "title": "Thursday, October 8",
+      "title": "Thursday, October 15",
       "events": [
         {
           "time": "6:30p",
@@ -68,6 +72,24 @@
         {
           "time": "7:00p",
           "event": "AA"
+        }
+      ]
+    },
+    {
+      "title": "Saturday, October 17",
+      "events": [
+        {
+          "time": "",
+          "event": "4:00pmTrunk or Treat"
+        }
+      ]
+    },
+    {
+      "title": "Sunday, October 18",
+      "events": [
+        {
+          "time": "3:00p",
+          "event": "Charge Conference"
         }
       ]
     }
