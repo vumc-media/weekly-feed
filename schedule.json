@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-15T22:54:22.394Z",
-  "raw": "Sunday, October 18\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n3:00pm Charge Conference\n4pm Youth\n\nMonday, October 19\n6:00pm Men's Jail Ministry\n6:00pm Finance Committee\n7:00pm Church Council\n  \nTuesday, October 20\n3:00pm Men's Jail Ministry\n12:00 noon Soul Survivors\n6:00pm Leisure Team  \n\nWednesday, October 21\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, October 22\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-10-18T12:34:54.115Z",
+  "raw": "Sunday, October 18\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n3:00pm Charge Conference\n4pm Youth\n\nMonday, October 19\n6:00pm Men's Jail Ministry\n6:00pm Finance Committee\n7:00pm Church Council\n  \nTuesday, October 20\n12:00pm Soul Survivors\n3:00pm Men's Jail Ministry\n6:00pm Leisure Team  \n\nWednesday, October 21\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, October 22\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
   "days": [
     {
       "title": "Sunday, October 18",
@@ -52,12 +52,12 @@
       "title": "Tuesday, October 20",
       "events": [
         {
-          "time": "3:00p",
-          "event": "Men's Jail Ministry"
+          "time": "12:00p",
+          "event": "Soul Survivors"
         },
         {
-          "time": "12:00",
-          "event": "noon Soul Survivors"
+          "time": "3:00p",
+          "event": "Men's Jail Ministry"
         },
         {
           "time": "6:00p",
