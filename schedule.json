@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-10-18T12:34:54.115Z",
-  "raw": "Sunday, October 18\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n3:00pm Charge Conference\n4pm Youth\n\nMonday, October 19\n6:00pm Men's Jail Ministry\n6:00pm Finance Committee\n7:00pm Church Council\n  \nTuesday, October 20\n12:00pm Soul Survivors\n3:00pm Men's Jail Ministry\n6:00pm Leisure Team  \n\nWednesday, October 21\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, October 22\n6:30 pm Cub Scout Pack 32\n7:00 pm AA",
+  "updatedAt": "2026-10-21T17:35:42.517Z",
+  "raw": "Sunday, October 25\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n6pmp Diaper Bank\n\nMonday, October 26\n6:00pm Men's Jail Ministry\n  \nTuesday, October 27\n12:00pm Soul Survivors\n3:00pm Men's Jail Ministry\n6:00pm Leisure Team  \n\nWednesday, October 28\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, October 29\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, October 30\n10:00Aam Academy Trick or Treat",
   "days": [
     {
-      "title": "Sunday, October 18",
+      "title": "Sunday, October 25",
       "events": [
         {
           "time": "9:15a",
@@ -22,34 +22,26 @@
           "event": "Discipleship Classes"
         },
         {
-          "time": "3:00p",
-          "event": "Charge Conference"
-        },
-        {
           "time": "4p",
           "event": "Youth"
+        },
+        {
+          "time": "",
+          "event": "6pmp Diaper Bank"
         }
       ]
     },
     {
-      "title": "Monday, October 19",
+      "title": "Monday, October 26",
       "events": [
         {
           "time": "6:00p",
           "event": "Men's Jail Ministry"
-        },
-        {
-          "time": "6:00p",
-          "event": "Finance Committee"
-        },
-        {
-          "time": "7:00p",
-          "event": "Church Council"
         }
       ]
     },
     {
-      "title": "Tuesday, October 20",
+      "title": "Tuesday, October 27",
       "events": [
         {
           "time": "12:00p",
@@ -66,7 +58,7 @@
       ]
     },
     {
-      "title": "Wednesday, October 21",
+      "title": "Wednesday, October 28",
       "events": [
         {
           "time": "6:45p",
@@ -79,7 +71,7 @@
       ]
     },
     {
-      "title": "Thursday, October 22",
+      "title": "Thursday, October 29",
       "events": [
         {
           "time": "6:30p",
@@ -88,6 +80,15 @@
         {
           "time": "7:00p",
           "event": "AA"
+        }
+      ]
+    },
+    {
+      "title": "Friday, October 30",
+      "events": [
+        {
+          "time": "",
+          "event": "10:00Aam Academy Trick or Treat"
         }
       ]
     }
