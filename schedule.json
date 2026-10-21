@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-21T17:35:42.517Z",
-  "raw": "Sunday, October 25\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n6pmp Diaper Bank\n\nMonday, October 26\n6:00pm Men's Jail Ministry\n  \nTuesday, October 27\n12:00pm Soul Survivors\n3:00pm Men's Jail Ministry\n6:00pm Leisure Team  \n\nWednesday, October 28\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, October 29\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, October 30\n10:00Aam Academy Trick or Treat",
+  "updatedAt": "2026-10-21T17:35:51.318Z",
+  "raw": "Sunday, October 25\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n6pmp Diaper Bank\n\nMonday, October 26\n6:00pm Men's Jail Ministry\n  \nTuesday, October 27\n12:00pm Soul Survivors\n3:00pm Men's Jail Ministry\n6:00pm Leisure Team  \n\nWednesday, October 28\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, October 29\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, October 30\n10:00 am Academy Trick or Treat",
   "days": [
     {
       "title": "Sunday, October 25",
@@ -87,8 +87,8 @@
       "title": "Friday, October 30",
       "events": [
         {
-          "time": "",
-          "event": "10:00Aam Academy Trick or Treat"
+          "time": "10:00a",
+          "event": "Academy Trick or Treat"
         }
       ]
     }
