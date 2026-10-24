@@ -1,95 +1,55 @@
+
 {
-  "updatedAt": "2026-10-21T17:37:20.991Z",
-  "raw": "Sunday, October 25\n9:15am Discipleship Classes\n9:30pm Traditional Service\n10:30am Contemporary Worship\n10:30am Discipleship Classes\n4pm Youth\n6pm Diaper Bank\n\nMonday, October 26\n6:00pm Men's Jail Ministry\n  \nTuesday, October 27\n12:00pm Soul Survivors\n3:00pm Men's Jail Ministry\n6:00pm Leisure Team  \n\nWednesday, October 28\n6:45pm Chancel Choir Practice\n7:30pm Praise Team Practice\n\nThursday, October 29\n6:30 pm Cub Scout Pack 32\n7:00 pm AA\n\nFriday, October 30\n10:00am Academy Trick or Treat",
   "days": [
     {
       "title": "Sunday, October 25",
       "events": [
-        {
-          "time": "9:15a",
-          "event": "Discipleship Classes"
-        },
-        {
-          "time": "9:30p",
-          "event": "Traditional Service"
-        },
-        {
-          "time": "10:30a",
-          "event": "Contemporary Worship"
-        },
-        {
-          "time": "10:30a",
-          "event": "Discipleship Classes"
-        },
-        {
-          "time": "4p",
-          "event": "Youth"
-        },
-        {
-          "time": "6p",
-          "event": "Diaper Bank"
-        }
+        {"time": "9:15am", "event": "Discipleship Classes"},
+        {"time": "9:30am", "event": "Traditional Service"},
+        {"time": "10:30am", "event": "Contemporary Worship"},
+        {"time": "10:30am", "event": "Discipleship Classes"},
+        {"time": "4pm", "event": "Youth"},
+        {"time": "6pm", "event": "Diaper Bank"}
       ]
     },
     {
       "title": "Monday, October 26",
       "events": [
-        {
-          "time": "6:00p",
-          "event": "Men's Jail Ministry"
-        }
+        {"time": "10:00am", "event": "J.O.Y."},
+        {"time": "6:00pm", "event": "Men's Jail Ministry"}
       ]
     },
     {
       "title": "Tuesday, October 27",
       "events": [
-        {
-          "time": "12:00p",
-          "event": "Soul Survivors"
-        },
-        {
-          "time": "3:00p",
-          "event": "Men's Jail Ministry"
-        },
-        {
-          "time": "6:00p",
-          "event": "Leisure Team"
-        }
+        {"time": "3:00pm", "event": "Men's Jail Ministry"},
+        {"time": "6:00pm", "event": "Leisure Team"}
       ]
     },
     {
       "title": "Wednesday, October 28",
       "events": [
-        {
-          "time": "6:45p",
-          "event": "Chancel Choir Practice"
-        },
-        {
-          "time": "7:30p",
-          "event": "Praise Team Practice"
-        }
+        {"time": "6:45pm", "event": "Chancel Choir Practice"},
+        {"time": "7:30pm", "event": "Praise Team Practice"}
       ]
     },
     {
       "title": "Thursday, October 29",
       "events": [
-        {
-          "time": "6:30p",
-          "event": "Cub Scout Pack 32"
-        },
-        {
-          "time": "7:00p",
-          "event": "AA"
-        }
+        {"time": "6:30pm", "event": "Cub Scout Pack 32"},
+        {"time": "7:00pm", "event": "AA"}
       ]
     },
     {
       "title": "Friday, October 30",
       "events": [
-        {
-          "time": "10:00a",
-          "event": "Academy Trick or Treat"
-        }
+        {"time": "10:00am", "event": "Academy Trick or Treat"}
+      ]
+    },
+    {
+      "title": "Saturday, October 31",
+      "events": [
+        {"time": "", "event": "Daylight Saving Time Change"}
       ]
     }
   ]
