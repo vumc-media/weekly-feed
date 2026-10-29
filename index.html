@@ -1,432 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta http-equiv="Cache-Control" content="no-store" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>VUMC Weekly Schedule</title>
 
-<style>
-:root{
-  --page-duration: 14s;
-  --fade-duration: 900ms;
-  --burgundy: #7a0000;
-  --burgundy-dark: #4d0000;
-  --cream: #f7f2e8;
-  --ink: #17202a;
-}
-
-*{
-  box-sizing:border-box;
-}
-
-html,body{
-  margin:0;
-  width:100%;
-  height:100%;
-  background:transparent!important;
-  overflow:hidden;
-  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-}
-
-body{
-  color:var(--ink);
-}
-
-#header{
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  z-index:20;
-  min-height:72px;
-  padding:14px 24px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(180deg,var(--burgundy),var(--burgundy-dark));
-  color:#fff;
-  text-align:center;
-  font-weight:900;
-  font-size:clamp(24px,3vh,46px);
-  text-transform:uppercase;
-  letter-spacing:.6px;
-  box-shadow:0 6px 16px rgba(0,0,0,.25);
-}
-
-#stage{
-  position:absolute;
-  inset:72px 0 0;
-  padding:18px;
-  overflow:hidden;
-}
-
-.page{
-  position:absolute;
-  inset:18px;
-  display:grid;
-  grid-template-rows:minmax(0,1fr);
-  gap:0;
-  opacity:0;
-  transform:translateY(38px);
-  transition:
-    opacity var(--fade-duration) ease,
-    transform var(--fade-duration) cubic-bezier(.22,.61,.36,1);
-  pointer-events:none;
-}
-
-.page.active{
-  opacity:1;
-  transform:translateY(0);
-  pointer-events:auto;
-}
-
-.page.leaving{
-  opacity:0;
-  transform:translateY(-38px);
-}
-
-.daycard{
-  min-height:0;
-  display:grid;
-  grid-template-columns:minmax(170px,30%) 1fr;
-  overflow:hidden;
-  background:rgba(255,255,255,.97);
-  border:1px solid rgba(0,0,0,.12);
-  border-radius:14px;
-  box-shadow:0 10px 22px rgba(0,0,0,.22);
-}
-
-.datepanel{
-  min-width:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  padding:18px 12px;
-  text-align:center;
-  color:#fff;
-  background:linear-gradient(160deg,var(--burgundy),var(--burgundy-dark));
-  border-right:5px solid #d6b56a;
-}
-
-.monthday{
-  font-size:clamp(28px,4.6vh,58px);
-  line-height:.95;
-  font-weight:950;
-  letter-spacing:.4px;
-  text-transform:uppercase;
-}
-
-.weekday{
-  margin-top:10px;
-  font-size:clamp(17px,2.4vh,32px);
-  line-height:1;
-  font-weight:850;
-  letter-spacing:.8px;
-  text-transform:uppercase;
-  opacity:.92;
-}
-
-.eventpanel{
-  min-width:0;
-  min-height:0;
-  padding:28px 32px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  background:
-    linear-gradient(90deg,rgba(122,0,0,.035),transparent 35%),
-    var(--cream);
-}
-
-.rows{
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:clamp(14px,2.5vh,34px);
-}
-
-.row{
-  display:grid;
-  grid-template-columns:clamp(105px,18%,155px) minmax(0,1fr);
-  align-items:center;
-  gap:clamp(14px,2.2vw,30px);
-  padding-bottom:clamp(6px,1vh,12px);
-  border-bottom:1px solid rgba(23,32,42,.13);
-}
-
-.row:last-child{
-  border-bottom:0;
-  padding-bottom:0;
-}
-
-.event{
-  min-width:0;
-  font-size:clamp(27px,4.2vh,56px);
-  line-height:1.08;
-  font-weight:850;
-  overflow-wrap:anywhere;
-}
-
-.time{
-  min-width:0;
-  text-align:left;
-  font-size:clamp(24px,3.5vh,46px);
-  line-height:1;
-  font-weight:950;
-  color:var(--burgundy-dark);
-  white-space:nowrap;
-}
-
-.daycard.compact .event{
-  font-size:clamp(23px,3.3vh,44px);
-}
-
-.daycard.compact .time{
-  font-size:clamp(21px,2.9vh,38px);
-}
-
-.daycard.compact .rows{
-  gap:clamp(10px,1.7vh,22px);
-}
-
-.daycard.dense .event{
-  font-size:clamp(19px,2.55vh,34px);
-}
-
-.daycard.dense .time{
-  font-size:clamp(18px,2.3vh,30px);
-}
-
-.daycard.very-dense .event{
-  font-size:clamp(16px,2.05vh,28px);
-}
-
-.daycard.very-dense .time{
-  font-size:clamp(15px,1.9vh,25px);
-}
-
-.daycard.very-dense .rows{
-  gap:clamp(5px,.9vh,12px);
-}
-
-.daycard.very-dense .eventpanel,
-.daycard.dense .eventpanel{
-  padding-top:12px;
-  padding-bottom:12px;
-}
-
-.empty-card{
-  grid-column:1 / -1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:28px;
-  text-align:center;
-  background:var(--cream);
-  font-size:clamp(22px,3vh,42px);
-  font-weight:850;
-  color:var(--burgundy-dark);
-}
-
-@media (max-width:700px){
-  .daycard{
-    grid-template-columns:minmax(110px,34%) 1fr;
-  }
-
-  .eventpanel{
-    padding-left:16px;
-    padding-right:16px;
-  }
-
-  .row{
-    gap:10px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div id="header">Coming Up</div>
-<div id="stage" aria-live="polite"></div>
-
-<script>
-const DAYS_PER_PAGE = 1;
-const PAGE_DURATION = 14000;
-
-async function loadSchedule(){
-  const stage = document.getElementById("stage");
-
-  try{
-    const res = await fetch("schedule.json?v=" + Date.now(), { cache:"no-store" });
-
-    if(!res.ok){
-      throw new Error("Schedule request failed");
+<section class="vumc-weekly-feed">
+  <style>
+    .vumc-weekly-feed {
+      font-family: Arial, sans-serif;
+      color: #17202a;
+      max-width: 900px;
+      margin: auto;
     }
-
-    const data = await res.json();
-    const days = Array.isArray(data.days) ? data.days : [];
-
-    if(!days.length){
-      renderMessage("No Schedule Posted", "Please check back soon.");
-      return;
+    .vumc-weekly-feed .day {
+      margin-bottom: 20px;
+      background: #f7f2e8;
+      border-radius: 10px;
+      overflow: hidden;
     }
+    .vumc-weekly-feed .day-title {
+      background: #7a0000;
+      color: white;
+      padding: 12px 18px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .vumc-weekly-feed .events {
+      padding: 12px 18px;
+    }
+    .vumc-weekly-feed .event {
+      padding: 7px 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 18px;
+    }
+    .vumc-weekly-feed .event:last-child {
+      border-bottom: none;
+    }
+    .vumc-weekly-feed .special {
+      color: #7a0000;
+      font-weight: bold;
+    }
+    .vumc-weekly-feed .time {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+  </style>
 
-    renderPages(days);
-    beginRotation();
-  }catch(err){
-    renderMessage("Schedule Unavailable", "Please check back soon.");
-  }
-}
-
-function renderPages(days){
-  const stage = document.getElementById("stage");
-  const pages = [];
-
-  for(let i = 0; i < days.length; i += DAYS_PER_PAGE){
-    pages.push(days.slice(i, i + DAYS_PER_PAGE));
-  }
-
-  stage.innerHTML = pages.map((pageDays, pageIndex) => `
-    <section class="page ${pageIndex === 0 ? "active" : ""}" data-page="${pageIndex}">
-      ${pageDays.map(makeDayCard).join("")}
-    </section>
-  `).join("");
-}
-
-function makeDayCard(day){
-  const events = Array.isArray(day.events) ? day.events : [];
-  const densityClass =
-    events.length >= 8 ? "very-dense" :
-    events.length >= 6 ? "dense" :
-    events.length >= 4 ? "compact" : "";
-  const parsed = splitDayTitle(day.title);
-
-  const rows = events.length
-    ? events.map(item => `
-        <div class="row">
-          <div class="time">${escapeHTML(item.time || "")}</div>
-          <div class="event">${escapeHTML(item.event)}</div>
-        </div>
-      `).join("")
-    : `
-        <div class="row">
-          <div class="time"></div>
-          <div class="event">No events listed.</div>
-        </div>
-      `;
-
-  return `
-    <article class="daycard ${densityClass}">
-      <div class="datepanel">
-        <div class="monthday">${escapeHTML(parsed.date)}</div>
-        <div class="weekday">${escapeHTML(parsed.weekday)}</div>
+  <div class="day">
+    <div class="day-title">Sunday, November 1</div>
+    <div class="events">
+      <div class="event special">
+        Communion Sunday &amp; All Saints Day
       </div>
-      <div class="eventpanel">
-        <div class="rows">${rows}</div>
-      </div>
-    </article>
-  `;
-}
+      <div class="event"><span class="time">9:15 AM</span>Discipleship Classes</div>
+      <div class="event"><span class="time">9:30 AM</span>Traditional Worship</div>
+      <div class="event"><span class="time">10:30 AM</span>Contemporary Worship</div>
+      <div class="event"><span class="time">10:30 AM</span>Discipleship Classes</div>
+      <div class="event"><span class="time">4:00 PM</span>Youth</div>
+    </div>
+  </div>
 
-function makeBlankCard(){
-  return `
-    <article class="daycard">
-      <div class="empty-card">More events will be posted soon.</div>
-    </article>
-  `;
-}
+  <div class="day">
+    <div class="day-title">Monday, November 2</div>
+    <div class="events">
+      <div class="event special">Methodist Mountain Mission Truck</div>
+      <div class="event special">Schools Closed</div>
+      <div class="event"><span class="time">6:00 PM</span>Trustees</div>
+      <div class="event"><span class="time">6:00 PM</span>Men's Jail Ministry</div>
+    </div>
+  </div>
 
-function renderMessage(title, message){
-  document.getElementById("stage").innerHTML = `
-    <section class="page active">
-      <article class="daycard">
-        <div class="datepanel">
-          <div class="monthday">VUMC</div>
-          <div class="weekday">Weekly Feed</div>
-        </div>
-        <div class="eventpanel">
-          <div class="rows">
-            <div class="row">
-              <div class="event">${escapeHTML(title)}</div>
-              <div class="time"></div>
-            </div>
-            <div class="row">
-              <div class="event">${escapeHTML(message)}</div>
-              <div class="time"></div>
-            </div>
-          </div>
-        </div>
-      </article>
-      ${makeBlankCard()}
-    </section>
-  `;
-}
+  <div class="day">
+    <div class="day-title">Tuesday, November 3</div>
+    <div class="events">
+      <div class="event special">Schools Closed</div>
+      <div class="event"><span class="time">3:00 PM</span>Men's Jail Ministry</div>
+    </div>
+  </div>
 
-function splitDayTitle(title){
-  const clean = String(title || "").trim();
+  <div class="day">
+    <div class="day-title">Wednesday, November 4</div>
+    <div class="events">
+      <div class="event"><span class="time">6:45 PM</span>Chancel Choir Practice</div>
+      <div class="event"><span class="time">7:30 PM</span>Praise Team Practice</div>
+    </div>
+  </div>
 
-  /*
-    Works with common admin entries such as:
-    "Sunday, August 2"
-    "August 2 - Sunday"
-    "Sunday August 2"
-    Falls back gracefully if the title uses another format.
-  */
-  const weekdayMatch = clean.match(/\b(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\b/i);
-  const dateMatch = clean.match(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}\b/i);
-
-  const weekday = weekdayMatch ? weekdayMatch[0] : "";
-  const date = dateMatch ? dateMatch[0] : clean.replace(weekdayMatch ? weekdayMatch[0] : "", "").replace(/^[,\s\-–—]+|[,\s\-–—]+$/g,"");
-
-  return {
-    date: date || clean || "Upcoming",
-    weekday: weekday || "Schedule"
-  };
-}
-
-function beginRotation(){
-  const pages = Array.from(document.querySelectorAll(".page"));
-  if(pages.length <= 1) return;
-
-  let current = 0;
-
-  setInterval(() => {
-    const outgoing = pages[current];
-    outgoing.classList.remove("active");
-    outgoing.classList.add("leaving");
-
-    current = (current + 1) % pages.length;
-    const incoming = pages[current];
-
-    incoming.classList.remove("leaving");
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        incoming.classList.add("active");
-      });
-    });
-
-    setTimeout(() => {
-      outgoing.classList.remove("leaving");
-    }, 950);
-  }, PAGE_DURATION);
-}
-
-function escapeHTML(str){
-  return String(str || "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-}
-
-loadSchedule();
-</script>
-
-</body>
-</html>
+  <div class="day">
+    <div class="day-title">Thursday, November 5</div>
+    <div class="events">
+      <div class="event"><span class="time">12:00 PM</span>Cornerstones</div>
+      <div class="event"><span class="time">6:30 PM</span>Cub Scout Pack 32</div>
+      <div class="event"><span class="time">7:00 PM</span>AA</div>
+    </div>
+  </div>
+</section>
