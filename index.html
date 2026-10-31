@@ -1,92 +1,16 @@
-
-<section class="vumc-weekly-feed">
-  <style>
-    .vumc-weekly-feed {
-      font-family: Arial, sans-serif;
-      color: #17202a;
-      max-width: 900px;
-      margin: auto;
-    }
-    .vumc-weekly-feed .day {
-      margin-bottom: 20px;
-      background: #f7f2e8;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .vumc-weekly-feed .day-title {
-      background: #7a0000;
-      color: white;
-      padding: 12px 18px;
-      font-size: 22px;
-      font-weight: bold;
-    }
-    .vumc-weekly-feed .events {
-      padding: 12px 18px;
-    }
-    .vumc-weekly-feed .event {
-      padding: 7px 0;
-      border-bottom: 1px solid #ddd;
-      font-size: 18px;
-    }
-    .vumc-weekly-feed .event:last-child {
-      border-bottom: none;
-    }
-    .vumc-weekly-feed .special {
-      color: #7a0000;
-      font-weight: bold;
-    }
-    .vumc-weekly-feed .time {
-      font-weight: bold;
-      margin-right: 10px;
-    }
-  </style>
-
-  <div class="day">
-    <div class="day-title">Sunday, November 1</div>
-    <div class="events">
-      <div class="event special">
-        Communion Sunday &amp; All Saints Day
-      </div>
-      <div class="event"><span class="time">9:15 AM</span>Discipleship Classes</div>
-      <div class="event"><span class="time">9:30 AM</span>Traditional Worship</div>
-      <div class="event"><span class="time">10:30 AM</span>Contemporary Worship</div>
-      <div class="event"><span class="time">10:30 AM</span>Discipleship Classes</div>
-      <div class="event"><span class="time">4:00 PM</span>Youth</div>
-    </div>
-  </div>
-
-  <div class="day">
-    <div class="day-title">Monday, November 2</div>
-    <div class="events">
-      <div class="event special">Methodist Mountain Mission Truck</div>
-      <div class="event special">Schools Closed</div>
-      <div class="event"><span class="time">6:00 PM</span>Trustees</div>
-      <div class="event"><span class="time">6:00 PM</span>Men's Jail Ministry</div>
-    </div>
-  </div>
-
-  <div class="day">
-    <div class="day-title">Tuesday, November 3</div>
-    <div class="events">
-      <div class="event special">Schools Closed</div>
-      <div class="event"><span class="time">3:00 PM</span>Men's Jail Ministry</div>
-    </div>
-  </div>
-
-  <div class="day">
-    <div class="day-title">Wednesday, November 4</div>
-    <div class="events">
-      <div class="event"><span class="time">6:45 PM</span>Chancel Choir Practice</div>
-      <div class="event"><span class="time">7:30 PM</span>Praise Team Practice</div>
-    </div>
-  </div>
-
-  <div class="day">
-    <div class="day-title">Thursday, November 5</div>
-    <div class="events">
-      <div class="event"><span class="time">12:00 PM</span>Cornerstones</div>
-      <div class="event"><span class="time">6:30 PM</span>Cub Scout Pack 32</div>
-      <div class="event"><span class="time">7:00 PM</span>AA</div>
-    </div>
-  </div>
-</section>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>This Week at VUMC</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101827;color:white;font-family:system-ui,-apple-system,Segoe UI,sans-serif;padding:20px}.wrap{max-width:1100px;margin:auto}.header{padding:18px;text-align:center;font-size:clamp(24px,3vw,40px);font-weight:900;text-transform:uppercase;background:linear-gradient(#7a0000,#4d0000);border-radius:12px;margin-bottom:18px}.dayblock{border-radius:18px;padding:22px 32px;margin:0 0 16px;box-shadow:0 12px 22px #0006,inset 0 1px 0 #ffffff55}.daytitle{font-weight:900;font-size:clamp(22px,3vw,32px);margin-bottom:12px;text-shadow:0 3px 6px #0008}.rows{display:flex;flex-direction:column;gap:8px}.row{display:flex;justify-content:space-between;align-items:baseline;gap:18px;font-size:clamp(17px,2vw,24px);font-weight:700;text-shadow:0 2px 5px #0007}.event{flex:1;min-width:0;overflow-wrap:anywhere}.time{flex:0 0 auto;text-align:right;font-weight:900}.orange{background:linear-gradient(#c76512,#9f3f07)}.blue{background:linear-gradient(#1b5f9a,#0d3f72)}.green{background:linear-gradient(#2f7a36,#1f5f29)}.purple{background:linear-gradient(#5a2a7a,#3f1a5a)}#status{color:#cbd5e1;text-align:center;padding:18px}@media(max-width:600px){body{padding:10px}.dayblock{padding:18px}.row{gap:10px}}
+</style></head><body>
+<main class="wrap"><div class="header">This Week at VUMC</div><div id="status" role="status">Loading this week's schedule…</div><div id="feed" aria-live="polite"></div></main>
+<iframe id="staffBridge" title="Weekly Feed connection" src="https://script.google.com/macros/s/AKfycbzHpOIjWgX-jiOMGwiCBrONrmym-9kMJDOQ4DA15re8d-_MUidnpXbIGCZYTqM_gAJV/exec?bridge=1" style="position:absolute;width:1px;height:1px;border:0;opacity:0;pointer-events:none" tabindex="-1" aria-hidden="true"></iframe>
+<script>
+(()=>{'use strict';const colors=['orange','blue','green','purple'];let bridgeWindow=null,bridgeOrigin='',requestNumber=0,loading=false;const status=document.getElementById('status'),feed=document.getElementById('feed');
+function safe(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function parse(raw){const days=[];let current=null;const day=/^(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\b/i;const timed=/^(\d{1,2}(?::\d{2})?\s*(?:am|pm|a|p)?(?:\s*[-–]\s*\d{1,2}(?::\d{2})?\s*(?:am|pm|a|p)?)?)\s+(.+)$/i;for(const line of String(raw||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean)){if(day.test(line)){current={title:line.replace(/\s+/g,' '),events:[]};days.push(current)}else if(current){const m=line.match(timed);current.events.push({time:m?m[1].replace(/\s+/g,'').replace(/am/gi,'a').replace(/pm/gi,'p'):'',event:m?m[2]:line})}}return days}
+function render(raw){const days=parse(raw);if(!days.length){feed.innerHTML='';status.textContent='No weekly schedule has been published yet.';return}feed.innerHTML=days.map((d,i)=>`<section class="dayblock ${colors[i%4]}"><div class="daytitle">${safe(d.title)}</div><div class="rows">${d.events.map(e=>`<div class="row"><span class="event">${safe(e.event)}</span><span class="time">${safe(e.time)}</span></div>`).join('')}</div></section>`).join('');status.textContent='';}
+window.addEventListener('message',e=>{let url;try{url=new URL(e.origin)}catch{return}if(url.protocol!=='https:'||!(url.hostname==='script.google.com'||url.hostname==='script.googleusercontent.com'||url.hostname.endsWith('.googleusercontent.com')))return;const m=e.data;if(!m||typeof m!=='object')return;if(m.type==='vumc-bridge-ready'){if(loading)return;bridgeWindow=e.source;bridgeOrigin=e.origin;loading=true;const requestId='public-weekly-'+Date.now()+'-'+(++requestNumber);const timer=setTimeout(()=>{status.textContent='Could not load the weekly schedule. Please refresh.'},20000);const handler=event=>{if(event.source!==bridgeWindow||event.origin!==bridgeOrigin||!event.data||event.data.type!=='vumc-bridge-response'||event.data.requestId!==requestId)return;window.removeEventListener('message',handler);clearTimeout(timer);const result=event.data.result;if(result&&result.success)render(result.schedule);else status.textContent='Schedule unavailable. Please try again later.'};window.addEventListener('message',handler);bridgeWindow.postMessage({type:'vumc-bridge-request',requestId,action:'getPublicWeeklySchedule',payload:{}},bridgeOrigin)}});
+setTimeout(()=>{if(!loading)status.textContent='Could not connect to the weekly schedule. Please refresh.'},15000);
+})();
+</script></body></html>
