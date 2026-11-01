@@ -6,212 +6,183 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#101827">
 <title>This Week at VUMC</title>
-
 <style>
-:root {
-  --background: #101827;
-  --fade-duration: 800ms;
-  --card-height: 390px;
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%}
+body{
+  background:#101827;
+  color:#fff;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  overflow:hidden;
+}
+.wrap{
+  height:100%;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  padding:14px;
+  gap:12px;
+  max-width:1100px;
+  margin:auto;
+}
+.header{
+  flex:none;
+  background:linear-gradient(180deg,#7a0000,#4d0000);
+  border-radius:12px;
+  padding:16px 12px;
+  text-align:center;
+  font-size:clamp(22px,3vw,36px);
+  font-weight:900;
+  text-transform:uppercase;
+  line-height:1.15;
+}
+#status{
+  padding:20px;
+  text-align:center;
+  color:#cbd5e1;
+}
+#feed{
+  flex:1;
+  min-height:0;
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+}
+.dayblock{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  border-radius:18px;
+  padding:26px 30px;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .8s ease,visibility 0s linear .8s;
+  box-shadow:inset 0 1px 0 #ffffff44;
+  display:flex;
+  flex-direction:column;
+}
+.dayblock.active{
+  opacity:1;
+  visibility:visible;
+  transition:opacity .8s ease,visibility 0s;
+}
+.daytitle{
+  flex:none;
+  font-size:clamp(23px,3vw,34px);
+  font-weight:900;
+  line-height:1.15;
+  margin-bottom:18px;
+  text-shadow:0 2px 5px #0006;
+}
+.rows{
+  flex:1;
+  min-height:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:13px;
+  overflow:hidden;
+}
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:15px;
+  font-size:clamp(17px,2vw,25px);
+  font-weight:700;
+  line-height:1.3;
+  text-shadow:0 2px 4px #0005;
+}
+.event{
+  flex:1;
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+.time{
+  flex:none;
+  font-weight:900;
+  white-space:nowrap;
+}
+.orange{background:linear-gradient(#c76512,#9f3f07)}
+.blue{background:linear-gradient(#1b5f9a,#0d3f72)}
+.green{background:linear-gradient(#2f7a36,#1f5f29)}
+.purple{background:linear-gradient(#5a2a7a,#3f1a5a)}
+
+/* Standalone page */
+body:not(.embedded) .wrap{
+  height:100vh;
+  min-height:500px;
+}
+body:not(.embedded) #feed{
+  min-height:350px;
 }
 
-* {
-  box-sizing: border-box;
+/* Atrium embedded display */
+body.embedded .wrap{
+  max-width:none;
+  padding:10px 14px 14px;
+  gap:10px;
+}
+body.embedded .header{
+  font-size:clamp(17px,2vw,24px);
+  padding:11px 8px;
+  border-radius:10px;
+}
+body.embedded .dayblock{
+  padding:24px 30px;
+}
+body.embedded .daytitle{
+  font-size:clamp(21px,2.2vw,30px);
+  margin-bottom:20px;
+}
+body.embedded .row{
+  font-size:clamp(16px,1.65vw,22px);
+}
+body.embedded .rows{
+  gap:13px;
 }
 
-html,
-body {
-  margin: 0;
-  min-height: 100%;
-}
-
-body {
-  background: var(--background);
-  color: #fff;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  padding: 18px;
-}
-
-.wrap {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.header {
-  padding: 20px 18px;
-  text-align: center;
-  font-size: clamp(25px, 3vw, 42px);
-  font-weight: 900;
-  text-transform: uppercase;
-  background: linear-gradient(180deg, #7a0000, #4d0000);
-  border-radius: 14px;
-  margin-bottom: 20px;
-}
-
-#status {
-  color: #cbd5e1;
-  text-align: center;
-  padding: 20px;
-  font-size: 20px;
-}
-
-#feed {
-  position: relative;
-  min-height: var(--card-height);
-  width: 100%;
-  overflow: hidden;
-  border-radius: 20px;
-}
-
-.dayblock {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: var(--card-height);
-  padding: 32px 38px;
-  border-radius: 20px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(8px);
-  pointer-events: none;
-  transition:
-    opacity var(--fade-duration) ease,
-    transform var(--fade-duration) ease,
-    visibility 0s linear var(--fade-duration);
-  box-shadow:
-    0 12px 22px rgba(0,0,0,.35),
-    inset 0 1px 0 rgba(255,255,255,.3);
-}
-
-.dayblock.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  pointer-events: auto;
-  transition:
-    opacity var(--fade-duration) ease,
-    transform var(--fade-duration) ease,
-    visibility 0s;
-}
-
-.daytitle {
-  font-weight: 900;
-  font-size: clamp(27px, 3.2vw, 38px);
-  margin-bottom: 24px;
-  line-height: 1.15;
-  text-shadow: 0 3px 6px rgba(0,0,0,.4);
-}
-
-.rows {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 22px;
-  font-size: clamp(19px, 2.1vw, 27px);
-  font-weight: 700;
-  line-height: 1.35;
-  text-shadow: 0 2px 5px rgba(0,0,0,.3);
-}
-
-.event {
-  flex: 1;
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-.time {
-  flex: 0 0 auto;
-  text-align: right;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-.orange {
-  background: linear-gradient(180deg, #c76512, #9f3f07);
-}
-
-.blue {
-  background: linear-gradient(180deg, #1b5f9a, #0d3f72);
-}
-
-.green {
-  background: linear-gradient(180deg, #2f7a36, #1f5f29);
-}
-
-.purple {
-  background: linear-gradient(180deg, #5a2a7a, #3f1a5a);
-}
-
-/* Larger signage display */
-@media (min-width: 800px) {
-  :root {
-    --card-height: 430px;
+/* Short embedded windows */
+@media(max-height:500px){
+  body.embedded .wrap{
+    padding:7px 12px 9px;
+    gap:7px;
+  }
+  body.embedded .header{
+    padding:8px;
+    font-size:18px;
+  }
+  body.embedded .dayblock{
+    padding:16px 22px;
+  }
+  body.embedded .daytitle{
+    margin-bottom:10px;
+    font-size:22px;
+  }
+  body.embedded .rows{
+    gap:8px;
+  }
+  body.embedded .row{
+    font-size:17px;
+    line-height:1.2;
   }
 }
-
-/* Compact screens */
-@media (max-width: 600px) {
-  :root {
-    --card-height: 360px;
-  }
-
-  body {
-    padding: 10px;
-  }
-
-  .header {
-    padding: 16px 10px;
-    margin-bottom: 12px;
-  }
-
-  .dayblock {
-    padding: 24px 22px;
-  }
-
-  .daytitle {
-    margin-bottom: 18px;
-  }
-
-  .rows {
-    gap: 12px;
-  }
-
-  .row {
-    gap: 12px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dayblock {
-    transition: none;
-    transform: none;
-  }
+@media(prefers-reduced-motion:reduce){
+  .dayblock,.dayblock.active{transition:none}
 }
 </style>
 </head>
-
 <body>
-
 <main class="wrap">
-  <header class="header">
-    This Week at VUMC
-  </header>
-
+  <header class="header">This Week at VUMC</header>
   <div id="status" role="status">
     Loading this week's schedule…
   </div>
-
   <div id="feed" aria-live="off"></div>
 </main>
 
-<!-- Existing Google Apps Script connection -->
 <iframe
   id="staffBridge"
   title="Weekly Feed connection"
@@ -222,243 +193,231 @@ body {
 </iframe>
 
 <script>
-(function () {
-  'use strict';
+(function(){
+'use strict';
 
-  const colors = ['orange', 'blue', 'green', 'purple'];
-  const status = document.getElementById('status');
-  const feed = document.getElementById('feed');
+if(window.self!==window.top){
+  document.body.classList.add('embedded');
+}
 
-  const DISPLAY_MS = 8000;
+const colors=['orange','blue','green','purple'];
+const status=document.getElementById('status');
+const feed=document.getElementById('feed');
+const DISPLAY_MS=8000;
 
-  let bridgeWindow = null;
-  let bridgeOrigin = '';
-  let requestNumber = 0;
-  let loading = false;
-  let rotationTimer = null;
-  let activeIndex = 0;
+let loading=false;
+let bridgeWindow=null;
+let bridgeOrigin='';
+let requestNumber=0;
+let rotationTimer=null;
+let activeIndex=0;
 
-  function safe(value) {
-    return String(value ?? '').replace(
-      /[&<>"']/g,
-      function (character) {
-        return {
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#39;'
-        }[character];
-      }
-    );
-  }
+function safe(value){
+  return String(value??'').replace(
+    /[&<>"']/g,
+    c=>({
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      '"':'&quot;',
+      "'":'&#39;'
+    }[c])
+  );
+}
 
-  function parse(raw) {
-    const days = [];
-    let current = null;
+function parse(raw){
+  const days=[];
+  let current=null;
+  const dayPattern=
+    /^(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\b/i;
+  const timePattern=
+    /^(\d{1,2}(?::\d{2})?\s*(?:am|pm|a|p)?(?:\s*[-–]\s*\d{1,2}(?::\d{2})?\s*(?:am|pm|a|p)?)?)\s+(.+)$/i;
 
-    const dayPattern =
-      /^(Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday)\b/i;
-
-    const timePattern =
-      /^(\d{1,2}(?::\d{2})?\s*(?:am|pm|a|p)?(?:\s*[-–]\s*\d{1,2}(?::\d{2})?\s*(?:am|pm|a|p)?)?)\s+(.+)$/i;
-
-    const lines = String(raw || '')
-      .split(/\r?\n/)
-      .map(function (line) {
-        return line.trim();
-      })
-      .filter(Boolean);
-
-    lines.forEach(function (line) {
-      if (dayPattern.test(line)) {
-        current = {
-          title: line.replace(/\s+/g, ' '),
-          events: []
+  String(raw||'')
+    .split(/\r?\n/)
+    .map(line=>line.trim())
+    .filter(Boolean)
+    .forEach(line=>{
+      if(dayPattern.test(line)){
+        current={
+          title:line.replace(/\s+/g,' '),
+          events:[]
         };
-
         days.push(current);
-      } else if (current) {
-        const match = line.match(timePattern);
-
+      }else if(current){
+        const match=line.match(timePattern);
         current.events.push({
-          time: match
-            ? match[1]
-                .replace(/\s+/g, '')
-                .replace(/am/gi, 'a')
-                .replace(/pm/gi, 'p')
-            : '',
-          event: match ? match[2] : line
+          time:match
+            ?match[1].replace(/\s+/g,'')
+              .replace(/am/gi,'a')
+              .replace(/pm/gi,'p')
+            :'',
+          event:match?match[2]:line
         });
       }
     });
+  return days;
+}
 
-    return days;
-  }
+function showCard(index){
+  const cards=Array.from(
+    feed.querySelectorAll('.dayblock')
+  );
+  if(!cards.length)return;
 
-  function showCard(index) {
-    const cards = Array.from(
-      feed.querySelectorAll('.dayblock')
-    );
+  activeIndex=
+    ((index%cards.length)+cards.length)%cards.length;
 
-    if (!cards.length) return;
-
-    activeIndex =
-      ((index % cards.length) + cards.length) %
-      cards.length;
-
-    cards.forEach(function (card, cardIndex) {
-      const isActive = cardIndex === activeIndex;
-
-      card.classList.toggle('active', isActive);
-      card.setAttribute(
-        'aria-hidden',
-        String(!isActive)
-      );
-    });
-  }
-
-  function render(raw) {
-    if (rotationTimer) {
-      clearInterval(rotationTimer);
-      rotationTimer = null;
-    }
-
-    const days = parse(raw);
-
-    if (!days.length) {
-      feed.innerHTML = '';
-      status.style.display = 'block';
-      status.textContent =
-        'No weekly schedule has been published yet.';
-      return;
-    }
-
-    feed.innerHTML = days.map(function (day, index) {
-      return `
-        <section class="dayblock ${colors[index % colors.length]}">
-          <div class="daytitle">${safe(day.title)}</div>
-          <div class="rows">
-            ${day.events.map(function (event) {
-              return `
-                <div class="row">
-                  <span class="event">${safe(event.event)}</span>
-                  <span class="time">${safe(event.time)}</span>
-                </div>
-              `;
-            }).join('')}
-          </div>
-        </section>
-      `;
-    }).join('');
-
-    status.textContent = '';
-    status.style.display = 'none';
-
-    showCard(0);
-
-    if (days.length > 1) {
-      rotationTimer = setInterval(function () {
-        showCard(activeIndex + 1);
-      }, DISPLAY_MS);
-    }
-  }
-
-  function validBridgeOrigin(origin) {
-    try {
-      const url = new URL(origin);
-
-      return (
-        url.protocol === 'https:' &&
-        (
-          url.hostname === 'script.google.com' ||
-          url.hostname === 'script.googleusercontent.com' ||
-          url.hostname.endsWith('.googleusercontent.com')
-        )
-      );
-    } catch (error) {
-      return false;
-    }
-  }
-
-  window.addEventListener('message', function (event) {
-    if (!validBridgeOrigin(event.origin)) return;
-
-    const message = event.data;
-
-    if (!message || typeof message !== 'object') return;
-
-    if (message.type !== 'vumc-bridge-ready') return;
-
-    if (loading) return;
-
-    bridgeWindow = event.source;
-    bridgeOrigin = event.origin;
-    loading = true;
-
-    const requestId =
-      'public-weekly-' +
-      Date.now() +
-      '-' +
-      (++requestNumber);
-
-    const timeout = setTimeout(function () {
-      status.style.display = 'block';
-      status.textContent =
-        'Could not load the weekly schedule. Please refresh.';
-    }, 20000);
-
-    function handleResponse(responseEvent) {
-      if (
-        responseEvent.source !== bridgeWindow ||
-        responseEvent.origin !== bridgeOrigin ||
-        !responseEvent.data ||
-        responseEvent.data.type !== 'vumc-bridge-response' ||
-        responseEvent.data.requestId !== requestId
-      ) {
-        return;
-      }
-
-      window.removeEventListener(
-        'message',
-        handleResponse
-      );
-
-      clearTimeout(timeout);
-
-      const result = responseEvent.data.result;
-
-      if (result && result.success) {
-        render(result.schedule);
-      } else {
-        status.style.display = 'block';
-        status.textContent =
-          'Schedule unavailable. Please try again later.';
-      }
-    }
-
-    window.addEventListener(
-      'message',
-      handleResponse
-    );
-
-    bridgeWindow.postMessage({
-      type: 'vumc-bridge-request',
-      requestId: requestId,
-      action: 'getPublicWeeklySchedule',
-      payload: {}
-    }, bridgeOrigin);
+  cards.forEach((card,i)=>{
+    const active=i===activeIndex;
+    card.classList.toggle('active',active);
+    card.setAttribute('aria-hidden',String(!active));
   });
+}
 
-  setTimeout(function () {
-    if (!loading) {
-      status.textContent =
-        'Could not connect to the weekly schedule. Please refresh.';
+/*
+ * Scale content only when necessary.
+ * This keeps every event visible without scrollbars.
+ */
+function fitCard(card){
+  const rows=card.querySelector('.rows');
+  const title=card.querySelector('.daytitle');
+  if(!rows||!title)return;
+
+  rows.style.transform='';
+  rows.style.transformOrigin='top left';
+  rows.style.width='100%';
+
+  const available=rows.clientHeight;
+  const required=rows.scrollHeight;
+
+  if(required>available&&available>0){
+    const scale=Math.max(.55,available/required);
+    rows.style.transform='scale('+scale+')';
+    rows.style.width=(100/scale)+'%';
+  }
+}
+
+function fitAll(){
+  feed.querySelectorAll('.dayblock').forEach(fitCard);
+}
+
+function render(raw){
+  if(rotationTimer)clearInterval(rotationTimer);
+
+  const days=parse(raw);
+  if(!days.length){
+    feed.innerHTML='';
+    status.style.display='block';
+    status.textContent=
+      'No weekly schedule has been published yet.';
+    return;
+  }
+
+  feed.innerHTML=days.map((day,index)=>`
+    <section class="dayblock ${colors[index%colors.length]}">
+      <div class="daytitle">${safe(day.title)}</div>
+      <div class="rows">
+        ${day.events.map(event=>`
+          <div class="row">
+            <span class="event">${safe(event.event)}</span>
+            <span class="time">${safe(event.time)}</span>
+          </div>
+        `).join('')}
+      </div>
+    </section>
+  `).join('');
+
+  status.style.display='none';
+  showCard(0);
+  requestAnimationFrame(fitAll);
+
+  if(days.length>1){
+    rotationTimer=setInterval(
+      ()=>showCard(activeIndex+1),
+      DISPLAY_MS
+    );
+  }
+}
+
+window.addEventListener('resize',()=>{
+  requestAnimationFrame(fitAll);
+});
+
+function validBridgeOrigin(origin){
+  try{
+    const url=new URL(origin);
+    return url.protocol==='https:'&&(
+      url.hostname==='script.google.com'||
+      url.hostname==='script.googleusercontent.com'||
+      url.hostname.endsWith('.googleusercontent.com')
+    );
+  }catch{
+    return false;
+  }
+}
+
+window.addEventListener('message',event=>{
+  if(!validBridgeOrigin(event.origin))return;
+
+  const message=event.data;
+  if(!message||typeof message!=='object')return;
+  if(message.type!=='vumc-bridge-ready')return;
+  if(loading)return;
+
+  loading=true;
+  bridgeWindow=event.source;
+  bridgeOrigin=event.origin;
+
+  const requestId=
+    'public-weekly-'+Date.now()+'-'+(++requestNumber);
+
+  const timeout=setTimeout(()=>{
+    status.style.display='block';
+    status.textContent=
+      'Could not load the weekly schedule. Please refresh.';
+  },20000);
+
+  function handleResponse(response){
+    if(
+      response.source!==bridgeWindow||
+      response.origin!==bridgeOrigin||
+      !response.data||
+      response.data.type!=='vumc-bridge-response'||
+      response.data.requestId!==requestId
+    )return;
+
+    window.removeEventListener('message',handleResponse);
+    clearTimeout(timeout);
+
+    const result=response.data.result;
+    if(result&&result.success){
+      render(result.schedule);
+    }else{
+      status.style.display='block';
+      status.textContent=
+        'Schedule unavailable. Please try again later.';
     }
-  }, 15000);
+  }
+
+  window.addEventListener('message',handleResponse);
+
+  bridgeWindow.postMessage({
+    type:'vumc-bridge-request',
+    requestId,
+    action:'getPublicWeeklySchedule',
+    payload:{}
+  },bridgeOrigin);
+});
+
+setTimeout(()=>{
+  if(!loading){
+    status.textContent=
+      'Could not connect to the weekly schedule. Please refresh.';
+  }
+},15000);
 
 })();
 </script>
-
 </body>
 </html>
