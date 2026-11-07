@@ -74,7 +74,9 @@ body{
   font-size:clamp(23px,3vw,34px);
   font-weight:900;
   line-height:1.15;
-  margin-bottom:16px;
+  margin-bottom:20px;
+  padding-bottom:15px;
+  border-bottom:4px solid rgba(255,255,255,.68);
   text-align:center;
   text-shadow:0 2px 5px #0006;
 }
@@ -286,7 +288,7 @@ function fitCard(card){
 
   rows.style.transform='none';
   rows.style.width='100%';
-  title.style.marginBottom='12px';
+  title.style.marginBottom='20px';
   const availableHeight=card.clientHeight-
     parseFloat(getComputedStyle(card).paddingTop)-
     parseFloat(getComputedStyle(card).paddingBottom);
@@ -299,7 +301,7 @@ function fitCard(card){
     title.style.fontSize=Math.round(size*1.13)+'px';
     items.forEach(item=>item.style.fontSize=size+'px');
     rows.style.gap=Math.max(6,Math.round(size*.42))+'px';
-    const groupHeight=title.getBoundingClientRect().height+12+rows.scrollHeight;
+    const groupHeight=title.getBoundingClientRect().height+20+rows.scrollHeight;
     const widthsOK=items.every(item=>{
       const event=item.querySelector('.event');
       const time=item.querySelector('.time');
