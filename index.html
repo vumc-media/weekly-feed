@@ -55,7 +55,7 @@ body{
   height:100%;
   overflow:hidden;
   border-radius:18px;
-  padding:20px 24px;
+  padding:26px 30px;
   opacity:0;
   visibility:hidden;
   transition:opacity .8s ease,visibility 0s linear .8s;
@@ -63,60 +63,49 @@ body{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  align-items:center;
-  text-align:center;
 }
 .dayblock.active{
   opacity:1;
   visibility:visible;
   transition:opacity .8s ease,visibility 0s;
 }
-.card-content{
-  width:100%;
-  max-height:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:clamp(10px,2vh,24px);
-}
 .daytitle{
   flex:none;
-  width:100%;
-  font-size:30px;
+  font-size:clamp(23px,3vw,34px);
   font-weight:900;
   line-height:1.15;
+  margin-bottom:16px;
+  text-align:center;
   text-shadow:0 2px 5px #0006;
-  overflow-wrap:break-word;
 }
 .rows{
-  width:100%;
+  flex:0 1 auto;
+  min-height:0;
   display:flex;
   flex-direction:column;
-  align-items:center;
   justify-content:center;
-  gap:clamp(12px,2vh,24px);
+  gap:13px;
+  width:100%;
 }
 .row{
-  width:100%;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:4px;
-  font-size:30px;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:15px;
+  font-size:clamp(17px,2vw,25px);
   font-weight:700;
-  line-height:1.2;
+  line-height:1.3;
   text-shadow:0 2px 4px #0005;
 }
 .event{
-  width:100%;
-  overflow-wrap:break-word;
+  flex:1;
+  min-width:0;
+  overflow-wrap:normal;
 }
 .time{
-  font-size:.85em;
+  flex:none;
   font-weight:900;
-  white-space:normal;
+  white-space:nowrap;
 }
 .orange{background:linear-gradient(#c76512,#9f3f07)}
 .blue{background:linear-gradient(#1b5f9a,#0d3f72)}
@@ -132,7 +121,7 @@ body:not(.embedded) #feed{
   min-height:350px;
 }
 
-/* Atrium embedded display: sizing is calculated against the actual iframe. */
+/* Atrium embedded display */
 body.embedded .wrap{
   max-width:none;
   padding:10px 14px 14px;
@@ -143,11 +132,44 @@ body.embedded .header{
   padding:11px 8px;
   border-radius:10px;
 }
-body.embedded .dayblock{padding:16px 22px}
+body.embedded .dayblock{
+  padding:24px 30px;
+}
+body.embedded .daytitle{
+  font-size:clamp(21px,2.2vw,30px);
+  margin-bottom:20px;
+}
+body.embedded .row{
+  font-size:clamp(16px,1.65vw,22px);
+}
+body.embedded .rows{
+  gap:13px;
+}
+
+/* Short embedded windows */
 @media(max-height:500px){
-  body.embedded .wrap{padding:7px 12px 9px;gap:7px}
-  body.embedded .header{padding:8px;font-size:18px}
-  body.embedded .dayblock{padding:12px 18px}
+  body.embedded .wrap{
+    padding:7px 12px 9px;
+    gap:7px;
+  }
+  body.embedded .header{
+    padding:8px;
+    font-size:18px;
+  }
+  body.embedded .dayblock{
+    padding:16px 22px;
+  }
+  body.embedded .daytitle{
+    margin-bottom:10px;
+    font-size:22px;
+  }
+  body.embedded .rows{
+    gap:8px;
+  }
+  body.embedded .row{
+    font-size:17px;
+    line-height:1.2;
+  }
 }
 @media(prefers-reduced-motion:reduce){
   .dayblock,.dayblock.active{transition:none}
@@ -255,38 +277,47 @@ function showCard(index){
   });
 }
 
-/* Find the largest readable font size that fits the card in both directions.
-   Recalculate on resize, so standalone and embedded layouts both work. */
+/* Fit date and event rows as one centered group. */
 function fitCard(card){
-  const content=card.querySelector('.card-content');
+  const rows=card.querySelector('.rows');
   const title=card.querySelector('.daytitle');
-  const rows=card.querySelectorAll('.row');
-  if(!content||!title)return;
+  const items=Array.from(rows?.querySelectorAll('.row')||[]);
+  if(!rows||!title||!items.length)return;
 
-  const style=getComputedStyle(card);
-  const maxWidth=card.clientWidth-parseFloat(style.paddingLeft)-parseFloat(style.paddingRight);
-  const maxHeight=card.clientHeight-parseFloat(style.paddingTop)-parseFloat(style.paddingBottom);
-  if(maxWidth<=0||maxHeight<=0)return;
+  rows.style.transform='none';
+  rows.style.width='100%';
+  title.style.marginBottom='12px';
+  const availableHeight=card.clientHeight-
+    parseFloat(getComputedStyle(card).paddingTop)-
+    parseFloat(getComputedStyle(card).paddingBottom);
+  const availableWidth=card.clientWidth-
+    parseFloat(getComputedStyle(card).paddingLeft)-
+    parseFloat(getComputedStyle(card).paddingRight);
+  if(availableHeight<=0||availableWidth<=0)return;
 
-  function setSize(size){
-    title.style.fontSize=Math.round(size*.78)+'px';
-    rows.forEach(row=>row.style.fontSize=size+'px');
+  function fits(size){
+    title.style.fontSize=Math.round(size*1.13)+'px';
+    items.forEach(item=>item.style.fontSize=size+'px');
+    rows.style.gap=Math.max(6,Math.round(size*.42))+'px';
+    const groupHeight=title.getBoundingClientRect().height+12+rows.scrollHeight;
+    const widthsOK=items.every(item=>{
+      const event=item.querySelector('.event');
+      const time=item.querySelector('.time');
+      return !event||!time||
+        event.scrollWidth<=event.clientWidth+1;
+    });
+    return groupHeight<=availableHeight && widthsOK &&
+      title.scrollWidth<=availableWidth+1;
   }
-  function fits(){
-    if(content.scrollHeight>maxHeight+1||content.scrollWidth>maxWidth+1)return false;
-    const elements=[title,...rows,...content.querySelectorAll('.event,.time')];
-    return elements.every(el=>el.scrollWidth<=el.clientWidth+1);
-  }
 
-  let low=12,high=64;
+  let low=12, high=44;
   for(let i=0;i<12;i++){
     const mid=(low+high)/2;
-    setSize(mid);
-    if(fits())low=mid;
-    else high=mid;
+    if(fits(mid))low=mid;else high=mid;
   }
-  setSize(Math.floor(low));
+  fits(low);
 }
+
 function fitAll(){
   feed.querySelectorAll('.dayblock').forEach(fitCard);
 }
@@ -305,7 +336,6 @@ function render(raw){
 
   feed.innerHTML=days.map((day,index)=>`
     <section class="dayblock ${colors[index%colors.length]}">
-      <div class="card-content">
       <div class="daytitle">${safe(day.title)}</div>
       <div class="rows">
         ${day.events.map(event=>`
@@ -315,13 +345,12 @@ function render(raw){
           </div>
         `).join('')}
       </div>
-      </div>
     </section>
   `).join('');
 
   status.style.display='none';
   showCard(0);
-  requestAnimationFrame(()=>requestAnimationFrame(fitAll));
+  requestAnimationFrame(fitAll);
 
   if(days.length>1){
     rotationTimer=setInterval(
@@ -332,7 +361,7 @@ function render(raw){
 }
 
 window.addEventListener('resize',()=>{
-  requestAnimationFrame(()=>requestAnimationFrame(fitAll));
+  requestAnimationFrame(fitAll);
 });
 
 function validBridgeOrigin(origin){
