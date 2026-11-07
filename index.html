@@ -62,7 +62,7 @@ body{
   box-shadow:inset 0 1px 0 #ffffff44;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:flex-start;
 }
 .dayblock.active{
   opacity:1;
@@ -70,24 +70,26 @@ body{
   transition:opacity .8s ease,visibility 0s;
 }
 .daytitle{
-  flex:none;
-  font-size:clamp(23px,3vw,34px);
+  flex:0 0 auto;
+  font-size:26px;
   font-weight:900;
-  line-height:1.15;
-  margin-bottom:20px;
-  padding-bottom:15px;
+  line-height:1.2;
+  padding:0 0 16px;
+  margin:0;
   border-bottom:4px solid rgba(255,255,255,.68);
   text-align:center;
   text-shadow:0 2px 5px #0006;
 }
 .rows{
-  flex:0 1 auto;
+  flex:1 1 0;
   min-height:0;
   display:flex;
   flex-direction:column;
   justify-content:center;
   gap:13px;
   width:100%;
+  padding-top:14px;
+  overflow:hidden;
 }
 .row{
   display:flex;
@@ -138,8 +140,8 @@ body.embedded .dayblock{
   padding:24px 30px;
 }
 body.embedded .daytitle{
-  font-size:clamp(21px,2.2vw,30px);
-  margin-bottom:20px;
+  font-size:26px;
+  padding-bottom:14px;
 }
 body.embedded .row{
   font-size:clamp(16px,1.65vw,22px);
@@ -162,8 +164,8 @@ body.embedded .rows{
     padding:16px 22px;
   }
   body.embedded .daytitle{
-    margin-bottom:10px;
-    font-size:22px;
+    padding-bottom:10px;
+    font-size:26px;
   }
   body.embedded .rows{
     gap:8px;
@@ -279,43 +281,36 @@ function showCard(index){
   });
 }
 
-/* Fit date and event rows as one centered group. */
+/* The date is fixed. Only event rows resize to fit the body frame. */
 function fitCard(card){
   const rows=card.querySelector('.rows');
-  const title=card.querySelector('.daytitle');
-  const items=Array.from(rows?.querySelectorAll('.row')||[]);
-  if(!rows||!title||!items.length)return;
-
-  rows.style.transform='none';
-  rows.style.width='100%';
-  title.style.marginBottom='20px';
-  const availableHeight=card.clientHeight-
-    parseFloat(getComputedStyle(card).paddingTop)-
-    parseFloat(getComputedStyle(card).paddingBottom);
-  const availableWidth=card.clientWidth-
-    parseFloat(getComputedStyle(card).paddingLeft)-
-    parseFloat(getComputedStyle(card).paddingRight);
-  if(availableHeight<=0||availableWidth<=0)return;
+  if(!rows)return;
+  const items=Array.from(rows.querySelectorAll('.row'));
+  if(!items.length)return;
 
   function fits(size){
-    title.style.fontSize=Math.round(size*1.13)+'px';
     items.forEach(item=>item.style.fontSize=size+'px');
-    rows.style.gap=Math.max(6,Math.round(size*.42))+'px';
-    const groupHeight=title.getBoundingClientRect().height+20+rows.scrollHeight;
-    const widthsOK=items.every(item=>{
+    rows.style.gap=Math.max(4,Math.round(size*.32))+'px';
+    const styles=getComputedStyle(rows);
+    const gap=parseFloat(styles.rowGap)||0;
+    const padding=(parseFloat(styles.paddingTop)||0)+(parseFloat(styles.paddingBottom)||0);
+    const needed=items.reduce((sum,item)=>sum+item.getBoundingClientRect().height,0)+gap*Math.max(0,items.length-1)+padding;
+    const heightOK=needed<=rows.clientHeight+1;
+    const widthOK=items.every(item=>{
       const event=item.querySelector('.event');
       const time=item.querySelector('.time');
-      return !event||!time||
-        event.scrollWidth<=event.clientWidth+1;
+      return item.scrollWidth<=item.clientWidth+1 &&
+        (!event||event.scrollWidth<=event.clientWidth+1) &&
+        (!time||time.scrollWidth<=time.clientWidth+1);
     });
-    return groupHeight<=availableHeight && widthsOK &&
-      title.scrollWidth<=availableWidth+1;
+    return heightOK&&widthOK;
   }
 
-  let low=12, high=44;
+  let low=10,high=44;
   for(let i=0;i<12;i++){
     const mid=(low+high)/2;
-    if(fits(mid))low=mid;else high=mid;
+    if(fits(mid))low=mid;
+    else high=mid;
   }
   fits(low);
 }
